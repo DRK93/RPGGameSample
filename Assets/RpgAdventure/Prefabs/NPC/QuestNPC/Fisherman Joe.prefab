@@ -1,0 +1,167 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!136 &8539281465035032383
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2667730189839310769}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.5
+  m_Height: 1.8
+  m_Direction: 1
+  m_Center: {x: 0, y: 0.9, z: 0}
+--- !u!114 &2955606112237069436
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2667730189839310769}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae2dc5ca2a55b9741a98bae365b29699, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Uid: c0c43313-5ee8-4915-a80b-4c561c606d07
+--- !u!114 &4694073772768632489
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2667730189839310769}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1a66260bd07aff4e946f86605be1267, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  quest:
+    uid: 
+    title: 
+    description: 
+    experience: 0
+    gold: 0
+    amount: 0
+    targets: []
+    talkTo: 
+    explore: {x: 0, y: 0, z: 0}
+    questGiver: 
+    type: 0
+  dialog:
+    welcomeText: Hello there. Who are you? This is a bad place for newcomers.
+    dialogQueries:
+    - text: Yes, I'm new Warden and I'm on my mission to get to the village.
+      answer:
+        text: 'Really? Amazing news! Do you have any idea what''s going here? No
+          ? So I will tell you something. This place is like fishing net with too
+          many predators in and out this net and with too less fishes inside the
+          net. '
+        forceDialogQuit: 0
+        questId: 
+      isAsked: 0
+      isAlwaysAsked: 0
+    - text: Do you need any help?
+      answer:
+        text: In fishing no, but could you Mr Warden get rid of these two bandits
+          that waiting near road for new victims? I'm old and don't have nothing
+          interesting for them. Sometimes i give them fish so they leave me alone
+          and I can go to the village
+        forceDialogQuit: 0
+        questId: q-1
+      isAsked: 0
+      isAlwaysAsked: 0
+    - text: Goodbye
+      answer:
+        text: See you
+        forceDialogQuit: 1
+        questId: 
+      isAsked: 0
+      isAlwaysAsked: 1
+--- !u!114 &7668795429395414903
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2667730189839310769}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bce994f28b9ae1346bd8e5873539b055, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  questionCursor: {fileID: 2800000, guid: f2ada843718abef4f8339e6d289c1024, type: 3}
+  cursorMode: 0
+--- !u!1001 &4268106115952947509
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2173718394917509316, guid: f1bb292f28fe82343ad2ef63f2fdb8b5, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2173718394917509316, guid: f1bb292f28fe82343ad2ef63f2fdb8b5, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2173718394917509316, guid: f1bb292f28fe82343ad2ef63f2fdb8b5, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2173718394917509316, guid: f1bb292f28fe82343ad2ef63f2fdb8b5, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2173718394917509316, guid: f1bb292f28fe82343ad2ef63f2fdb8b5, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2173718394917509316, guid: f1bb292f28fe82343ad2ef63f2fdb8b5, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2173718394917509316, guid: f1bb292f28fe82343ad2ef63f2fdb8b5, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2173718394917509316, guid: f1bb292f28fe82343ad2ef63f2fdb8b5, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2173718394917509316, guid: f1bb292f28fe82343ad2ef63f2fdb8b5, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2173718394917509316, guid: f1bb292f28fe82343ad2ef63f2fdb8b5, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2173718394917509316, guid: f1bb292f28fe82343ad2ef63f2fdb8b5, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2179449333361487492, guid: f1bb292f28fe82343ad2ef63f2fdb8b5, type: 3}
+      propertyPath: m_Name
+      value: Fisherman Joe
+      objectReference: {fileID: 0}
+    - target: {fileID: 2179449333361487492, guid: f1bb292f28fe82343ad2ef63f2fdb8b5, type: 3}
+      propertyPath: m_TagString
+      value: QuestGiver
+      objectReference: {fileID: 0}
+    - target: {fileID: 2292899398532688410, guid: f1bb292f28fe82343ad2ef63f2fdb8b5, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 54ba8979fb35af640a8918811cc62a83, type: 2}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: f1bb292f28fe82343ad2ef63f2fdb8b5, type: 3}
+--- !u!1 &2667730189839310769 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2179449333361487492, guid: f1bb292f28fe82343ad2ef63f2fdb8b5, type: 3}
+  m_PrefabInstance: {fileID: 4268106115952947509}
+  m_PrefabAsset: {fileID: 0}

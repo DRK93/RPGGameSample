@@ -1,0 +1,174 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!136 &4852159431746925982
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8389860928720594343}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.5
+  m_Height: 1.7
+  m_Direction: 1
+  m_Center: {x: 0, y: 0.85, z: 0}
+--- !u!114 &-4100693623153245705
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8389860928720594343}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bce994f28b9ae1346bd8e5873539b055, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  questionCursor: {fileID: 2800000, guid: f2ada843718abef4f8339e6d289c1024, type: 3}
+  cursorMode: 0
+--- !u!114 &-507106852711497111
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8389860928720594343}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1a66260bd07aff4e946f86605be1267, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  quest:
+    uid: 
+    title: 
+    description: 
+    experience: 0
+    gold: 0
+    amount: 0
+    targets: []
+    talkTo: 
+    explore: {x: 0, y: 0, z: 0}
+    questGiver: 
+    type: 0
+  dialog:
+    welcomeText: Hello sweetie! New face here? I'm Annabelle. Pleasure to meet you.
+    dialogQueries:
+    - text: You are not from here don't you ?
+      answer:
+        text: Good eye, yes I'm not from here. I was a mercennary in the east. My
+          friend was from here. He died after one battle from injures in hospital.
+          Before that he asked me to return his belongings to his mother. I owed
+          him something so I don't have choice. So I went here, found that his mother
+          is gravely ill and I tried to help her. Old one died few weeks ago and
+          now I don't have anything to do.  And now there are so many banidts here
+          and there, so I will wait  until everything settled down a little. What
+          these bandits want from these village? No idea, I even tried to find here
+          something but no, there is nothing here.
+        forceDialogQuit: 0
+        questId: 
+      isAsked: 0
+      isAlwaysAsked: 0
+    - text: I am a Warden. I'm on a mission to check what's going on here. Anything
+        intresting?
+      answer:
+        text: Besides bandits and bandits? On north road accros the bridge I saw
+          mercenaries from one awfull company, Black Sheeps. They are like bandits
+          and I have no idea what they doing there. But I'm sure nothing good. Trust
+          me, I;m mercenary myself and something in this. Maybe you can get rid of
+          them from that place. This poor village have enougth problems without them.
+        forceDialogQuit: 0
+        questId: q-3
+      isAsked: 0
+      isAlwaysAsked: 0
+    - text: I will be going
+      answer:
+        text: Good luck. Come back later for little chat.
+        forceDialogQuit: 1
+        questId: 
+      isAsked: 0
+      isAlwaysAsked: 1
+--- !u!114 &2873975581200885017
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8389860928720594343}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae2dc5ca2a55b9741a98bae365b29699, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Uid: 67adbc06-5e0b-4088-a88e-af0194e5faae
+--- !u!1001 &9218638066679455576
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 748339108682951427, guid: be417f288d0e6b048b8da671500ca432, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 1a3b3b9e91a8bc4429ecab3ad2750e19, type: 2}
+    - target: {fileID: 829199351028087551, guid: be417f288d0e6b048b8da671500ca432, type: 3}
+      propertyPath: m_Name
+      value: Annabelle
+      objectReference: {fileID: 0}
+    - target: {fileID: 829199351028087551, guid: be417f288d0e6b048b8da671500ca432, type: 3}
+      propertyPath: m_TagString
+      value: QuestGiver
+      objectReference: {fileID: 0}
+    - target: {fileID: 831483963226606201, guid: be417f288d0e6b048b8da671500ca432, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 831483963226606201, guid: be417f288d0e6b048b8da671500ca432, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 831483963226606201, guid: be417f288d0e6b048b8da671500ca432, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 831483963226606201, guid: be417f288d0e6b048b8da671500ca432, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 831483963226606201, guid: be417f288d0e6b048b8da671500ca432, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 831483963226606201, guid: be417f288d0e6b048b8da671500ca432, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 831483963226606201, guid: be417f288d0e6b048b8da671500ca432, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 831483963226606201, guid: be417f288d0e6b048b8da671500ca432, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 831483963226606201, guid: be417f288d0e6b048b8da671500ca432, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 831483963226606201, guid: be417f288d0e6b048b8da671500ca432, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 831483963226606201, guid: be417f288d0e6b048b8da671500ca432, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: be417f288d0e6b048b8da671500ca432, type: 3}
+--- !u!1 &8389860928720594343 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 829199351028087551, guid: be417f288d0e6b048b8da671500ca432, type: 3}
+  m_PrefabInstance: {fileID: 9218638066679455576}
+  m_PrefabAsset: {fileID: 0}

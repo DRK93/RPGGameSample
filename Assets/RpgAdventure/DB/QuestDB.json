@@ -1,0 +1,94 @@
+[
+  {
+    "uid": "q-1",
+    "title": "Annoying bandits!",
+    "description": "Defeat two bandits located north on the road",
+    "experience": 100,
+    "gold": 3,
+    "amount": 2,
+    "targets": [
+      "d8e141f1-c5d5-4ec5-a0cd-3e36f0d4daf7",
+      "e3a17176-be08-4b59-900e-8068773111ad"
+    ],
+    "talkTo": null,
+    "explore": null,
+    "questGiver": "c0c43313-5ee8-4915-a80b-4c561c606d07",
+    "type": 0
+  },
+
+  {
+    "uid": "q-2",
+    "title": "Defeat Bandit Leader!",
+    "description": "Defeat bandit leader located east behind hills east of village",
+    "experience": 200,
+    "gold": 15,
+    "amount": 1,
+    "targets": [ "e3a17176-be08-4b59-900e-8068773111ad" ],
+    "talkTo": null,
+    "explore": null,
+    "questGiver": "172a8012-aff8-423d-a2f1-d95d771f93bd",
+    "type": 0
+  },
+
+  {
+    "uid": "q-3",
+    "title": "Get rid of mercenaries from north!",
+    "description": "Defeat mercenaries near north road across the river",
+    "experience": 200,
+    "gold": 15,
+    "amount": 7,
+    "targets": [ "" ],
+    "talkTo": null,
+    "explore": null,
+    "questGiver": "67adbc06-5e0b-4088-a88e-af0194e5faae",
+    "type": 0
+  },
+
+  {
+    "uid": "q-4",
+    "title": "Destroy west brdige blockade!",
+    "description": "Defeat bandits who are blocking west road across the river",
+    "experience": 200,
+    "gold": 15,
+    "amount": 5,
+    "targets": [
+      "1",
+      "2",
+      "3",
+      "4"
+    ],
+    "talkTo": null,
+    "explore": null,
+    "questGiver": "c620ca9f-8adb-42d5-a0c9-e4ad69fa2f44",
+    "type": 0
+  },
+
+  {
+    "uid": "q-5",
+    "title": "Suspicious southwest forest!",
+    "description": "Check southwest forest and get rid of the suspicious people from there ",
+    "experience": 200,
+    "gold": 15,
+    "amount": 5,
+    "targets": [ "" ],
+    "talkTo": null,
+    "explore": null,
+    "questGiver": "f618bf4e-4e75-4f91-a42a-c99c1d3e2c1c",
+    "type": 0
+  },
+
+  {
+    "uid": "q-6",
+    "title": "Help villagers - defeat bandits!",
+    "description": "Help people from village to restore order in this region by defeating bandits",
+    "experience": 200,
+    "gold": 15,
+    "amount": 10,
+    "targets": [ "d8e141f1-c5d5-4ec5-a0cd-3e36f0d4daf7" ],
+    "talkTo": null,
+    "explore": null,
+    "questGiver": "4959a37a-11f9-4df8-b556-aefcea7acd8a",
+    "type": 0
+  }
+]
+

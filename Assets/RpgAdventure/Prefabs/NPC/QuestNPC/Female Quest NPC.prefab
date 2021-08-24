@@ -1,0 +1,96 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &1083630612538445653
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3955236157519616018}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1a66260bd07aff4e946f86605be1267, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  quest:
+    uid: 
+    title: 
+    description: 
+    experience: 0
+    gold: 0
+    amount: 0
+    targets: []
+    talkTo: 
+    explore: {x: 0, y: 0, z: 0}
+    questGiver: 
+    type: 0
+--- !u!1001 &6938603431998136540
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2834895173037939391, guid: 33dc98856a177e240bd9f44bdafdab6d, type: 3}
+      propertyPath: questionCursor
+      value: 
+      objectReference: {fileID: 2800000, guid: f2ada843718abef4f8339e6d289c1024, type: 3}
+    - target: {fileID: 6244537044869249230, guid: 33dc98856a177e240bd9f44bdafdab6d, type: 3}
+      propertyPath: m_Name
+      value: Female Quest NPC
+      objectReference: {fileID: 0}
+    - target: {fileID: 6244537044869249230, guid: 33dc98856a177e240bd9f44bdafdab6d, type: 3}
+      propertyPath: m_TagString
+      value: QuestGiver
+      objectReference: {fileID: 0}
+    - target: {fileID: 6249987360730301956, guid: 33dc98856a177e240bd9f44bdafdab6d, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6249987360730301956, guid: 33dc98856a177e240bd9f44bdafdab6d, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6249987360730301956, guid: 33dc98856a177e240bd9f44bdafdab6d, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6249987360730301956, guid: 33dc98856a177e240bd9f44bdafdab6d, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6249987360730301956, guid: 33dc98856a177e240bd9f44bdafdab6d, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6249987360730301956, guid: 33dc98856a177e240bd9f44bdafdab6d, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6249987360730301956, guid: 33dc98856a177e240bd9f44bdafdab6d, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6249987360730301956, guid: 33dc98856a177e240bd9f44bdafdab6d, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6249987360730301956, guid: 33dc98856a177e240bd9f44bdafdab6d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6249987360730301956, guid: 33dc98856a177e240bd9f44bdafdab6d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6249987360730301956, guid: 33dc98856a177e240bd9f44bdafdab6d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 33dc98856a177e240bd9f44bdafdab6d, type: 3}
+--- !u!1 &3955236157519616018 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6244537044869249230, guid: 33dc98856a177e240bd9f44bdafdab6d, type: 3}
+  m_PrefabInstance: {fileID: 6938603431998136540}
+  m_PrefabAsset: {fileID: 0}
