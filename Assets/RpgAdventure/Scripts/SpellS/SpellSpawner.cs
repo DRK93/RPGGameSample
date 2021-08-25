@@ -8,13 +8,15 @@ namespace RpgAdventure
     {
         public GameObject projectile;
         public GameObject leftHand;
-        private float m_spellSpeed;
+        private int m_spellSpeed;
         private int m_spellDamage;
-        public float SpellSpeed { get => m_spellSpeed; set => m_spellSpeed = value; }
+        public int SpellSpeed { get => m_spellSpeed; set => m_spellSpeed = value; }
         public int SpellDamage { get => m_spellDamage; set => m_spellDamage = value; }
 
         public void CreateSpell()
         {
+            m_spellDamage = GetComponent<PlayerStats>().spellDamage;
+            m_spellSpeed = GetComponent<PlayerStats>().spellSpeed;
             StartCoroutine(WaitToCreate());
         }
 

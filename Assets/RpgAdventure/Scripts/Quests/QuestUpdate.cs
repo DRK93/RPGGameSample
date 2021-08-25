@@ -88,6 +88,7 @@ namespace RpgAdventure
                                     quest.questStatus = QuestStatus.COMPLETED;
                                     Debug.Log("Quest completed");
                                     m_PlayerStats.GainExp(quest.experience);
+                                    m_PlayerStats.questCompleted++;
                                 }
                                 QUpdateAfterKill(quest, sender.GetComponent<UniqueId>().Uid);
                             }

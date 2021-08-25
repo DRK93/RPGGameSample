@@ -12,36 +12,33 @@ namespace RpgAdventure
         public int currentExp;
         public int skillPoints;
         public int spellDamage;
-        public float spellSpeed;
+        public int spellSpeed;
+        public int defeatedEnemies;
+        public int questCompleted;
+        public bool leveledUp = false;
         public int ExpToNextLevel
         {
             get
             { 
-                return availableLevels[currentLevel]; 
+                return availableLevels[currentLevel+1]; 
             }
         }
 
         private void Awake()
         {
-            SendPlayerStats();
-            availableLevels = new int[maxLevel +1];
+            availableLevels = new int[maxLevel];
             ComputeLevels(maxLevel);
         }
         private void ComputeLevels(int levelCount)
         {
-            for (int i=0; i<levelCount+1; i++)
+            for (int i=1; i<levelCount; i++)
             {
-                var level = i + 1;
+                var level = i;
                 var levelPow = Mathf.Pow(level, 2);
                 var expToLevel = Convert.ToInt32(levelPow * levelCount);
 
                 availableLevels[i] = expToLevel;
             }
-        }
-        private void SendPlayerStats()
-        {
-            GetComponent<SpellSpawner>().SpellDamage = spellDamage;
-            GetComponent<SpellSpawner>().SpellSpeed = spellSpeed;
         }
         public void GainExp(int exp)
         {
@@ -63,6 +60,8 @@ namespace RpgAdventure
             if (currentLevel > currentLevelBefore)
             {
                 skillPoints += (currentLevel - currentLevelBefore) * 4;
+                Debug.Log("leveled up");
+                leveledUp = true;
             }
         }
         public void OnReceiveMessage(MessageType type, object sender, object message)
@@ -70,6 +69,7 @@ namespace RpgAdventure
             if (type == MessageType.DEAD)
             {
                 GainExp(((Damageable)sender).GetComponent<CharacterStats>().experience);
+                defeatedEnemies++;
             }
         }
     }

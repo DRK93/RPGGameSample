@@ -104,8 +104,6 @@ namespace RpgAdventure
                       
             for (int i = 0; i < onDamageMessageReceivers.Count; i++)
             {
-                //Debug.Log(onDamageMessageReceivers.Count.ToString());
-                
                 var receiver = onDamageMessageReceivers[i] as IMessageReceiver;
                 receiver.OnReceiveMessage(messageType, this, data);
             }
