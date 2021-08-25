@@ -35,12 +35,9 @@ namespace RpgAdventure
 
         private void Awake()
         {
-            //m_EnemyController = GetComponent<EnemyController>();
             m_OriginPosition = transform.position;
             m_OriginalRotation = transform.rotation;
-            //Debug.Log("Player Controller from bandit: " + m_Target);
             meleeWeapon.SetOwner(gameObject);
-            //meleeWeapon.SetTargetLayer(1 << PlayerController.Instance.gameObject.layer);
         }
 
         private void Start()
@@ -101,9 +98,6 @@ namespace RpgAdventure
             Vector3 toBase = m_OriginPosition - transform.position;
             toBase.y = 0;
             bool nearBase = toBase.magnitude < 0.01f;
-            //Debug.Log("nearBase bool: " + nearBase);
-            //Debug.Log("Hash near base: " + m_HashNearBase);
-            //Debug.Log("Enemy controller: " + m_EnemyController.name);
 
             m_EnemyController.Animator.SetBool(m_HashNearBase, nearBase);
             if (nearBase)
@@ -119,13 +113,11 @@ namespace RpgAdventure
 
         public void MeleeAttackStart()
         {
-            //Debug.Log("Bandit: Starting attack");
             meleeWeapon.BeginAttack();
         }
 
         public void MeleeAttackEnd()
         {
-            // Debug.Log("Bandit: Ending attack");
             meleeWeapon.EndAttack();
         }
 

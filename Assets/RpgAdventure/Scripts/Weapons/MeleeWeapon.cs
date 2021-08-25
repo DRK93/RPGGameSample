@@ -71,7 +71,14 @@ namespace RpgAdventure
             if (damageable != null)
             {
                 Damageable.DamageMessage data;
-                data.amount = damage;
+                if (m_Owner.CompareTag("Player"))
+                {
+                    data.amount = damage + m_Owner.GetComponent<Damageable>().GetComponent<PlayerStats>().power;
+                }
+                else
+                {
+                    data.amount = damage;
+                }
                 data.damager = this;
                 data.damageSource = m_Owner;
                 if (impactAudio != null)

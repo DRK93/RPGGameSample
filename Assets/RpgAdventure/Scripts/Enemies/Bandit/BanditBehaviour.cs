@@ -56,7 +56,6 @@ namespace RpgAdventure
             m_OriginalRotation = transform.rotation;
             meleeWeapon.SetOwner(gameObject);
             m_EnemyHealthBar = GetComponent<EnemyHealthBar>();
-            //Debug.Log(m_EnemyHealthBar);
 
             //Issue with load order of the scripts --- moved to Start()
             //meleeWeapon.SetTargetLayer(1 << PlayerController.Instance.gameObject.layer);
@@ -64,14 +63,11 @@ namespace RpgAdventure
 
         private void Start()
         {
-            //Debug.Log(m_EnemyHealthBar);
             m_EnemyDictionary = GameObject.Find("EnemyList").GetComponent<EnemiesNameByUIS>();
-            //Debug.Log("EnemDictionary in bandit see this: " + m_EnemyDictionary);
             m_EnemyDictionary.AddEnemyToDictionary(m_EnemyId.Uid, m_EnemyName);
             meleeWeapon.SetTargetLayer(1 << PlayerController.Instance.gameObject.layer);
             m_Damagable = GetComponent<Damageable>();
-            Debug.Log(m_Damagable);
-            m_EnemyHealthBar.SetMaxHealth(m_Damagable.maxHitPoints);
+            m_EnemyHealthBar.SetMaxHealth(m_Damagable.GetComponent<CharacterStats>().maxHitPoints);
         }
         private void Update()
         {

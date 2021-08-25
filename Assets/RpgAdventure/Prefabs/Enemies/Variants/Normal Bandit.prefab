@@ -577,6 +577,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Uid: d8e141f1-c5d5-4ec5-a0cd-3e36f0d4daf7
+--- !u!114 &1475409996
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7435783426781630107}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5226d42694f8a3042bbde99e995e664b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healthSlider: {fileID: 1377439465}
 --- !u!114 &1913097588
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -591,7 +604,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyName: {fileID: 609588751}
   enemyHealthBar: {fileID: 2030307455}
---- !u!114 &1475409996
+--- !u!114 &1352872878
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -600,10 +613,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 7435783426781630107}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5226d42694f8a3042bbde99e995e664b, type: 3}
+  m_Script: {fileID: 11500000, guid: 024d78fbfc775444d9ac8e9d145a71b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healthSlider: {fileID: 1377439465}
+  hitAngle: 360
+  blockAngle: 150
+  invulnerabilityTime: 0.3
+  maxHitPoints: 50
+  experience: 200
+  currentHealth: 0
+  power: 10
 --- !u!1001 &7710321643465576462
 PrefabInstance:
   m_ObjectHideFlags: 0

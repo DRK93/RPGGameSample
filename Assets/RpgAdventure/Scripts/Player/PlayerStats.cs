@@ -4,7 +4,7 @@ using System;
 
 namespace RpgAdventure
 {
-    public class PlayerStats : MonoBehaviour, IMessageReceiver
+    public class PlayerStats : CharacterStats, IMessageReceiver
     {
         public int maxLevel;
         public int[] availableLevels;
@@ -13,9 +13,7 @@ namespace RpgAdventure
         public int skillPoints;
         public int spellDamage;
         public float spellSpeed;
-        public int power;
-        public int maxHealth;
-        public int expToNextLevel
+        public int ExpToNextLevel
         {
             get
             { 
@@ -44,8 +42,6 @@ namespace RpgAdventure
         {
             GetComponent<SpellSpawner>().SpellDamage = spellDamage;
             GetComponent<SpellSpawner>().SpellSpeed = spellSpeed;
-            //GetComponent<PlayerController>().    = power;
-            //GetComponent<PlayerController>().  = maxHealth;
         }
         public void GainExp(int exp)
         {
@@ -73,9 +69,8 @@ namespace RpgAdventure
         {
             if (type == MessageType.DEAD)
             {
-                GainExp(((Damageable)sender).experience);
+                GainExp(((Damageable)sender).GetComponent<CharacterStats>().experience);
             }
-
         }
     }
 }

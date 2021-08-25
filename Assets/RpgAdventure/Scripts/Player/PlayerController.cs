@@ -73,8 +73,7 @@ namespace RpgAdventure
             m_HudManager = FindObjectOfType<HudManager>();
             m_Damageable = GetComponent<Damageable>();
             s_Instance = this;
-            
-            m_HudManager.SetMaxHealth(m_Damageable.maxHitPoints);
+            m_HudManager.SetMaxHealth(m_Damageable.GetComponent<PlayerStats>().maxHitPoints);
         }
         void FixedUpdate()
         {
@@ -210,7 +209,7 @@ namespace RpgAdventure
         public void StartRespawn()
         {
             transform.position = Vector3.zero;
-            m_HudManager.SetHealth(m_Damageable.maxHitPoints);
+            m_HudManager.SetHealth(m_Damageable.GetComponent<PlayerStats>().maxHitPoints);
             m_Damageable.SetInitialHealth();
         }
 

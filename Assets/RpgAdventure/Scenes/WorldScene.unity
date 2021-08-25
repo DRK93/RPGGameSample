@@ -1522,6 +1522,10 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1352872878, guid: 4f05cf8b401159841808131aff11d567, type: 3}
+      propertyPath: currentHealth
+      value: 200
+      objectReference: {fileID: 0}
     - target: {fileID: 7432634088110639751, guid: 4f05cf8b401159841808131aff11d567, type: 3}
       propertyPath: m_RootOrder
       value: 4
@@ -8075,7 +8079,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 935414534}
-  m_LocalRotation: {x: 0.06822206, y: -0.00000010245244, z: 0.0000000070058386, w: 0.9976702}
+  m_LocalRotation: {x: 0.06822206, y: -0.00000007150547, z: 0.000000004889642, w: 0.9976702}
   m_LocalPosition: {x: 2.980443, y: 2.511, z: -5.2309113}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -12693,10 +12697,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Normal Bandit
       objectReference: {fileID: 0}
-    - target: {fileID: 7435783426781630107, guid: 4f05cf8b401159841808131aff11d567, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4f05cf8b401159841808131aff11d567, type: 3}
 --- !u!4 &1352872876 stripped
@@ -14819,7 +14819,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1526619201}
-  m_LocalRotation: {x: 0.06822205, y: -0.00000009127052, z: 0.000000006241203, w: 0.9976702}
+  m_LocalRotation: {x: 0.06822205, y: -0.00000008268738, z: 0.000000005654275, w: 0.9976702}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -18264,7 +18264,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1871200548}
-  m_LocalRotation: {x: 0.050111637, y: -0.000000069887754, z: 0.0000000035065952, w: 0.99874365}
+  m_LocalRotation: {x: 0.050111637, y: -0.00000010425728, z: 0.000000005231075, w: 0.99874365}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -21217,8 +21217,16 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1519667490}
     - target: {fileID: 5457834299256274919, guid: edc7c481641aa6948a68716b692092ef, type: 3}
+      propertyPath: power
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 5457834299256274919, guid: edc7c481641aa6948a68716b692092ef, type: 3}
       propertyPath: maxHealth
       value: 150
+      objectReference: {fileID: 0}
+    - target: {fileID: 5457834299256274919, guid: edc7c481641aa6948a68716b692092ef, type: 3}
+      propertyPath: experience
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 5457834299256274919, guid: edc7c481641aa6948a68716b692092ef, type: 3}
       propertyPath: spellSpeed
@@ -21227,6 +21235,14 @@ PrefabInstance:
     - target: {fileID: 5457834299256274919, guid: edc7c481641aa6948a68716b692092ef, type: 3}
       propertyPath: spellDamage
       value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 5457834299256274919, guid: edc7c481641aa6948a68716b692092ef, type: 3}
+      propertyPath: maxHitPoints
+      value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 5457834299256274919, guid: edc7c481641aa6948a68716b692092ef, type: 3}
+      propertyPath: currentHealth
+      value: 200
       objectReference: {fileID: 0}
     - target: {fileID: 6007523383009413022, guid: edc7c481641aa6948a68716b692092ef, type: 3}
       propertyPath: spellSpeed
