@@ -10,12 +10,35 @@ namespace RpgAdventure
     {
         public List<InventorySlot> inventory = new List<InventorySlot>();
         public Transform inventoryPanel;
+        public GameObject inventoryUI;
         private int m_inventorySize;
+        private bool m_InvetoryOpen;
 
         private void Awake()
         {
             m_inventorySize = inventoryPanel.childCount;
             CreateInventory(m_inventorySize);
+
+            inventoryUI.SetActive(false);
+            m_InvetoryOpen = false;
+            Input.GetKeyDown(KeyCode.I);
+        }
+        private void Update()
+        {
+            bool isKeyForInventory = Input.GetKeyDown(KeyCode.I);
+            if (isKeyForInventory)
+            {
+                if (m_InvetoryOpen == false)
+                {
+                    m_InvetoryOpen = true;
+                    inventoryUI.SetActive(true);
+                }
+                else
+                {
+                    m_InvetoryOpen = false;
+                    inventoryUI.SetActive(false);
+                }
+            }
         }
 
         private void CreateInventory(int size)
@@ -29,13 +52,8 @@ namespace RpgAdventure
 
         private void RegisterSlotHandler(int slotIndex)
         {
-            var slotBtn = inventoryPanel
-                .GetChild(slotIndex)
-                .GetComponent<Button>();
-            slotBtn.onClick.AddListener(() =>
-           {
-               UseItem(slotIndex);
-           });
+            var slotBtn = inventoryPanel.GetChild(slotIndex).GetComponent<Button>();
+            slotBtn.onClick.AddListener(() =>{ UseItem(slotIndex); });
         }
 
         private void UseItem(int slotIndex)
@@ -64,10 +82,8 @@ namespace RpgAdventure
             }
 
             inventorySlot.Place(spawner.itemPrefab);
-            inventoryPanel
-                .GetChild(inventorySlot.index)
-                .GetComponentInChildren<Text>()
-                .text = spawner.itemPrefab.name;
+            inventoryPanel.GetChild(inventorySlot.index).GetComponentInChildren<Text>().text = spawner.itemPrefab.name;
+            inventoryPanel.GetChild(inventorySlot.index).GetChild(2).GetComponent<Text>().text = spawner.itemPrefab.GetComponent<MeleeWeapon>().damage.ToString();
             Destroy(spawner.gameObject);
         }
 
