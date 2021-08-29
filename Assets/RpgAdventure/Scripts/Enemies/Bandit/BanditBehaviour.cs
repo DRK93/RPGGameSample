@@ -31,6 +31,8 @@ namespace RpgAdventure
         private Vector3 m_OriginPosition;
         private Quaternion m_OriginalRotation;
         private string m_EnemyName;
+        private float m_DetectionRadiusOrig;
+        private float m_DetectionAngleOrig;
 
 
         public string ThisEnemyName
@@ -68,6 +70,8 @@ namespace RpgAdventure
             meleeWeapon.SetTargetLayer(1 << PlayerController.Instance.gameObject.layer);
             m_Damagable = GetComponent<Damageable>();
             m_EnemyHealthBar.SetMaxHealth(m_Damagable.GetComponent<CharacterStats>().maxHitPoints);
+            m_DetectionRadiusOrig = playerScanner.detectionRadius;
+            m_DetectionAngleOrig = playerScanner.detectionAngle;
         }
         private void Update()
         {
@@ -132,7 +136,12 @@ namespace RpgAdventure
                 m_TimeSinceLostTarget = 0;
             }
         }
-
+        public void DetectionRadiusChange()
+        {
+            playerScanner.detectionRadius = 30.0f;
+            playerScanner.detectionAngle = 360.0f;
+            StartCoroutine(WaitToReturnDetectRad());
+        }
         public void MeleeAttackStart()
         {
             meleeWeapon.BeginAttack();
@@ -257,6 +266,13 @@ namespace RpgAdventure
         {
             yield return new WaitForSeconds(timeToWaitOnPursuit);
             m_EnemyController.FollowTarget(m_OriginPosition);
+        }
+
+        private IEnumerator WaitToReturnDetectRad()
+        {
+            yield return new WaitForSeconds(5.0f);
+            playerScanner.detectionRadius = m_DetectionRadiusOrig;
+            playerScanner.detectionAngle = m_DetectionAngleOrig;
         }
 
 #if UNITY_EDITOR

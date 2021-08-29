@@ -39,6 +39,7 @@ namespace RpgAdventure
                         data.damager = this;
                         data.damageSource = m_Owner;
                         damageable.ApplyDamage(data);
+                        other.GetComponent<BanditBehaviour>().DetectionRadiusChange();
                     }
                 }
                 Destroy(this.gameObject);
