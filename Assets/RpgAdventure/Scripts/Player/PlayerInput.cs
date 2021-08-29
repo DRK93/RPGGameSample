@@ -61,7 +61,8 @@ namespace RpgAdventure
             bool isKeyForRollClick = Input.GetKeyDown(KeyCode.Q);
             bool isKeyForJumpClick = Input.GetKeyDown(KeyCode.Space);
             bool isKeyForQuestJournalClick = Input.GetKeyDown(KeyCode.J);
-            bool isKeyForSpell = Input.GetKeyDown(KeyCode.Alpha2);
+            bool isKeyForSpell = Input.GetKeyDown(KeyCode.Alpha1);
+            bool isKeyForHeal = Input.GetKeyDown(KeyCode.Alpha2);
 
             if (isLeftMouseClick)
             {
@@ -91,6 +92,11 @@ namespace RpgAdventure
                 FindObjectOfType<QuestManager>().QuestJournalUI.SetActive(true);
             }
 
+            if(isKeyForHeal)
+            {
+                if (FindObjectOfType<HealthPotionDrink>().IsPotionReady == true)
+                    FindObjectOfType<HealthPotionDrink>().IsStartHealing = true;
+            }
 
         }
 
@@ -161,6 +167,11 @@ namespace RpgAdventure
             {
                 StartCoroutine(TriggerSpell());
             }
+        }
+
+        public void SpellFromBtn()
+        {
+            StartCoroutine(TriggerSpell());
         }
         private IEnumerator TriggerOptionTarget(Collider other)
         {

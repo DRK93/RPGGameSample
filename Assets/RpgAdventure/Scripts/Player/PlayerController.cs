@@ -115,6 +115,7 @@ namespace RpgAdventure
             if (m_PlayerInput.IsSpell)
             {
                 m_Animator.SetTrigger(m_HashSpell);
+                GameObject.FindObjectOfType<FireballFromBtn>().FireballFromKeyBoard();
             }
 
             m_Animator.ResetTrigger(m_HashJump);
