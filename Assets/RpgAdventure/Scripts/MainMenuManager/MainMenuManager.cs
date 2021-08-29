@@ -69,7 +69,6 @@ namespace RpgAdventure
         }
         public void StartGame()
         {
-            Debug.Log("You clicked Start Game button");
             InputPlayerName2.text = this.playerName;
             MainMenu.SetActive(false);
             StartGamePlayerName.SetActive(true);
@@ -77,59 +76,50 @@ namespace RpgAdventure
 
         public void StartGame2()
         {
-            Debug.Log("You clicked Start Game button2");
             SceneManager.LoadScene(1);
         }
         public void ReturnFromPlayerName()
         {
-            Debug.Log("You click to return from Start Game - Player Name");
             StartGamePlayerName.SetActive(false);
             MainMenu.SetActive(true);
         }
         public void LoadGame()
         {
-            Debug.Log("You clicked LoadGame button");
             MainMenu.SetActive(false);
             LoadGameMenu.SetActive(true);
         }
         public void ReturnFromLoadGame()
         {
-            Debug.Log("You click to return from Load Game");
             LoadGameMenu.SetActive(false);
             MainMenu.SetActive(true);
         }
 
         public void LoadOptions()
         {
-            Debug.Log("You clicked Options button");
             MainMenu.SetActive(false);
             OptionMenu.SetActive(true);   
         }
 
         public void ReturnFromOptions()
         {
-            Debug.Log("You clicked to return from Options");
             OptionMenu.SetActive(false);
             MainMenu.SetActive(true);
         }
 
         public void ShowControls()
         {
-            Debug.Log("You clicked to show cotnrols");
             MainMenu.SetActive(false);
             Controls.SetActive(true);
         }
 
         public void ReturnFromControls()
         {
-            Debug.Log("You clicked to show cotnrols");
             Controls.SetActive(false);
             MainMenu.SetActive(true);
         }
 
         public void ExitMenu()
         {
-            Debug.Log("You clicked Exit button");
             Application.Quit();
         }
     }

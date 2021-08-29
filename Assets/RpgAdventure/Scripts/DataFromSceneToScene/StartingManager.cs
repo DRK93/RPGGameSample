@@ -30,7 +30,7 @@ namespace RpgAdventure
         private void BeginJourney()
         {
             StartingUI.SetActive(false);
-            InventoryUI.SetActive(true);
+            InventoryUI.SetActive(false);
             HudUI.SetActive(true);
         }
 
