@@ -34,6 +34,7 @@ namespace RpgAdventure
         private CharacterController m_CHController;
         private CameraController m_CameraController;
         private HudManager m_HudManager;
+        private Rigidbody m_Rb;
         private Quaternion m_TargetRotation;
 
         private AnimatorStateInfo m_CurrentStateInfo;
@@ -42,6 +43,9 @@ namespace RpgAdventure
         private bool m_IsRespawning;
         private bool m_IsPossibleToTempoAttack;
 
+        public float jumpForce = 500f;
+        public float groundDistance = 0.3f;
+        public LayerMask whatIsGround;
         private float m_DesiredForwardSpeed;
         private float m_ForwardSpeed;
         private float m_VerticalSpeed;
@@ -74,6 +78,7 @@ namespace RpgAdventure
             m_Damageable = GetComponent<Damageable>();
             s_Instance = this;
             m_HudManager.SetMaxHealth(m_Damageable.GetComponent<PlayerStats>().maxHitPoints);
+            m_Rb = GetComponent<Rigidbody>();
         }
         void FixedUpdate()
         {
@@ -121,8 +126,20 @@ namespace RpgAdventure
             m_Animator.ResetTrigger(m_HashJump);
             if (m_PlayerInput.IsJump)
             {
+                m_Rb.AddForce(Vector3.up * jumpForce);
                 m_Animator.SetTrigger(m_HashJump);
             }
+
+            if (Physics.Raycast(transform.position + (Vector3.up * 0.1f), Vector3.down, groundDistance, whatIsGround))
+            {
+                m_Animator.SetBool("Grounded", true);
+                m_Animator.applyRootMotion = true;
+            }
+            else
+            {
+                m_Animator.SetBool("Grounded", false);
+            }
+
             PlaySprintAudio();
         }
 
@@ -350,6 +367,47 @@ namespace RpgAdventure
             0.1f);
     }
     m_Rb.MovePosition(m_Rb.position + targetDirection.normalized * speed * Time.fixedDeltaTime); 
+
+
+
+
+        private Animator m_Animator;
+    private Rigidbody m_Rb;
+    public float jumpForce = 500;
+    public float groundDistance = 0.3f;
+    public LayerMask whatIsGround;
+
+    // Start is called before the first frame update
+    void Start()
+    {
+        m_Animator = GetComponent<Animator>();
+        m_Rb = GetComponent<Rigidbody>();
+        //m_Animator.SetTrigger("Jump");
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        var v = Input.GetAxis("Vertical");
+        var h = Input.GetAxis("Horizontal");
+        m_Animator.SetFloat("Speed", v, 0.1f, Time.deltaTime);
+        m_Animator.SetFloat("TurningSpeed", h, 0.1f, Time.deltaTime);
+
+        if(Input.GetKeyDown(KeyCode.Space))
+        {
+            m_Rb.AddForce(Vector3.up * jumpForce);
+            m_Animator.SetTrigger("Jump");
+        }
+
+        if (Physics.Raycast (transform.position + (Vector3.up *0.1f), Vector3.down, groundDistance, whatIsGround))
+        {
+            m_Animator.SetBool("Grounded", true);
+            m_Animator.applyRootMotion = true;
+        }
+        else
+        {
+            m_Animator.SetBool("Grounded", false);
+        }
 */
 
 }
