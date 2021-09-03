@@ -18,7 +18,6 @@ namespace RpgAdventure
             get => m_IsFireballReady;
             set => m_IsFireballReady = value;
         }
-        // Start is called before the first frame update
         void Start()
         {
             m_FireballBtn = GameObject.Find("FireballThrowBtn").GetComponent<Button>();
@@ -26,8 +25,6 @@ namespace RpgAdventure
             fireballSlider.value = 1;
             m_IsFireballReady = true;
         }
-
-        // Update is called once per frame
         void Update()
         {
 

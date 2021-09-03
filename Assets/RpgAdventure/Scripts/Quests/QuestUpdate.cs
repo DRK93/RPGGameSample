@@ -13,17 +13,13 @@ namespace RpgAdventure
         private PlayerStats m_PlayerStats;
         private List<GameObject> questPanels;
         private List<QuestPanParameters> questPanParameters;
-        
+
         void Awake()
         {
             m_EnemyDictionary2 = GameObject.Find("Enemies/EnemyList").GetComponent<EnemiesNameByUIS>();
             m_PlayerStats = FindObjectOfType<PlayerStats>();
             questPanels = new List<GameObject>();
             questPanParameters = new List<QuestPanParameters>();
-        }
-        void Start()
-        {
-
         }
         public void QuestCreateInJournal(AcceptedQuest quest, GameObject questPan)
         {
@@ -44,7 +40,7 @@ namespace RpgAdventure
         public void QuestTargetsCreateInJournal(AcceptedQuest quest, GameObject questPan)
         {
             var indexForChild = 0;
-            foreach(var target in quest.targets)
+            foreach (var target in quest.targets)
             {
                 questPan.transform.GetComponent<QuestPanParameters>().m_QuestTargets.Add(target);
                 questPan.transform.GetComponent<QuestPanParameters>().m_TargetBySpeciesDefeat.Add(0);
@@ -78,7 +74,7 @@ namespace RpgAdventure
                 {
                     if (quest.type == QuestType.HUNT)
                     {
-                        foreach(var targetUid in quest.targets)
+                        foreach (var targetUid in quest.targets)
                         {
                             if (sender.GetComponent<UniqueId>().Uid == targetUid)
                             {
@@ -93,7 +89,7 @@ namespace RpgAdventure
                                 QUpdateAfterKill(quest, sender.GetComponent<UniqueId>().Uid);
                             }
                         }
-                        
+
                     }
 
                 }
@@ -104,7 +100,7 @@ namespace RpgAdventure
         {
             foreach (var quePan in questPanels)
             {
-                if ( quePan.transform.GetComponent<QuestPanParameters>().m_QuestTitle == quest.title)
+                if (quePan.transform.GetComponent<QuestPanParameters>().m_QuestTitle == quest.title)
                 {
                     quePan.transform.GetComponent<QuestPanParameters>().m_CurrentDeafeted = quest.questTargetKilled;
                     quePan.transform.GetComponent<QuestPanParameters>().m_QuestStatus = quest.questStatus.ToString();
@@ -112,7 +108,7 @@ namespace RpgAdventure
                     quePan.transform.GetChild(8).GetComponent<TextMeshProUGUI>().text = quePan.transform.GetComponent<QuestPanParameters>().m_QuestStatus;
                     var indexer = 0;
                     foreach (var queTar in quest.targets)
-                    { 
+                    {
                         if (questTargetUId == queTar)
                         {
                             quePan.transform.GetComponent<QuestPanParameters>().m_TargetBySpeciesDefeat[indexer] += 1;
@@ -125,12 +121,6 @@ namespace RpgAdventure
         }
 
     }
-
-
-
-    /*
-      if (quest.type == QuestType.HUNT && Array.Exists(quest.targets,
-      (targetUid) => sender.GetComponent<UniqueId>().Uid == targetUid))
-     */
 }
+
 

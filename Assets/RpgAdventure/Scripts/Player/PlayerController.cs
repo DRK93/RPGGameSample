@@ -24,6 +24,8 @@ namespace RpgAdventure
         public float m_MaxRotationSpeed = 1200;
         public float m_MinRotationSpeed = 400;
         public float gravity = 20.0f;
+        public float groundDistance = 0.2f;
+        public LayerMask whatIsGround;
         public Transform weaponHand;
         public RandomAudioPlayer sprintAudio;
 
@@ -34,7 +36,6 @@ namespace RpgAdventure
         private CharacterController m_CHController;
         private CameraController m_CameraController;
         private HudManager m_HudManager;
-        private Rigidbody m_Rb;
         private Quaternion m_TargetRotation;
 
         private AnimatorStateInfo m_CurrentStateInfo;
@@ -43,16 +44,17 @@ namespace RpgAdventure
         private bool m_IsRespawning;
         private bool m_IsPossibleToTempoAttack;
 
-        public float jumpForce = 500f;
-        public float groundDistance = 0.3f;
-        public LayerMask whatIsGround;
+
         private float m_DesiredForwardSpeed;
         private float m_ForwardSpeed;
         private float m_VerticalSpeed;
+        private float m_CurrentJumpingSpeed;
+        private Vector3 m_StartingPosition;
 
         const float k_Acceleration = 20f;
         const float k_Deceleration = 35.0f;
         const int c_PotionPower = 100;
+        
 
         private readonly int m_HashForwardSpeed = Animator.StringToHash("ForwardSpeed");
         private readonly int m_HashMeleeAttack = Animator.StringToHash("MeleeAttack");
@@ -67,9 +69,13 @@ namespace RpgAdventure
         private readonly int m_HashAttackTempoTrigger = Animator.StringToHash("AttackTempo");
         private readonly int m_HashSpell = Animator.StringToHash("SpellAttack");
         private readonly int m_HashBlockInput = Animator.StringToHash("BlockInput");
+        private readonly int m_HashJumping = Animator.StringToHash("Jumping");
+        private readonly int m_HashFalling = Animator.StringToHash("Falling");
+        private readonly int m_HashGrounded = Animator.StringToHash("Grounded");
 
         private void Awake()
         {
+            m_StartingPosition = transform.position;
             m_CHController = GetComponent<CharacterController>();
             m_PlayerInput = GetComponent<PlayerInput>();
             m_Animator = GetComponent<Animator>();
@@ -78,17 +84,18 @@ namespace RpgAdventure
             m_Damageable = GetComponent<Damageable>();
             s_Instance = this;
             m_HudManager.SetMaxHealth(m_Damageable.GetComponent<PlayerStats>().maxHitPoints);
-            m_Rb = GetComponent<Rigidbody>();
         }
         void FixedUpdate()
         {
+
             CacheAnimationState();
             UpdateInputBlocking();
             ComputeForwardMovement();
             ComputeVerticalMovement();
             ComputeRotation();
+            
 
-            if (m_PlayerInput.IsMoveInput)
+            if (m_PlayerInput.IsMoveInput || m_PlayerInput.IsJump)
             {
                 float rotationSpeed = Mathf.Lerp(m_MaxRotationSpeed, m_MinRotationSpeed, m_ForwardSpeed / m_DesiredForwardSpeed);
                 m_TargetRotation = Quaternion.RotateTowards
@@ -123,44 +130,108 @@ namespace RpgAdventure
                 GameObject.FindObjectOfType<FireballFromBtn>().FireballFromKeyBoard();
             }
 
-            m_Animator.ResetTrigger(m_HashJump);
+            if ((m_Animator.GetBool(m_HashJumping) ==false) && (m_Animator.GetBool(m_HashFalling) == false))
+            { 
+                m_Animator.ResetTrigger(m_HashJump);
+                m_CurrentJumpingSpeed = 0;
+            }
+
             if (m_PlayerInput.IsJump)
             {
-                m_Rb.AddForce(Vector3.up * jumpForce);
                 m_Animator.SetTrigger(m_HashJump);
+                m_CurrentJumpingSpeed = 8;
             }
 
             if (Physics.Raycast(transform.position + (Vector3.up * 0.1f), Vector3.down, groundDistance, whatIsGround))
             {
-                m_Animator.SetBool("Grounded", true);
+                m_Animator.SetBool(m_HashGrounded, true);
                 m_Animator.applyRootMotion = true;
             }
             else
             {
-                m_Animator.SetBool("Grounded", false);
+                m_Animator.SetBool(m_HashGrounded, false);
             }
-
             PlaySprintAudio();
         }
 
+        private string CheckWhatIsBelow()
+        {
+            RaycastHit rayCastHit1;
+            if (Physics.Raycast(transform.position + (Vector3.up * 0.5f), Vector3.down, out rayCastHit1, 40))
+            {
+                return rayCastHit1.transform.name;
+            }
+            else
+                return "Nothing below, good luck at falling down!!!";
+        }
         private void ComputeVerticalMovement()
         {
-            m_VerticalSpeed = -gravity;
+  
+            if (m_Animator.GetBool(m_HashJumping) == true)
+            {
+                
+                m_VerticalSpeed = 0.3f* m_CurrentJumpingSpeed;
+                m_CurrentJumpingSpeed -= 200 * Time.deltaTime;
+            }
+            else
+            {
+                m_VerticalSpeed = -0.2f*gravity;
+            }
         }
 
         private void ComputeForwardMovement()
         {
             Vector3 moveInput = m_PlayerInput.MoveInput.normalized;
             m_DesiredForwardSpeed = moveInput.magnitude * maxForwardSpeed;
-
-            float accelaration = m_PlayerInput.IsMoveInput ? k_Acceleration : k_Deceleration;
+            float accelaration;
+            //float accelaration = ((m_PlayerInput.IsMoveInput) || (m_Animator.GetBool("Jumping") == true) || (m_Animator.GetBool("Falling") == true)) ? k_Acceleration : k_Deceleration;
+            if (m_PlayerInput.IsMoveInput || (m_Animator.GetBool("Jumping") == true) || (m_Animator.GetBool("Falling") == true))
+            {
+                accelaration = k_Acceleration;
+            }
+            else
+            {
+                accelaration = k_Deceleration;
+            }
             m_ForwardSpeed = Mathf.MoveTowards(
                 m_ForwardSpeed,
                 m_DesiredForwardSpeed,
                 Time.fixedDeltaTime * accelaration
                 );
-
+            if (CheckWhatIsBelow() == "WaterPlane")
+            {
+                transform.position = transform.position - transform.forward * 0.5f;
+            }
             m_Animator.SetFloat(m_HashForwardSpeed, m_ForwardSpeed);
+        }
+
+        private void ComputeRotation()
+        {
+            Vector3 moveInput = m_PlayerInput.MoveInput.normalized;
+            Vector3 cameraDirection = Quaternion.Euler(
+                0,
+                m_CameraController.PlayerCam.m_XAxis.Value,
+                0
+                ) * Vector3.forward;
+            Quaternion targetRotation;
+            if (Mathf.Approximately(Vector3.Dot(moveInput, Vector3.forward), -1.0f))
+            {
+                targetRotation = Quaternion.LookRotation(-cameraDirection);
+            }
+            else
+            {
+                Quaternion movementRotation = Quaternion.FromToRotation(Vector3.forward, moveInput);
+                targetRotation = Quaternion.LookRotation(movementRotation * cameraDirection);
+            }
+            m_TargetRotation = targetRotation;
+        }
+
+        private void CacheAnimationState()
+        {
+            m_CurrentStateInfo = m_Animator.GetCurrentAnimatorStateInfo(0);
+            m_NextStateInfo = m_Animator.GetNextAnimatorStateInfo(0);
+            m_IsAnimatorTransisioning = m_Animator.IsInTransition(0);
+
         }
 
         private void OnAnimatorMove()
@@ -168,6 +239,14 @@ namespace RpgAdventure
             if (m_IsRespawning) { return; }
             Vector3 movement = m_Animator.deltaPosition;
             movement += m_VerticalSpeed * Vector3.up * Time.fixedDeltaTime;
+            if (m_Animator.GetBool(m_HashJumping) == true)
+            {
+                movement += 1 * m_ForwardSpeed * transform.forward * Time.fixedDeltaTime;
+            }
+            if (m_Animator.GetBool(m_HashFalling) == true)
+            {
+                movement += 0.5f * m_ForwardSpeed * transform.forward * Time.fixedDeltaTime;
+            }
             m_CHController.Move(movement);
         }
         public void OnReceiveMessage(MessageType type, object sender, object message)
@@ -226,7 +305,7 @@ namespace RpgAdventure
 
         public void StartRespawn()
         {
-            transform.position = Vector3.zero;
+            transform.position = m_StartingPosition;
             m_HudManager.SetHealth(m_Damageable.GetComponent<PlayerStats>().maxHitPoints);
             m_Damageable.SetInitialHealth();
         }
@@ -244,12 +323,12 @@ namespace RpgAdventure
 
         public void StartBlocking()
         {
-            m_Damageable.blockStance = true;
+            m_Damageable.BlockStance = true;
         }
 
         public void FinishBlocking()
         {
-            m_Damageable.blockStance = false;
+            m_Damageable.BlockStance = false;
         }
 
         public void UseItemFrom(InventorySlot inventorySlot)
@@ -271,37 +350,7 @@ namespace RpgAdventure
             meleeWeapon.SetOwner(gameObject);
 
         }
-        private void ComputeRotation()
-        {
-            Vector3 moveInput = m_PlayerInput.MoveInput.normalized;
-            Vector3 cameraDirection = Quaternion.Euler(
-                0,
-                m_CameraController.PlayerCam.m_XAxis.Value,
-                0
-                ) * Vector3.forward;
-            Quaternion targetRotation;
-
-
-            if (Mathf.Approximately(Vector3.Dot(moveInput, Vector3.forward), -1.0f))
-            {
-                targetRotation = Quaternion.LookRotation(-cameraDirection);
-            }
-            else
-            {
-                Quaternion movementRotation = Quaternion.FromToRotation(Vector3.forward, moveInput);
-                targetRotation = Quaternion.LookRotation(movementRotation * cameraDirection);
-            }
-            
-            m_TargetRotation = targetRotation;
-        }
-
-        private void CacheAnimationState()
-        {
-            m_CurrentStateInfo = m_Animator.GetCurrentAnimatorStateInfo(0);
-            m_NextStateInfo = m_Animator.GetNextAnimatorStateInfo(0);
-            m_IsAnimatorTransisioning = m_Animator.IsInTransition(0);
-
-        }
+       
 
         private void UpdateInputBlocking()
         {

@@ -13,14 +13,6 @@ namespace RpgAdventure
         public float timeToWaitOnPursuit = 2.0f;
         public float attackDistance;
 
-        public bool HasFollowTarget
-        {
-            get
-            {
-                return m_FollowTarget != null;
-            }
-        }
-
         private PlayerController m_FollowTarget;
         private EnemyController m_EnemyController;
         private EnemiesNameByUIS m_EnemyDictionary;
@@ -34,14 +26,8 @@ namespace RpgAdventure
         private float m_DetectionRadiusOrig;
         private float m_DetectionAngleOrig;
 
-
-        public string ThisEnemyName
-        {
-            get
-            {
-                return m_EnemyName;
-            }
-        }
+        public bool HasFollowTarget => m_FollowTarget != null;
+        public string ThisEnemyName => m_EnemyName;
 
         private readonly int m_HashInPursuit = Animator.StringToHash("InPursuit");
         private readonly int m_HashNearBase = Animator.StringToHash("NearBase");
@@ -107,8 +93,8 @@ namespace RpgAdventure
         private void CheckIfNearBase()
         {
             Vector3 toBase = m_OriginPosition - transform.position;
-            toBase.y = 0;
-            bool nearBase = toBase.magnitude < 0.01f;
+            //toBase.y = 0;
+            bool nearBase = toBase.magnitude < 0.6f;
             m_EnemyController.Animator.SetBool(m_HashNearBase, nearBase);
             if (nearBase)
             {
@@ -154,12 +140,10 @@ namespace RpgAdventure
 
         public void TempoWindowBegin()
         {
-
         }
 
         public void TempoWindowEnd()
         {
-
         }
 
         public void OnReceiveMessage(MessageType type, object sender, object message)
@@ -192,7 +176,6 @@ namespace RpgAdventure
         }
         private void OnReceiveDamage()
         {
-            
             m_EnemyController.Animator.SetTrigger(m_HashHurt);
         }
 

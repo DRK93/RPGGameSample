@@ -30,7 +30,6 @@ namespace RpgAdventure
             UsePotionBtn.interactable = false;
             m_HealthPotionSlider.value = 0;
             m_PlayerInst = GameObject.Find("Player").GetComponent<PlayerController>();
-            //m_HealParticle = GameObject.Find("HealParticleEffect");
         }
 
         // Update is called once per frame

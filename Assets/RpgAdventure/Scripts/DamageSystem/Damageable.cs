@@ -6,10 +6,11 @@ namespace RpgAdventure
 {
     public partial class Damageable : MonoBehaviour
     {
-        public bool blockStance;
+
         public LayerMask playerActionReceivers;
         public List<MonoBehaviour> onDamageMessageReceivers;
 
+        private bool m_blockStance;
         private int m_CurrentHitPoints;
         private CharacterStats m_CharacterStats;
         private bool m_IsInvulnerable = false;
@@ -17,24 +18,31 @@ namespace RpgAdventure
         public int CurrentHitPoints
         {
             get { return m_CurrentHitPoints; }
-            set { m_CurrentHitPoints += value; }
+            set { m_CurrentHitPoints += value;
+                m_CharacterStats.currentHitPoints = m_CurrentHitPoints;
+            }
+        }
+        public bool BlockStance
+        {
+            get { return m_blockStance; }
+            set { m_blockStance = value; }
         }
 
         private void Awake()
         {
             m_CharacterStats = GetComponent<CharacterStats>();
             SetInitialHealth();
+
             if (0 != (playerActionReceivers.value & 1 << gameObject.layer))
             {
                 onDamageMessageReceivers.Add(FindObjectOfType<QuestUpdate>());
                 onDamageMessageReceivers.Add(GameObject.Find("Player").GetComponent<PlayerStats>());
             }
-
         }
 
         private void Update()
         {
-          if (m_IsInvulnerable)
+            if (m_IsInvulnerable)
             {
                 m_TimeSinceLastHit += Time.deltaTime;
                 if (m_TimeSinceLastHit >= m_CharacterStats.invulnerabilityTime)
@@ -53,12 +61,10 @@ namespace RpgAdventure
             }
             else
                 m_CurrentHitPoints += potionHealth;
-
         }
         public void SetInitialHealth()
         {
             m_CurrentHitPoints = m_CharacterStats.maxHitPoints;
-
         }
 
         public void ApplyDamage(DamageMessage data)
@@ -75,14 +81,12 @@ namespace RpgAdventure
             {
                 return;
             }
-            
-            m_IsInvulnerable = true;
-            
 
+            m_IsInvulnerable = true;
             MessageType messageType;
-            if (blockStance == true && Vector3.Angle(transform.forward, positionToDamager) < m_CharacterStats.blockAngle *0.5 )
+
+            if (m_blockStance == true && Vector3.Angle(transform.forward, positionToDamager) < m_CharacterStats.blockAngle *0.5 )
             {
-                //Debug.Log(Vector3.Angle(transform.forward, positionToDamager));
                 messageType = MessageType.BLOCKED;
             }
             else

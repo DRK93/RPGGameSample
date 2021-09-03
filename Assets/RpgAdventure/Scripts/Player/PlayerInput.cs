@@ -50,11 +50,12 @@ namespace RpgAdventure
 
         void Update()
         {
-            m_Movement.Set(
+            m_Movement.Set
+                (
                 Input.GetAxis("Horizontal"),
                 0,
                 Input.GetAxis("Vertical")
-            );
+                );
 
             bool isLeftMouseClick = Input.GetMouseButtonDown(0);
             bool isRightMouseClick = Input.GetMouseButtonDown(1);
@@ -200,7 +201,7 @@ namespace RpgAdventure
         private IEnumerator TriggerJump()
         {
             m_IsJump = true;
-            yield return new WaitForSeconds(0.05f);
+            yield return new WaitForSeconds(0.4f);
             m_IsJump = false;
         }
         private IEnumerator TriggerSpell()

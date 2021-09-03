@@ -14,8 +14,7 @@ namespace RpgAdventure
         public int maxHitPoints;
         public int experience;
         public int power;
-        public int CurrentHitPoints { get; private set; }
-
+        public int currentHitPoints;
     }
 }
 

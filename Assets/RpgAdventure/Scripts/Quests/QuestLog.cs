@@ -39,10 +39,13 @@ namespace RpgAdventure
         public GameObject questPanelPrefab;
         public GameObject QuestScrollPanel;
         public GameObject QuestManager;
+        public List<AcceptedQuest> quests = new List<AcceptedQuest>();
+
         private float m_QuestPanelTopPosition = 0.0f;
         private int m_NumberOfQuests = 0;
+
         const float c_DistanceBetweenQuestPanels = 330.0f;
-        public List<AcceptedQuest> quests = new List<AcceptedQuest>();
+        
 
         public void AddQuest(Quest quest)
         {
