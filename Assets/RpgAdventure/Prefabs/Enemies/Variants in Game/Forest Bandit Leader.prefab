@@ -134,7 +134,11 @@ PrefabInstance:
       objectReference: {fileID: 1656601618239205734}
     - target: {fileID: 7694643222065798009, guid: 41be4f02f0149654687e6e5790e3eda4, type: 3}
       propertyPath: m_Name
-      value: Forest Bandit Leader
+      value: Forest Bandit Leader (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7694643222065798009, guid: 41be4f02f0149654687e6e5790e3eda4, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 7701135354830282597, guid: 41be4f02f0149654687e6e5790e3eda4, type: 3}
       propertyPath: m_RootOrder
@@ -154,19 +158,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7701135354830282597, guid: 41be4f02f0149654687e6e5790e3eda4, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 53.780273
+      value: 86.09974
       objectReference: {fileID: 0}
     - target: {fileID: 7701135354830282597, guid: 41be4f02f0149654687e6e5790e3eda4, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 15.959755
+      value: 15.959749
       objectReference: {fileID: 0}
     - target: {fileID: 7701135354830282597, guid: 41be4f02f0149654687e6e5790e3eda4, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 587.6505
+      value: 320.25504
       objectReference: {fileID: 0}
     - target: {fileID: 7701135354830282597, guid: 41be4f02f0149654687e6e5790e3eda4, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.24381945
+      value: 0.78604394
       objectReference: {fileID: 0}
     - target: {fileID: 7701135354830282597, guid: 41be4f02f0149654687e6e5790e3eda4, type: 3}
       propertyPath: m_LocalRotation.x
@@ -174,7 +178,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7701135354830282597, guid: 41be4f02f0149654687e6e5790e3eda4, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.9698207
+      value: -0.6181707
       objectReference: {fileID: 0}
     - target: {fileID: 7701135354830282597, guid: 41be4f02f0149654687e6e5790e3eda4, type: 3}
       propertyPath: m_LocalRotation.z
@@ -186,7 +190,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7701135354830282597, guid: 41be4f02f0149654687e6e5790e3eda4, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 151.776
+      value: -76.365
       objectReference: {fileID: 0}
     - target: {fileID: 7701135354830282597, guid: 41be4f02f0149654687e6e5790e3eda4, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z

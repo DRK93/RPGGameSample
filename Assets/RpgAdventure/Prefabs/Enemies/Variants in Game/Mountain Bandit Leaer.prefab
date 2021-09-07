@@ -184,6 +184,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Mountain Bandit Leaer (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 3295721743684589200, guid: ada909992705ff7419c6ad3973e8058f, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ada909992705ff7419c6ad3973e8058f, type: 3}
 --- !u!1 &4926633794195657114 stripped

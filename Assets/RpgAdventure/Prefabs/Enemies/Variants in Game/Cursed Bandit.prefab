@@ -104,6 +104,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Cursed Bandit
       objectReference: {fileID: 0}
+    - target: {fileID: 8571322859256349885, guid: 4d8b09ac664205849ab4c55b66940420, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 8579759209885959025, guid: 4d8b09ac664205849ab4c55b66940420, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
