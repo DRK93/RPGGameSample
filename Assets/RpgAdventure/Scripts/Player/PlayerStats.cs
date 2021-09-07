@@ -11,6 +11,7 @@ namespace RpgAdventure
         public int currentLevel;
         public int currentExp;
         public int skillPoints;
+        public int usedSkillPoints;
         public int spellDamage;
         public int spellSpeed;
         public int defeatedEnemies;

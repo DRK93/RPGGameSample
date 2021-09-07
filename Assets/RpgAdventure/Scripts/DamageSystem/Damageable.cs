@@ -92,6 +92,7 @@ namespace RpgAdventure
             else
             {
                 m_CurrentHitPoints -= data.amount;
+                m_CharacterStats.currentHitPoints = m_CurrentHitPoints;
                 if (m_CurrentHitPoints <= 0)
                 {
                     messageType = MessageType.DEAD;

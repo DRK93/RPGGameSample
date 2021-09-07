@@ -6245,7 +6245,7 @@ GameObject:
   - component: {fileID: 3253313466715821885}
   - component: {fileID: 5457834299256274919}
   - component: {fileID: 6007523383009413022}
-  - component: {fileID: 862975509}
+  - component: {fileID: 277138205}
   m_Layer: 7
   m_Name: Player
   m_TagString: Player
@@ -6260,7 +6260,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6685918425115667425}
-  m_LocalRotation: {x: 0, y: 0.67780507, z: 0, w: 0.73524165}
+  m_LocalRotation: {x: 0, y: 0.6778068, z: 0, w: 0.73524004}
   m_LocalPosition: {x: 32.86271, y: 3.032613, z: 92.716606}
   m_LocalScale: {x: 1.01, y: 1.01, z: 1.01}
   m_Children:
@@ -6276,7 +6276,7 @@ Transform:
   - {fileID: 38227787}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 85.345, z: 0}
 --- !u!95 &6746001061819851183
 Animator:
   serializedVersion: 3
@@ -6374,13 +6374,12 @@ MonoBehaviour:
   m_MaxRotationSpeed: 1200
   m_MinRotationSpeed: 400
   gravity: 20
-  weaponHand: {fileID: 6684039052286732627}
-  sprintAudio: {fileID: 6007523382998650372}
-  jumpForce: 500
   groundDistance: 0.3
   whatIsGround:
     serializedVersion: 2
     m_Bits: 256
+  weaponHand: {fileID: 6684039052286732627}
+  sprintAudio: {fileID: 6007523382998650372}
 --- !u!114 &4911239932956157212
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6472,7 +6471,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   projectile: {fileID: 8752502796209874189, guid: 936929ec9df0a1f4abcefa25e8cfe0cc, type: 3}
   leftHand: {fileID: 6685749127629687849}
---- !u!114 &862975509
+--- !u!114 &277138205
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -6484,7 +6483,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f18b9297a760e641b678d28e19da117, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _uniqueID: -13388
+  _uniqueID: -24348
   _executionOrder: 0
 --- !u!1 &6685928153383726683
 GameObject:

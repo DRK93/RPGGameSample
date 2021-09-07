@@ -9,7 +9,6 @@ namespace NGS.ExtendableSaveSystem
         public virtual void SetVector3(string uniqueName, Vector3 value)
         {
             SetFloat(uniqueName + ".x", value.x);
-            Debug.Log("Saved X: " + uniqueName + " x " + " " + value.x);
             SetFloat(uniqueName + ".y", value.y);
             SetFloat(uniqueName + ".z", value.z);
         }
@@ -33,7 +32,6 @@ namespace NGS.ExtendableSaveSystem
         public void GetTransform(string uniqueName, Transform transform)
         {
             transform.position = GetVector3(uniqueName + ".position");
-            Debug.Log("Loaded X: " + uniqueName + " x " + " " + transform.position.x);
             transform.eulerAngles = GetVector3(uniqueName + ".rotation");
             transform.localScale = GetVector3(uniqueName + ".scale");
         }
