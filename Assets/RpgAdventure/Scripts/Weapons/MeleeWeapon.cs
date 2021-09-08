@@ -77,7 +77,7 @@ namespace RpgAdventure
                 }
                 else
                 {
-                    data.amount = damage;
+                    data.amount = damage + m_Owner.GetComponent<Damageable>().GetComponent<CharacterStats>().power;
                 }
                 data.damager = this;
                 data.damageSource = m_Owner;

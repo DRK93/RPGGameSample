@@ -37,6 +37,10 @@ PrefabInstance:
       value: 2000
       objectReference: {fileID: 0}
     - target: {fileID: -2522676533635577899, guid: 4d8b09ac664205849ab4c55b66940420, type: 3}
+      propertyPath: m_uniqueID
+      value: 84
+      objectReference: {fileID: 0}
+    - target: {fileID: -2522676533635577899, guid: 4d8b09ac664205849ab4c55b66940420, type: 3}
       propertyPath: maxHitPoints
       value: 550
       objectReference: {fileID: 0}
@@ -50,27 +54,27 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8567843721165042429, guid: 4d8b09ac664205849ab4c55b66940420, type: 3}
       propertyPath: m_LocalScale.x
-      value: 2
+      value: 1.2
       objectReference: {fileID: 0}
     - target: {fileID: 8567843721165042429, guid: 4d8b09ac664205849ab4c55b66940420, type: 3}
       propertyPath: m_LocalScale.y
-      value: 2
+      value: 1.2
       objectReference: {fileID: 0}
     - target: {fileID: 8567843721165042429, guid: 4d8b09ac664205849ab4c55b66940420, type: 3}
       propertyPath: m_LocalScale.z
-      value: 2
+      value: 1.2
       objectReference: {fileID: 0}
     - target: {fileID: 8567843721165042429, guid: 4d8b09ac664205849ab4c55b66940420, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 29.145004
+      value: 33.48589
       objectReference: {fileID: 0}
     - target: {fileID: 8567843721165042429, guid: 4d8b09ac664205849ab4c55b66940420, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 15.959753
+      value: 15.959755
       objectReference: {fileID: 0}
     - target: {fileID: 8567843721165042429, guid: 4d8b09ac664205849ab4c55b66940420, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 197.35793
+      value: 198.45009
       objectReference: {fileID: 0}
     - target: {fileID: 8567843721165042429, guid: 4d8b09ac664205849ab4c55b66940420, type: 3}
       propertyPath: m_LocalRotation.w
@@ -102,7 +106,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8571322859256349885, guid: 4d8b09ac664205849ab4c55b66940420, type: 3}
       propertyPath: m_Name
-      value: Cursed Bandit
+      value: Cursed Bandit (1)
       objectReference: {fileID: 0}
     - target: {fileID: 8571322859256349885, guid: 4d8b09ac664205849ab4c55b66940420, type: 3}
       propertyPath: m_Layer
@@ -153,7 +157,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6378024134973578176, guid: 1e7d117ebddacaa448e68f7175c240f8, type: 3}
       propertyPath: m_LocalScale.z
-      value: 1.5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6378024134973578176, guid: 1e7d117ebddacaa448e68f7175c240f8, type: 3}
       propertyPath: m_LocalPosition.x

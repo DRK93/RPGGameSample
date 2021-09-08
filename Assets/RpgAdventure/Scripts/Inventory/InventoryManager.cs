@@ -21,7 +21,7 @@ namespace RpgAdventure
 
             inventoryUI.SetActive(false);
             m_InvetoryOpen = false;
-            Input.GetKeyDown(KeyCode.I);
+            //Input.GetKeyDown(KeyCode.I);
         }
         private void Update()
         {
