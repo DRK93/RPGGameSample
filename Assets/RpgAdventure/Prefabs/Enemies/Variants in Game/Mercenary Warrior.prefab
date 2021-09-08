@@ -37,6 +37,10 @@ PrefabInstance:
       value: 100
       objectReference: {fileID: 0}
     - target: {fileID: -6543705038715599381, guid: ada909992705ff7419c6ad3973e8058f, type: 3}
+      propertyPath: m_uniqueID
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: -6543705038715599381, guid: ada909992705ff7419c6ad3973e8058f, type: 3}
       propertyPath: maxHitPoints
       value: 80
       objectReference: {fileID: 0}
@@ -99,6 +103,10 @@ PrefabInstance:
     - target: {fileID: 3295721743684589200, guid: ada909992705ff7419c6ad3973e8058f, type: 3}
       propertyPath: m_Layer
       value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 3295721743684589200, guid: ada909992705ff7419c6ad3973e8058f, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ada909992705ff7419c6ad3973e8058f, type: 3}

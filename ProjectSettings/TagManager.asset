@@ -6,6 +6,7 @@ TagManager:
   tags:
   - QuestGiver
   - PlayerName
+  - Enemy
   layers:
   - Default
   - TransparentFX

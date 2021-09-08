@@ -10,7 +10,7 @@ namespace NGS.ExtendableSaveSystem
     {
         protected ISavableComponent[] GetOrderedSavableComponents()
         {
-            return FindObjectsOfTypeAll(typeof(Component))
+            return FindObjectsOfType(typeof(Component))
                 .Where(c => c is ISavableComponent)
                 .Select(c => (ISavableComponent)c)
                 .OrderBy(c => c.executionOrder)
@@ -28,7 +28,11 @@ namespace NGS.ExtendableSaveSystem
             Dictionary<int, ComponentData> componentsData = new Dictionary<int, ComponentData>();
 
             foreach (var savableComponent in GetOrderedSavableComponents())
+            {
+                Debug.Log("Unique id when saving: " + savableComponent.uniqueID);
                 componentsData.Add(savableComponent.uniqueID, savableComponent.Serialize());
+            }
+                
 
             BinaryFormatter formatter = new BinaryFormatter();
 
@@ -52,7 +56,10 @@ namespace NGS.ExtendableSaveSystem
 
             foreach (var savableComponent in GetOrderedSavableComponents())
                 if (componentsData.ContainsKey(savableComponent.uniqueID))
+                {
                     savableComponent.Deserialize(componentsData[savableComponent.uniqueID]);
+                }
+
         }
     }
 }

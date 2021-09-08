@@ -597,6 +597,9 @@ MonoBehaviour:
   experience: 100
   power: 10
   currentHitPoints: 0
+  isDead: 0
+  m_uniqueID: 3
+  m_executionOrder: 0
 --- !u!114 &1475409996
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -690,6 +693,10 @@ PrefabInstance:
     - target: {fileID: 878664883251175061, guid: 02e72af42b5d8fe4584644670cd879fc, type: 3}
       propertyPath: m_Name
       value: Normal Bandit
+      objectReference: {fileID: 0}
+    - target: {fileID: 878664883251175061, guid: 02e72af42b5d8fe4584644670cd879fc, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
       objectReference: {fileID: 0}
     - target: {fileID: 5599609459453085612, guid: 02e72af42b5d8fe4584644670cd879fc, type: 3}
       propertyPath: targetLayers.m_Bits

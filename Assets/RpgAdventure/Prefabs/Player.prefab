@@ -6245,7 +6245,6 @@ GameObject:
   - component: {fileID: 3253313466715821885}
   - component: {fileID: 5457834299256274919}
   - component: {fileID: 6007523383009413022}
-  - component: {fileID: 277138205}
   m_Layer: 7
   m_Name: Player
   m_TagString: Player
@@ -6452,11 +6451,14 @@ MonoBehaviour:
   currentLevel: 1
   currentExp: 0
   skillPoints: 0
+  usedSkillPoints: 0
   spellDamage: 20
   spellSpeed: 10
   defeatedEnemies: 0
   questCompleted: 0
   leveledUp: 0
+  m_uniqueID: 1
+  m_executionOrder: 0
 --- !u!114 &6007523383009413022
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6471,20 +6473,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   projectile: {fileID: 8752502796209874189, guid: 936929ec9df0a1f4abcefa25e8cfe0cc, type: 3}
   leftHand: {fileID: 6685749127629687849}
---- !u!114 &277138205
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6685918425115667425}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2f18b9297a760e641b678d28e19da117, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _uniqueID: -24348
-  _executionOrder: 0
 --- !u!1 &6685928153383726683
 GameObject:
   m_ObjectHideFlags: 0

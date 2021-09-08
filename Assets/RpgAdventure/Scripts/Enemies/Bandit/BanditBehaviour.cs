@@ -16,6 +16,7 @@ namespace RpgAdventure
         private PlayerController m_FollowTarget;
         private EnemyController m_EnemyController;
         private EnemiesNameByUIS m_EnemyDictionary;
+        private EnemiesBySaveSystemId m_EnemyAliveList;
         private UniqueId m_EnemyId;
         private EnemyHealthBar m_EnemyHealthBar;
         private Damageable m_Damagable;
@@ -58,6 +59,9 @@ namespace RpgAdventure
             m_EnemyHealthBar.SetMaxHealth(m_Damagable.GetComponent<CharacterStats>().maxHitPoints);
             m_DetectionRadiusOrig = playerScanner.detectionRadius;
             m_DetectionAngleOrig = playerScanner.detectionAngle;
+            m_EnemyAliveList = GameObject.Find("EnemyList").GetComponent<EnemiesBySaveSystemId>();
+            m_EnemyAliveList.enmiesSaveSystem.Add(m_Damagable.GetComponent<CharacterStats>().uniqueID, m_Damagable.GetComponent<CharacterStats>().isDead);
+
         }
         private void Update()
         {
@@ -153,6 +157,8 @@ namespace RpgAdventure
                 case MessageType.DEAD:
                     OnDeath();
                     m_EnemyHealthBar.SetHealth((sender as Damageable).CurrentHitPoints);
+                    m_Damagable.GetComponent<CharacterStats>().isDead = true;
+                    m_EnemyAliveList.enmiesSaveSystem[m_Damagable.GetComponent<CharacterStats>().uniqueID] = m_Damagable.GetComponent<CharacterStats>().isDead;
                     break;
                 case MessageType.DAMAGED:
                     

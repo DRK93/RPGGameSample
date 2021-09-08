@@ -142,19 +142,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3290065161624183160, guid: ada909992705ff7419c6ad3973e8058f, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 337.4579
+      value: 330.73596
       objectReference: {fileID: 0}
     - target: {fileID: 3290065161624183160, guid: ada909992705ff7419c6ad3973e8058f, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 6.0493197
+      value: 9.58931
       objectReference: {fileID: 0}
     - target: {fileID: 3290065161624183160, guid: ada909992705ff7419c6ad3973e8058f, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 157.10799
+      value: 163.13347
       objectReference: {fileID: 0}
     - target: {fileID: 3290065161624183160, guid: ada909992705ff7419c6ad3973e8058f, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.9241609
+      value: 0.9048027
       objectReference: {fileID: 0}
     - target: {fileID: 3290065161624183160, guid: ada909992705ff7419c6ad3973e8058f, type: 3}
       propertyPath: m_LocalRotation.x
@@ -162,7 +162,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3290065161624183160, guid: ada909992705ff7419c6ad3973e8058f, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.38200352
+      value: 0.4258311
       objectReference: {fileID: 0}
     - target: {fileID: 3290065161624183160, guid: ada909992705ff7419c6ad3973e8058f, type: 3}
       propertyPath: m_LocalRotation.z
@@ -174,7 +174,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3290065161624183160, guid: ada909992705ff7419c6ad3973e8058f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 44.916
+      value: 50.407
       objectReference: {fileID: 0}
     - target: {fileID: 3290065161624183160, guid: ada909992705ff7419c6ad3973e8058f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
@@ -182,11 +182,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3295721743684589200, guid: ada909992705ff7419c6ad3973e8058f, type: 3}
       propertyPath: m_Name
-      value: Mountain Bandit Leaer (3)
+      value: Mountain Bandit Leaer (2)
       objectReference: {fileID: 0}
     - target: {fileID: 3295721743684589200, guid: ada909992705ff7419c6ad3973e8058f, type: 3}
       propertyPath: m_Layer
       value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 3295721743684589200, guid: ada909992705ff7419c6ad3973e8058f, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ada909992705ff7419c6ad3973e8058f, type: 3}

@@ -39,18 +39,8 @@ namespace RpgAdventure
         private void Start()
         {
             m_PlStats = GameObject.Find("Player").GetComponent<PlayerStats>();
-            m_Level = m_PlStats.currentLevel;
-            m_Exp = m_PlStats.currentExp;
-            m_ToNextLevel = m_PlStats.ExpToNextLevel;
-            m_MaxHealth = m_PlStats.maxHitPoints;
-            m_Power = m_PlStats.power;
-            m_SpellDamage = m_PlStats.spellDamage;
-            m_SpellSpeed = m_PlStats.spellSpeed;
-            m_SkillPoints = m_PlStats.skillPoints;
-            m_UsedSkillPoints = m_PlStats.usedSkillPoints;
+            UpdateStatsOnCard();
             m_CurSkillPoints = 0;
-            m_EnemyDefeat = m_PlStats.defeatedEnemies;
-            m_QuestCompleted = m_PlStats.questCompleted;
             m_CurrentAddedHealth = 0;
             m_CurrentAddedPower = 0;
             m_CurrentAddedSpellDmg = 0;
@@ -72,6 +62,7 @@ namespace RpgAdventure
         {
             if (Input.GetKeyDown(KeyCode.C))
             {
+                UpdateStatsOnCard();
                 ShowCharacterCard();
             }
             if (m_PlStats.leveledUp == true)
@@ -81,6 +72,20 @@ namespace RpgAdventure
             }
         }
 
+        private void UpdateStatsOnCard()
+        {
+            m_Level = m_PlStats.currentLevel;
+            m_Exp = m_PlStats.currentExp;
+            m_ToNextLevel = m_PlStats.ExpToNextLevel;
+            m_MaxHealth = m_PlStats.maxHitPoints;
+            m_Power = m_PlStats.power;
+            m_SpellDamage = m_PlStats.spellDamage;
+            m_SpellSpeed = m_PlStats.spellSpeed;
+            m_SkillPoints = m_PlStats.skillPoints;
+            m_UsedSkillPoints = m_PlStats.usedSkillPoints;
+            m_EnemyDefeat = m_PlStats.defeatedEnemies;
+            m_QuestCompleted = m_PlStats.questCompleted;
+        }
         private void HideAddButtons()
         {
             addHealthBtn.gameObject.SetActive(false);

@@ -58,9 +58,13 @@ namespace RpgAdventure
             if (m_CurrentHitPoints + potionHealth > m_CharacterStats.maxHitPoints)
             {
                 m_CurrentHitPoints = m_CharacterStats.maxHitPoints;
+                m_CharacterStats.currentHitPoints = m_CharacterStats.maxHitPoints;
             }
             else
+            {
                 m_CurrentHitPoints += potionHealth;
+                m_CharacterStats.currentHitPoints += potionHealth;
+            }
         }
         public void SetInitialHealth()
         {

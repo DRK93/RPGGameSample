@@ -9,6 +9,7 @@ namespace NGS.ExtendableSaveSystem
         protected Dictionary<string, float> _floats = new Dictionary<string, float>();
         protected Dictionary<string, int> _integers = new Dictionary<string, int>();
         protected Dictionary<string, string> _strings = new Dictionary<string, string>();
+        protected Dictionary<string, bool> _bools = new Dictionary<string, bool>();
 
 
         public virtual void SetFloat(string uniqueName, float value)
@@ -21,9 +22,13 @@ namespace NGS.ExtendableSaveSystem
             _integers.Add(uniqueName, value);
         }
 
-        public virtual void SetInt(string uniqueName, string value)
+        public virtual void SetString(string uniqueName, string value)
         {
             _strings.Add(uniqueName, value);
+        }
+        public virtual void SetBool(string uniqueName, bool value)
+        {
+            _bools.Add(uniqueName, value);
         }
 
 
@@ -40,6 +45,10 @@ namespace NGS.ExtendableSaveSystem
         public virtual string GetString(string uniqueName)
         {
             return _strings[uniqueName];
+        }
+        public virtual bool GetBool(string uniqueName)
+        {
+            return _bools[uniqueName];
         }
     }
 }

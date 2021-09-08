@@ -35,7 +35,6 @@ namespace NGS.ExtendableSaveSystem
             ExtendedComponentData data = new ExtendedComponentData();
 
             data.SetTransform("transform", transform);
-
             return data;
         }
 

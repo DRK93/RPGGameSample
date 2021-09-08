@@ -1,10 +1,11 @@
 ﻿using System.Collections;
 using UnityEngine;
 using System;
+using NGS.ExtendableSaveSystem;
 
 namespace RpgAdventure
 {
-    public class PlayerStats : CharacterStats, IMessageReceiver
+    public class PlayerStats : CharacterStats, IMessageReceiver, ISavableComponent
     {
         public int maxLevel;
         public int[] availableLevels;
@@ -24,11 +25,14 @@ namespace RpgAdventure
                 return availableLevels[currentLevel+1]; 
             }
         }
+        private HudManager m_HudMan;
 
         private void Awake()
         {
             availableLevels = new int[maxLevel];
             ComputeLevels(maxLevel);
+            currentHitPoints = maxHitPoints;
+            m_HudMan = FindObjectOfType<HudManager>();
         }
         private void ComputeLevels(int levelCount)
         {
@@ -73,5 +77,50 @@ namespace RpgAdventure
                 defeatedEnemies++;
             }
         }
+        public new ComponentData Serialize()
+        {
+            Debug.Log("Player serialize");
+            ExtendedComponentData data = new ExtendedComponentData();
+            data.SetTransform("transform", transform);
+
+            data.SetInt("maxhp", maxHitPoints);
+            data.SetInt("exp", experience);
+            data.SetInt("powr", power);
+            data.SetInt("currenthp", currentHitPoints);
+            data.SetInt("curlvl", currentLevel);
+            data.SetInt("curexp", currentExp);
+            data.SetInt("skPts", skillPoints);
+            data.SetInt("usedSkPts", usedSkillPoints);
+            data.SetInt("spldmg", spellDamage);
+            data.SetInt("splspd", spellSpeed);
+            data.SetInt("defenemy", defeatedEnemies);
+            data.SetInt("qcmpl", questCompleted);
+
+            return data;
+        }
+        public new void Deserialize(ComponentData data)
+        {
+            Debug.Log("Player deserialize");
+            ExtendedComponentData unpacked = (ExtendedComponentData)data;
+            unpacked.GetTransform("transform", transform);
+
+            maxHitPoints = unpacked.GetInt("maxhp");
+            experience = unpacked.GetInt("exp");
+            power = unpacked.GetInt("powr");
+            currentHitPoints = unpacked.GetInt("currenthp");
+            currentLevel = unpacked.GetInt("curlvl");
+            currentExp = unpacked.GetInt("curexp");
+            skillPoints = unpacked.GetInt("skPts");
+            usedSkillPoints = unpacked.GetInt("usedSkPts");
+            spellDamage = unpacked.GetInt("spldmg");
+            spellSpeed = unpacked.GetInt("splspd");
+            defeatedEnemies = unpacked.GetInt("defenemy");
+            questCompleted = unpacked.GetInt("qcmpl");
+            
+            m_HudMan.SetMaxHealth(maxHitPoints);
+            m_HudMan.SetHealth(currentHitPoints);
+
+        }
     }
+
 }

@@ -158,11 +158,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8571322859256349885, guid: 4d8b09ac664205849ab4c55b66940420, type: 3}
       propertyPath: m_Name
-      value: Forest Bandit Brigand (11)
+      value: Forest Bandit Brigand
       objectReference: {fileID: 0}
     - target: {fileID: 8571322859256349885, guid: 4d8b09ac664205849ab4c55b66940420, type: 3}
       propertyPath: m_Layer
       value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8571322859256349885, guid: 4d8b09ac664205849ab4c55b66940420, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4d8b09ac664205849ab4c55b66940420, type: 3}

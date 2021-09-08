@@ -114,11 +114,15 @@ PrefabInstance:
       objectReference: {fileID: 1064773306492071617}
     - target: {fileID: 7694643222065798009, guid: 41be4f02f0149654687e6e5790e3eda4, type: 3}
       propertyPath: m_Name
-      value: Forest Bandit (11)
+      value: Forest Bandit
       objectReference: {fileID: 0}
     - target: {fileID: 7694643222065798009, guid: 41be4f02f0149654687e6e5790e3eda4, type: 3}
       propertyPath: m_Layer
       value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 7694643222065798009, guid: 41be4f02f0149654687e6e5790e3eda4, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
       objectReference: {fileID: 0}
     - target: {fileID: 7701135354830282597, guid: 41be4f02f0149654687e6e5790e3eda4, type: 3}
       propertyPath: m_RootOrder
