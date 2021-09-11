@@ -11,8 +11,8 @@ namespace RpgAdventure
         private EnemiesNameByUIS m_EnemyDictionary2;
         private string m_enemyName;
         private PlayerStats m_PlayerStats;
-        private List<GameObject> questPanels;
-        private List<QuestPanParameters> questPanParameters;
+        public List<GameObject> questPanels;
+        public List<QuestPanParameters> questPanParameters;
 
         void Awake()
         {

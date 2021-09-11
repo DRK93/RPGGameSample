@@ -181,6 +181,23 @@ namespace RpgAdventure
         {
             StopDialog();
         }
+        public void RemoveQuestOption(string questUID)
+        {
+            foreach (var questGiverNPC in GameObject.Find("QuestManager").GetComponent<QuestManager>().QuestGivers)
+            {
+                if (questGiverNPC.quest.uid == questUID)
+                {
+                    foreach (var dialogQuer in questGiverNPC.dialog.dialogQueries)
+                    {
+                        if (dialogQuer.answer.questId == questUID)
+                        {
+                            dialogQuer.isAsked = true;
+                            m_Player.GetComponent<QuestLog>().AddQuest(questGiverNPC.quest);
+                        }
+                    }
+                }
+            }
+        }
     }
 
 }

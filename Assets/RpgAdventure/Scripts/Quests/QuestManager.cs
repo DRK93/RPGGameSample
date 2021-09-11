@@ -26,6 +26,7 @@ namespace RpgAdventure
         public Quest[] quests;
         public GameObject QuestJournalUI;
         public Button QuestJournalLeaveBtn;
+        public List<QuestGiver> QuestGivers;
         
 
         private void Awake()
@@ -58,6 +59,7 @@ namespace RpgAdventure
                 foreach (QuestGiver questGiver in questGivers)
                 {
                     AssignQuestTo(questGiver);
+                    QuestGivers.Add(questGiver);
                 }
             }
         }

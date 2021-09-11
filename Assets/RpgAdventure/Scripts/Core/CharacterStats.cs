@@ -23,10 +23,6 @@ namespace RpgAdventure
         [SerializeField] private int m_executionOrder;
         public int uniqueID => m_uniqueID;
         public int executionOrder => m_executionOrder;
-        //private void Reset()
-        //{
-        //m_uniqueID = GetHashCode();
-        //}
 
         public ComponentData Serialize()
         {
