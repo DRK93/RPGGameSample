@@ -108,6 +108,26 @@ PrefabInstance:
       propertyPath: maxHitPoints
       value: 240
       objectReference: {fileID: 0}
+    - target: {fileID: 3758582290649895483, guid: 41be4f02f0149654687e6e5790e3eda4, type: 3}
+      propertyPath: m_Name
+      value: Name
+      objectReference: {fileID: 0}
+    - target: {fileID: 4035758591085920352, guid: 41be4f02f0149654687e6e5790e3eda4, type: 3}
+      propertyPath: m_fontColor.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4035758591085920352, guid: 41be4f02f0149654687e6e5790e3eda4, type: 3}
+      propertyPath: m_fontColor.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4035758591085920352, guid: 41be4f02f0149654687e6e5790e3eda4, type: 3}
+      propertyPath: m_fontColor.r
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4035758591085920352, guid: 41be4f02f0149654687e6e5790e3eda4, type: 3}
+      propertyPath: m_fontColor32.rgba
+      value: 4278190080
+      objectReference: {fileID: 0}
     - target: {fileID: 7030833890779239869, guid: 41be4f02f0149654687e6e5790e3eda4, type: 3}
       propertyPath: meleeWeapon
       value: 

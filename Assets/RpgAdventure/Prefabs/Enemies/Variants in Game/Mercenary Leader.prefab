@@ -121,6 +121,10 @@ PrefabInstance:
       value: 350
       objectReference: {fileID: 0}
     - target: {fileID: -2522676533635577899, guid: 4d8b09ac664205849ab4c55b66940420, type: 3}
+      propertyPath: m_uniqueID
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: -2522676533635577899, guid: 4d8b09ac664205849ab4c55b66940420, type: 3}
       propertyPath: maxHitPoints
       value: 200
       objectReference: {fileID: 0}
@@ -128,6 +132,26 @@ PrefabInstance:
       propertyPath: meleeWeapon
       value: 
       objectReference: {fileID: 947983052711610257}
+    - target: {fileID: 1524007124478075804, guid: 4d8b09ac664205849ab4c55b66940420, type: 3}
+      propertyPath: m_Name
+      value: Name
+      objectReference: {fileID: 0}
+    - target: {fileID: 2020178856043999240, guid: 4d8b09ac664205849ab4c55b66940420, type: 3}
+      propertyPath: m_fontColor.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2020178856043999240, guid: 4d8b09ac664205849ab4c55b66940420, type: 3}
+      propertyPath: m_fontColor.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2020178856043999240, guid: 4d8b09ac664205849ab4c55b66940420, type: 3}
+      propertyPath: m_fontColor.r
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2020178856043999240, guid: 4d8b09ac664205849ab4c55b66940420, type: 3}
+      propertyPath: m_fontColor32.rgba
+      value: 4278190080
+      objectReference: {fileID: 0}
     - target: {fileID: 3548028014296223258, guid: 4d8b09ac664205849ab4c55b66940420, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0

@@ -48,6 +48,34 @@ PrefabInstance:
       propertyPath: meleeWeapon
       value: 
       objectReference: {fileID: 3395238782564998584}
+    - target: {fileID: 1524007124478075804, guid: 4d8b09ac664205849ab4c55b66940420, type: 3}
+      propertyPath: m_Name
+      value: Name
+      objectReference: {fileID: 0}
+    - target: {fileID: 2020178856043999240, guid: 4d8b09ac664205849ab4c55b66940420, type: 3}
+      propertyPath: m_fontColor.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2020178856043999240, guid: 4d8b09ac664205849ab4c55b66940420, type: 3}
+      propertyPath: m_fontColor.g
+      value: 0.2848546
+      objectReference: {fileID: 0}
+    - target: {fileID: 2020178856043999240, guid: 4d8b09ac664205849ab4c55b66940420, type: 3}
+      propertyPath: m_fontColor.r
+      value: 0.764151
+      objectReference: {fileID: 0}
+    - target: {fileID: 2020178856043999240, guid: 4d8b09ac664205849ab4c55b66940420, type: 3}
+      propertyPath: m_fontColor32.rgba
+      value: 4278208963
+      objectReference: {fileID: 0}
+    - target: {fileID: 3548028014296223258, guid: 4d8b09ac664205849ab4c55b66940420, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3548028014296223258, guid: 4d8b09ac664205849ab4c55b66940420, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8567843721165042429, guid: 4d8b09ac664205849ab4c55b66940420, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -106,7 +134,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8571322859256349885, guid: 4d8b09ac664205849ab4c55b66940420, type: 3}
       propertyPath: m_Name
-      value: Cursed Bandit (1)
+      value: Cursed Bandit
       objectReference: {fileID: 0}
     - target: {fileID: 8571322859256349885, guid: 4d8b09ac664205849ab4c55b66940420, type: 3}
       propertyPath: m_Layer

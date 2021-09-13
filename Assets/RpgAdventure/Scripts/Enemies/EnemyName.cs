@@ -10,27 +10,38 @@ namespace RpgAdventure
         public GameObject enemyName;
         public GameObject enemyHealthBar;
         private BanditBehaviour banditBhv; 
-        // Start is called before the first frame update
         void Start()
         {
             banditBhv = GetComponent<BanditBehaviour>();
             if (banditBhv.ThisEnemyName != null)
             { enemyName.GetComponent<TMPro.TextMeshPro>().text = banditBhv.ThisEnemyName; }
-
             else
             { enemyName.GetComponent<TMPro.TextMeshPro>().text = "Corpse"; }
-            enemyName.GetComponent<TMPro.TextMeshPro>().color = Color.red;
+
+            enemyName.SetActive(false);
+            enemyHealthBar.SetActive(false);
         }
 
-        // Update is called once per frame
         void LateUpdate()
         {
             enemyName.transform.LookAt(Camera.main.transform.position + Camera.main.transform.forward);
-            //enemyName.transform.LookAt(Camera.main.transform.position);
             enemyName.transform.Rotate(0, 180, 0);
             enemyHealthBar.transform.LookAt(Camera.main.transform.position);
             enemyHealthBar.transform.Rotate(0, 180, 0);
-
+            CheckDistanceToPlayerCamera();
+        }
+        private void CheckDistanceToPlayerCamera()
+        {
+            if (Vector3.Distance(enemyName.transform.position, Camera.main.transform.position) < 50.0f)
+            {
+                enemyName.SetActive(true);
+                enemyHealthBar.SetActive(true);
+            }
+            else
+            {
+                enemyName.SetActive(false);
+                enemyHealthBar.SetActive(false);
+            }
         }
     }
 }
