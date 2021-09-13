@@ -1,0 +1,20 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+namespace RpgAdventure
+{
+    public class Fanmoving : MonoBehaviour
+    {
+        public GameObject windmillFan;
+        void Start()
+        {
+
+        }
+        void Update()
+        {
+            windmillFan.transform.Rotate(new Vector3(0, 1, 0) * Time.deltaTime * 35);
+        }
+    }
+}
+
