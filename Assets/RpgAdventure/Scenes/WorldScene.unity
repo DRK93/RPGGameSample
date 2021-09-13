@@ -7354,7 +7354,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3885354949720706550, guid: b1dd2e8385324df498c3a16ec27519c8, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3885354949720706550, guid: b1dd2e8385324df498c3a16ec27519c8, type: 3}
       propertyPath: m_LocalPosition.x
@@ -7399,6 +7399,89 @@ PrefabInstance:
     - target: {fileID: 3890192322308966890, guid: b1dd2e8385324df498c3a16ec27519c8, type: 3}
       propertyPath: m_Name
       value: Lumberjack Jack
+      objectReference: {fileID: 0}
+    - target: {fileID: 4433926860536118309, guid: b1dd2e8385324df498c3a16ec27519c8, type: 3}
+      propertyPath: dialog.welcomeText
+      value: Hello Stranger, you are first traveler in past few days, what's brings
+        you here?
+      objectReference: {fileID: 0}
+    - target: {fileID: 4433926860536118309, guid: b1dd2e8385324df498c3a16ec27519c8, type: 3}
+      propertyPath: dialog.dialogQueries.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4433926860536118309, guid: b1dd2e8385324df498c3a16ec27519c8, type: 3}
+      propertyPath: dialog.dialogQueries.Array.data[0].text
+      value: I'm Warden, I have to check what's going on here, because we lost contact
+        with this place for a few weeks.
+      objectReference: {fileID: 0}
+    - target: {fileID: 4433926860536118309, guid: b1dd2e8385324df498c3a16ec27519c8, type: 3}
+      propertyPath: dialog.dialogQueries.Array.data[1].text
+      value: looks like bad times here. So maybe I can help you clean these mess
+        up here. Do you need something?
+      objectReference: {fileID: 0}
+    - target: {fileID: 4433926860536118309, guid: b1dd2e8385324df498c3a16ec27519c8, type: 3}
+      propertyPath: dialog.dialogQueries.Array.data[2].text
+      value: Take care.
+      objectReference: {fileID: 0}
+    - target: {fileID: 4433926860536118309, guid: b1dd2e8385324df498c3a16ec27519c8, type: 3}
+      propertyPath: dialog.dialogQueries.Array.data[3].text
+      value: Take care.
+      objectReference: {fileID: 0}
+    - target: {fileID: 4433926860536118309, guid: b1dd2e8385324df498c3a16ec27519c8, type: 3}
+      propertyPath: dialog.dialogQueries.Array.data[0].answer.text
+      value: Cursed bandits!! No one made from here to Middlerealm? Nah, atleast
+        we get you here.  As you checked it yourself we have big troubles with bandits
+        here and there. Normaly there were some bandits at north from here, but they
+        were not as big problem as we have now. They are everywhere, even not far
+        from village. They took our small mines and quarries! At least we have our
+        sawmill so we can survive for now, but who knows for how long.
+      objectReference: {fileID: 0}
+    - target: {fileID: 4433926860536118309, guid: b1dd2e8385324df498c3a16ec27519c8, type: 3}
+      propertyPath: dialog.dialogQueries.Array.data[1].answer.text
+      value: East from village we have small mines and quarries. Nothing big, but
+        it was enough for us. Two weeks ago some bandits came from mountains, they
+        took mines and kill some workers. I lost good friend there. Please, get rid
+        off them. It will be enough for me.
+      objectReference: {fileID: 0}
+    - target: {fileID: 4433926860536118309, guid: b1dd2e8385324df498c3a16ec27519c8, type: 3}
+      propertyPath: dialog.dialogQueries.Array.data[2].answer.text
+      value: See you Warden.
+      objectReference: {fileID: 0}
+    - target: {fileID: 4433926860536118309, guid: b1dd2e8385324df498c3a16ec27519c8, type: 3}
+      propertyPath: dialog.dialogQueries.Array.data[3].answer.text
+      value: See you
+      objectReference: {fileID: 0}
+    - target: {fileID: 4433926860536118309, guid: b1dd2e8385324df498c3a16ec27519c8, type: 3}
+      propertyPath: dialog.dialogQueries.Array.data[0].isAlwaysAsked
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4433926860536118309, guid: b1dd2e8385324df498c3a16ec27519c8, type: 3}
+      propertyPath: dialog.dialogQueries.Array.data[2].isAlwaysAsked
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4433926860536118309, guid: b1dd2e8385324df498c3a16ec27519c8, type: 3}
+      propertyPath: dialog.dialogQueries.Array.data[3].isAlwaysAsked
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4433926860536118309, guid: b1dd2e8385324df498c3a16ec27519c8, type: 3}
+      propertyPath: dialog.dialogQueries.Array.data[0].answer.questId
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 4433926860536118309, guid: b1dd2e8385324df498c3a16ec27519c8, type: 3}
+      propertyPath: dialog.dialogQueries.Array.data[1].answer.questId
+      value: q-2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4433926860536118309, guid: b1dd2e8385324df498c3a16ec27519c8, type: 3}
+      propertyPath: dialog.dialogQueries.Array.data[1].answer.forceDialogQuit
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4433926860536118309, guid: b1dd2e8385324df498c3a16ec27519c8, type: 3}
+      propertyPath: dialog.dialogQueries.Array.data[2].answer.forceDialogQuit
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4433926860536118309, guid: b1dd2e8385324df498c3a16ec27519c8, type: 3}
+      propertyPath: dialog.dialogQueries.Array.data[3].answer.forceDialogQuit
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5116778386215169605, guid: b1dd2e8385324df498c3a16ec27519c8, type: 3}
       propertyPath: m_text
@@ -8136,7 +8219,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 498874114}
-  m_LocalRotation: {x: 0.061646033, y: 4.741998e-15, z: -4.3756753e-16, w: 0.9980981}
+  m_LocalRotation: {x: 0.061646033, y: 1.2095552e-15, z: -2.5801804e-18, w: 0.9980981}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -13628,11 +13711,11 @@ Transform:
   m_LocalPosition: {x: -9.667095, y: -0.8012247, z: 5.425685}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 1040701467}
-  - {fileID: 1662020133}
+  - {fileID: 855003246}
   - {fileID: 1041614639}
   - {fileID: 53503793}
-  - {fileID: 855003246}
+  - {fileID: 1662020133}
+  - {fileID: 1040701467}
   - {fileID: 2124865194}
   - {fileID: 1298509875}
   m_Father: {fileID: 0}
@@ -17967,7 +18050,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4926633794195657114, guid: 5cbe6a19b5c1d444ca5e459ae12afd8a, type: 3}
       propertyPath: m_Name
-      value: Mountain Bandit Leaer
+      value: Mountain Bandit Leader
       objectReference: {fileID: 0}
     - target: {fileID: 5535553740200870625, guid: 5cbe6a19b5c1d444ca5e459ae12afd8a, type: 3}
       propertyPath: m_uniqueID
@@ -18464,13 +18547,30 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 815948766}
     m_Modifications:
+    - target: {fileID: 237019063214816976, guid: 5e8694940a5bf6a4191c0e517d1b5f3a, type: 3}
+      propertyPath: dialog.welcomeText
+      value: Hello there. What brings you here?
+      objectReference: {fileID: 0}
+    - target: {fileID: 237019063214816976, guid: 5e8694940a5bf6a4191c0e517d1b5f3a, type: 3}
+      propertyPath: dialog.dialogQueries.Array.data[0].answer.text
+      value: You have no idea, how wonderful news is that. We need help with forest
+        bandits in west forest across the bridge. For many years there were many
+        lumberjacks and sawyers working there. Many families have long traditions
+        of that work. My father was one of them. Now, this forest is full of bandits,
+        they are very dangerous and aggressive. Please get rid of them so we have
+        at least possibility to retrieve our legacy.
+      objectReference: {fileID: 0}
+    - target: {fileID: 237019063214816976, guid: 5e8694940a5bf6a4191c0e517d1b5f3a, type: 3}
+      propertyPath: dialog.dialogQueries.Array.data[0].answer.questId
+      value: q-5
+      objectReference: {fileID: 0}
     - target: {fileID: 4224386948720044439, guid: 5e8694940a5bf6a4191c0e517d1b5f3a, type: 3}
       propertyPath: m_Name
       value: Emilia
       objectReference: {fileID: 0}
     - target: {fileID: 4230409140825036637, guid: 5e8694940a5bf6a4191c0e517d1b5f3a, type: 3}
       propertyPath: m_RootOrder
-      value: 0
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 4230409140825036637, guid: 5e8694940a5bf6a4191c0e517d1b5f3a, type: 3}
       propertyPath: m_LocalPosition.x
@@ -23694,6 +23794,32 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 815948766}
     m_Modifications:
+    - target: {fileID: -507106852711497111, guid: 9b52be6069aef4449846f92e51f16381, type: 3}
+      propertyPath: dialog.dialogQueries.Array.data[0].answer.text
+      value: Good eye, yes I'm not from here. I was a mercennary in the east. My
+        friend was from here. He died after one battle from injures in field hospital.
+        Before that he asked me to return his belongings to his mother. I owed him
+        something so I didn't have choice. So I went here, found that his mother
+        is gravely ill and I tried to help her. Old one died few weeks ago and now
+        I don't have anything to do.  And now there are so many banidts here and
+        there, so I will wait  until everything settled down a little. What these
+        bandits want from these village? No idea, I even tried to find here something
+        but no, there is nothing here.
+      objectReference: {fileID: 0}
+    - target: {fileID: -507106852711497111, guid: 9b52be6069aef4449846f92e51f16381, type: 3}
+      propertyPath: dialog.dialogQueries.Array.data[1].answer.text
+      value: Besides bandits and bandits? On east road one day I saw mercenaries
+        from one awfull company, Black Sheeps. They are like bandits and I have no
+        idea what they doing there. But I'm sure nothing good. Trust me, I'm mercenary
+        myself and know something about them. They starting to set a camp there in
+        one valley. Maybe you can get rid of them from that place. This poor village
+        have enougth problems without them. I'll don't do them any harm myself, I
+        better scout than fighter.
+      objectReference: {fileID: 0}
+    - target: {fileID: -507106852711497111, guid: 9b52be6069aef4449846f92e51f16381, type: 3}
+      propertyPath: dialog.dialogQueries.Array.data[0].isAlwaysAsked
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6113777061736277852, guid: 9b52be6069aef4449846f92e51f16381, type: 3}
       propertyPath: m_Height
       value: 1.7
@@ -23704,7 +23830,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8387154106155586849, guid: 9b52be6069aef4449846f92e51f16381, type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8387154106155586849, guid: 9b52be6069aef4449846f92e51f16381, type: 3}
       propertyPath: m_LocalPosition.x
@@ -23814,6 +23940,55 @@ PrefabInstance:
     - target: {fileID: 880260651569573451, guid: 06930cc2b30acca42a74c68ef7eff01b, type: 3}
       propertyPath: m_Name
       value: Barbarian
+      objectReference: {fileID: 0}
+    - target: {fileID: 2474835461324934734, guid: 06930cc2b30acca42a74c68ef7eff01b, type: 3}
+      propertyPath: dialog.dialogQueries.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2474835461324934734, guid: 06930cc2b30acca42a74c68ef7eff01b, type: 3}
+      propertyPath: dialog.dialogQueries.Array.data[3].text
+      value: Why there is no one here? There are no bandits as far as I can, see
+        beside these guys over the bridge.
+      objectReference: {fileID: 0}
+    - target: {fileID: 2474835461324934734, guid: 06930cc2b30acca42a74c68ef7eff01b, type: 3}
+      propertyPath: dialog.dialogQueries.Array.data[4].text
+      value: I'll will be going
+      objectReference: {fileID: 0}
+    - target: {fileID: 2474835461324934734, guid: 06930cc2b30acca42a74c68ef7eff01b, type: 3}
+      propertyPath: dialog.dialogQueries.Array.data[2].answer.text
+      value: Revenge and justice. Kill those cursed fellows. They are near. In forest
+        behind those bridge. I can feel them. After last days, I can feel them from
+        distance. But I cannot <Cough><Cough> do it<Cough> myself. <Cough> I lost
+        to much blood...<Cough> These are my last hours. Please, kill them. But beware,
+        these guys are nothing like your small bandits here. They cursed, the have
+        much more power, but at least their power is fading.<Cough><Cough> You should
+        be able to do it now<Cough>. You should find them near some old ruins or
+        graveyards. I don't know why, but we always finding them camping near simmilar
+        structures<Cough>Beware.
+      objectReference: {fileID: 0}
+    - target: {fileID: 2474835461324934734, guid: 06930cc2b30acca42a74c68ef7eff01b, type: 3}
+      propertyPath: dialog.dialogQueries.Array.data[3].answer.text
+      value: Heh, I'm old and dying <Cough> but still dangerous <Cough>. They are
+        not just stupid as you would think<Cough> Their friends from north camp weren't
+        that smart, after they lost few people they give up and let me go, maybe
+        their leader understand that I'll die without their pitiful  <Cough> efforts
+        <Cough>.
+      objectReference: {fileID: 0}
+    - target: {fileID: 2474835461324934734, guid: 06930cc2b30acca42a74c68ef7eff01b, type: 3}
+      propertyPath: dialog.dialogQueries.Array.data[4].answer.text
+      value: Good luck Warden <Cough>.
+      objectReference: {fileID: 0}
+    - target: {fileID: 2474835461324934734, guid: 06930cc2b30acca42a74c68ef7eff01b, type: 3}
+      propertyPath: dialog.dialogQueries.Array.data[4].isAlwaysAsked
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2474835461324934734, guid: 06930cc2b30acca42a74c68ef7eff01b, type: 3}
+      propertyPath: dialog.dialogQueries.Array.data[3].answer.forceDialogQuit
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2474835461324934734, guid: 06930cc2b30acca42a74c68ef7eff01b, type: 3}
+      propertyPath: dialog.dialogQueries.Array.data[4].answer.forceDialogQuit
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 06930cc2b30acca42a74c68ef7eff01b, type: 3}
@@ -26065,6 +26240,84 @@ PrefabInstance:
     - target: {fileID: 791443947472178324, guid: 0ae27d949ea347b45870bd41ef65473a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2611443423633032681, guid: 0ae27d949ea347b45870bd41ef65473a, type: 3}
+      propertyPath: dialog.dialogQueries.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2611443423633032681, guid: 0ae27d949ea347b45870bd41ef65473a, type: 3}
+      propertyPath: dialog.dialogQueries.Array.data[0].text
+      value: I'm new assigned Warden for this region. We lost contact with this place
+        so report in soldier.
+      objectReference: {fileID: 0}
+    - target: {fileID: 2611443423633032681, guid: 0ae27d949ea347b45870bd41ef65473a, type: 3}
+      propertyPath: dialog.dialogQueries.Array.data[1].text
+      value: Any idea, from wich side should I start cleaning this mess?
+      objectReference: {fileID: 0}
+    - target: {fileID: 2611443423633032681, guid: 0ae27d949ea347b45870bd41ef65473a, type: 3}
+      propertyPath: dialog.dialogQueries.Array.data[2].text
+      value: Got it. I will be going.
+      objectReference: {fileID: 0}
+    - target: {fileID: 2611443423633032681, guid: 0ae27d949ea347b45870bd41ef65473a, type: 3}
+      propertyPath: dialog.dialogQueries.Array.data[0].answer.text
+      value: Warden? Here?! That's ridiculous !! Aww... You serious? Okay,okay, got
+        it. Reporting in Sir!! I'm guard Robert. We didn't know that no messanger
+        get to Mainrealm. We are in very bad position, Sir. From every direction
+        there are bandit groups, most of them well organized. It's started few weeks
+        ago, just one week after our new troops arrived. If they didn't come we will
+        be done weeks ago. For now the village is safe, cause our small fortress
+        with these amount of man will be too much for them. Still bandits try to
+        avoid us, but we don't know for how long. There are more and more of them
+        each week, and they are closer and closer to village. We still don't know
+        why there keep coming here.
+      objectReference: {fileID: 0}
+    - target: {fileID: 2611443423633032681, guid: 0ae27d949ea347b45870bd41ef65473a, type: 3}
+      propertyPath: dialog.dialogQueries.Array.data[1].answer.text
+      value: No sir!! Just defeat as amny as you can, any direction will be good
+        for us. From east we have some mercenaries behind the hills, for us they
+        are the same as bandits. We gave them messages and warnings, still they didn't
+        give us any response, so be it. In north we have, let's say old friends,
+        these bandits where here for many months, an for months they were only a
+        threat for alone travelers. Now they are setting a camp in old abandoned
+        settlement and are dangerous as others group. The biggest problem are west
+        forest bandits, they are the biggest group hidden there. The forest itself
+        is huge and dark.
+      objectReference: {fileID: 0}
+    - target: {fileID: 2611443423633032681, guid: 0ae27d949ea347b45870bd41ef65473a, type: 3}
+      propertyPath: dialog.dialogQueries.Array.data[2].answer.text
+      value: Take care and good luck.
+      objectReference: {fileID: 0}
+    - target: {fileID: 2611443423633032681, guid: 0ae27d949ea347b45870bd41ef65473a, type: 3}
+      propertyPath: dialog.dialogQueries.Array.data[0].isAlwaysAsked
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2611443423633032681, guid: 0ae27d949ea347b45870bd41ef65473a, type: 3}
+      propertyPath: dialog.dialogQueries.Array.data[1].isAlwaysAsked
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2611443423633032681, guid: 0ae27d949ea347b45870bd41ef65473a, type: 3}
+      propertyPath: dialog.dialogQueries.Array.data[2].isAlwaysAsked
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2611443423633032681, guid: 0ae27d949ea347b45870bd41ef65473a, type: 3}
+      propertyPath: dialog.dialogQueries.Array.data[0].answer.questId
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 2611443423633032681, guid: 0ae27d949ea347b45870bd41ef65473a, type: 3}
+      propertyPath: dialog.dialogQueries.Array.data[1].answer.questId
+      value: q-6
+      objectReference: {fileID: 0}
+    - target: {fileID: 2611443423633032681, guid: 0ae27d949ea347b45870bd41ef65473a, type: 3}
+      propertyPath: dialog.dialogQueries.Array.data[2].answer.questId
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 2611443423633032681, guid: 0ae27d949ea347b45870bd41ef65473a, type: 3}
+      propertyPath: dialog.dialogQueries.Array.data[1].answer.forceDialogQuit
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2611443423633032681, guid: 0ae27d949ea347b45870bd41ef65473a, type: 3}
+      propertyPath: dialog.dialogQueries.Array.data[2].answer.forceDialogQuit
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6979737615460003519, guid: 0ae27d949ea347b45870bd41ef65473a, type: 3}
       propertyPath: m_Height
@@ -32179,7 +32432,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 5335986827973680729, guid: 05dacc8b9b1c6f641aa09ce14d2cd452, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 5335986827973680729, guid: 05dacc8b9b1c6f641aa09ce14d2cd452, type: 3}
       propertyPath: m_LocalPosition.x
@@ -32224,6 +32477,16 @@ PrefabInstance:
     - target: {fileID: 5339119066608623763, guid: 05dacc8b9b1c6f641aa09ce14d2cd452, type: 3}
       propertyPath: m_Name
       value: Jaina
+      objectReference: {fileID: 0}
+    - target: {fileID: 8354839874201974740, guid: 05dacc8b9b1c6f641aa09ce14d2cd452, type: 3}
+      propertyPath: dialog.dialogQueries.Array.data[0].text
+      value: Do yo have any troubles?
+      objectReference: {fileID: 0}
+    - target: {fileID: 8354839874201974740, guid: 05dacc8b9b1c6f641aa09ce14d2cd452, type: 3}
+      propertyPath: dialog.dialogQueries.Array.data[0].answer.text
+      value: Yes, yesterday I saw bandits who were lurking near west bridge. Today
+        they set a blockade on west side. We don't go often on the west side, but
+        sometimes we need some herbs from there. Please get rid of them.
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 05dacc8b9b1c6f641aa09ce14d2cd452, type: 3}
@@ -34036,7 +34299,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4926633794195657114, guid: 5cbe6a19b5c1d444ca5e459ae12afd8a, type: 3}
       propertyPath: m_Name
-      value: Mountain Bandit Leaer (2)
+      value: Mountain Bandit Leader (2)
       objectReference: {fileID: 0}
     - target: {fileID: 5535553740200870625, guid: 5cbe6a19b5c1d444ca5e459ae12afd8a, type: 3}
       propertyPath: m_uniqueID
@@ -34724,7 +34987,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4926633794195657114, guid: 5cbe6a19b5c1d444ca5e459ae12afd8a, type: 3}
       propertyPath: m_Name
-      value: Mountain Bandit Leaer (1)
+      value: Mountain Bandit Leader (1)
       objectReference: {fileID: 0}
     - target: {fileID: 4926633794195657114, guid: 5cbe6a19b5c1d444ca5e459ae12afd8a, type: 3}
       propertyPath: m_TagString
@@ -37213,7 +37476,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2671130163156511217, guid: 860802900d40fc248afad70b7708b33e, type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2671130163156511217, guid: 860802900d40fc248afad70b7708b33e, type: 3}
       propertyPath: m_LocalPosition.x
@@ -37254,6 +37517,15 @@ PrefabInstance:
     - target: {fileID: 2671130163156511217, guid: 860802900d40fc248afad70b7708b33e, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3064838891327728062, guid: 860802900d40fc248afad70b7708b33e, type: 3}
+      propertyPath: dialog.dialogQueries.Array.data[1].answer.text
+      value: Nah, I'm almost self-sufficient. Sometimes I just need to go to the
+        village to sell my fishes.  Lately bandits start to be a little annoying
+        and block the road ahead. The know that I don't have anything beside fishes,
+        so I give them fish or two and they let me go to the village. But I'm lucky.
+        Any other traveler will not be as lucky as I am. So maybe Mr. Warden could
+        you do something with them, so the road will be safer?
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 860802900d40fc248afad70b7708b33e, type: 3}
