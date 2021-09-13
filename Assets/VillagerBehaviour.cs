@@ -24,10 +24,18 @@ namespace RpgAdventure
                 villagerName.transform.LookAt(Camera.main.transform.position + Camera.main.transform.forward);
                 villagerName.transform.Rotate(0, 180, 0);
                 villagerName.SetActive(true);
+                if (transform.CompareTag("QuestGiver"))
+                {
+                    transform.GetComponent<QuestGiver>().ShowQMark();
+                }
             }
             else
             {
                 villagerName.SetActive(false);
+                if (transform.CompareTag("QuestGiver"))
+                {
+                    transform.GetComponent<QuestGiver>().HideQMark();
+                }
             }
         }
     }

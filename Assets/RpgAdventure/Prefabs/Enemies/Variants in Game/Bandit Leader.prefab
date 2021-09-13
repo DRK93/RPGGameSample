@@ -31,25 +31,29 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1352872878, guid: 02e72af42b5d8fe4584644670cd879fc, type: 3}
+      propertyPath: m_uniqueID
+      value: 84
+      objectReference: {fileID: 0}
     - target: {fileID: 875552094676769417, guid: 02e72af42b5d8fe4584644670cd879fc, type: 3}
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 875552094676769417, guid: 02e72af42b5d8fe4584644670cd879fc, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 76.65
+      value: 519.4743
       objectReference: {fileID: 0}
     - target: {fileID: 875552094676769417, guid: 02e72af42b5d8fe4584644670cd879fc, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 4
+      value: 12.108049
       objectReference: {fileID: 0}
     - target: {fileID: 875552094676769417, guid: 02e72af42b5d8fe4584644670cd879fc, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 81.144
+      value: 564.0802
       objectReference: {fileID: 0}
     - target: {fileID: 875552094676769417, guid: 02e72af42b5d8fe4584644670cd879fc, type: 3}
       propertyPath: m_LocalRotation.w
-      value: -0.8563646
+      value: -0.5627852
       objectReference: {fileID: 0}
     - target: {fileID: 875552094676769417, guid: 02e72af42b5d8fe4584644670cd879fc, type: 3}
       propertyPath: m_LocalRotation.x
@@ -57,7 +61,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 875552094676769417, guid: 02e72af42b5d8fe4584644670cd879fc, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.51637167
+      value: 0.82660323
       objectReference: {fileID: 0}
     - target: {fileID: 875552094676769417, guid: 02e72af42b5d8fe4584644670cd879fc, type: 3}
       propertyPath: m_LocalRotation.z
@@ -69,7 +73,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 875552094676769417, guid: 02e72af42b5d8fe4584644670cd879fc, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 297.822
+      value: 248.49701
       objectReference: {fileID: 0}
     - target: {fileID: 875552094676769417, guid: 02e72af42b5d8fe4584644670cd879fc, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
@@ -79,5 +83,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bandit Leader
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -4061143214332024449, guid: 02e72af42b5d8fe4584644670cd879fc, type: 3}
+    - {fileID: 2605376510487879966, guid: 02e72af42b5d8fe4584644670cd879fc, type: 3}
+    - {fileID: -6626973848998603223, guid: 02e72af42b5d8fe4584644670cd879fc, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 02e72af42b5d8fe4584644670cd879fc, type: 3}

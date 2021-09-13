@@ -4360,6 +4360,7 @@ GameObject:
   - component: {fileID: 1658603378399056814}
   - component: {fileID: 1715809186652801106}
   - component: {fileID: 6472032846558461769}
+  - component: {fileID: -557769447471542361}
   m_Layer: 0
   m_Name: Female A
   m_TagString: Villager
@@ -4462,6 +4463,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   villagerName: {fileID: 6975208927586713985}
+--- !u!136 &-557769447471542361
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1608869122645965568}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.5
+  m_Height: 1
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1608870841013995992
 GameObject:
   m_ObjectHideFlags: 0

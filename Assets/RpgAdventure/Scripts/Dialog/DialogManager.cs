@@ -119,7 +119,7 @@ namespace RpgAdventure
                 if (!String.IsNullOrEmpty(dialogQuery.answer.questId))
                 {
                     m_Player.GetComponent<QuestLog>().AddQuest(m_NPC.quest);
-
+                    m_NPC.QMarkAssigned = true;
                 }
                 if (dialogQuery.answer.forceDialogQuit)
                 {
@@ -193,6 +193,7 @@ namespace RpgAdventure
                         {
                             dialogQuer.isAsked = true;
                             m_Player.GetComponent<QuestLog>().AddQuest(questGiverNPC.quest);
+                            questGiverNPC.QMarkAssigned = true;
                         }
                     }
                 }

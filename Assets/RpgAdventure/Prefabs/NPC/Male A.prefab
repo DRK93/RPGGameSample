@@ -349,7 +349,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 409155a311846ee44a995766d35a6341, type: 2}
+  - {fileID: 2100000, guid: 54ba8979fb35af640a8918811cc62a83, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -3140,6 +3140,7 @@ GameObject:
   - component: {fileID: 2265199257266017372}
   - component: {fileID: 2282555477567844768}
   - component: {fileID: 291997326}
+  - component: {fileID: 8539281465035032383}
   m_Layer: 0
   m_Name: Male A
   m_TagString: Villager
@@ -3242,6 +3243,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   villagerName: {fileID: 1106361665}
+--- !u!136 &8539281465035032383
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2179449333361487492}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.5
+  m_Height: 1.8
+  m_Direction: 1
+  m_Center: {x: 0, y: 0.9, z: 0}
 --- !u!1 &2179457760444836358
 GameObject:
   m_ObjectHideFlags: 0
