@@ -89,6 +89,20 @@
     "explore": null,
     "questGiver": "4959a37a-11f9-4df8-b556-aefcea7acd8a",
     "type": 0
+  },
+
+  {
+    "uid": "q-7",
+    "title": "Old barbarian in need of revenge!",
+    "description": "Old dying barbarian last wish is to get revenge, for his sake kill cursed bandit robbers",
+    "experience": 2000,
+    "gold": 150,
+    "amount": 2,
+    "targets": [ "723c547e-6094-4683-855d-4a31c2297c66" ],
+    "talkTo": null,
+    "explore": null,
+    "questGiver": "5ea7c870-700c-40f0-800d-1b1256132c9b",
+    "type": 0
   }
 ]
 
