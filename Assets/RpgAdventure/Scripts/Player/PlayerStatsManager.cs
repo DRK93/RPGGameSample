@@ -100,6 +100,10 @@ namespace RpgAdventure
             m_EnemyDefeat = m_PlStats.defeatedEnemies;
             m_QuestCompleted = m_PlStats.questCompleted;
             SetTextUpdate();
+            if (m_SkillPoints > 0)
+            {
+                ShowAddButtons();
+            }
         }
         private void LevelUp()
         {
