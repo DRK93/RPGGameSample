@@ -49,7 +49,6 @@ namespace RpgAdventure
             {
                 m_StartHealing = false;
                 UsePotion();
-                Debug.Log("Start healing from keyboard");
             }
         }
 

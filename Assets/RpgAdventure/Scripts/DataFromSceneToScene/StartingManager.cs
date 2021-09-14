@@ -25,6 +25,7 @@ namespace RpgAdventure
         {
             TextMeshProUGUI playerNameOnLetter = GameObject.Find("StartingCanvas/Panel/PlayerName").GetComponent<TextMeshProUGUI>();
             playerNameOnLetter.text = DataManager.instance.playerName;
+            
         }
 
         private void BeginJourney()
@@ -33,7 +34,6 @@ namespace RpgAdventure
             InventoryUI.SetActive(false);
             HudUI.SetActive(true);
         }
-
     }
 }
 

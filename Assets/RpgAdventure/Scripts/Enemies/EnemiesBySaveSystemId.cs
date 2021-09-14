@@ -23,10 +23,11 @@ namespace RpgAdventure
             enmiesSaveSystem = new Dictionary<int, bool>();
             enemySaveId = new List<int>();
             deadStatus = new List<bool>();
+            enemiesToKill = GameObject.FindGameObjectsWithTag("Enemy");
         }
         private void Start()
         {
-            enemiesToKill = GameObject.FindGameObjectsWithTag("Enemy");
+            //enemiesToKill = GameObject.FindGameObjectsWithTag("Enemy");
         }
         void Update()
         {
@@ -41,9 +42,12 @@ namespace RpgAdventure
                     Debug.Log("Destroying dead enemies from gameworld");
                     foreach (var enemy in enemiesToKill)
                     {
-                        if(enemy.GetComponent<CharacterStats>().uniqueID == enemyId)
+                        if (enemy!=null)
                         {
-                            Destroy(enemy);
+                            if (enemy.GetComponent<CharacterStats>().uniqueID == enemyId)
+                            {
+                                Destroy(enemy);
+                            }
                         }
                     }
                 }

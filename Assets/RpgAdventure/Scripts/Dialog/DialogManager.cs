@@ -34,11 +34,15 @@ namespace RpgAdventure
                     m_Player.transform.position,
                     m_NPC.transform.position);
 
-        private void Start()
+        void Awake()
         {
             m_Player = PlayerInput.Instance;
             dialogContinueBtn.onClick.AddListener(ContinueDialogClick);
             dialogQuitBtn.onClick.AddListener(QuitDialogClick);
+        }
+        private void Start()
+        {
+
         }
 
         private void Update()

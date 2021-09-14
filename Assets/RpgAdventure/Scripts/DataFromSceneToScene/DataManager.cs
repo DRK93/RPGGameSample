@@ -9,7 +9,7 @@ namespace RpgAdventure
         public static DataManager instance;
 
         public string playerName;
-
+        public int loadingNumber = 0;
         private void Awake()
         {
             playerName = "Player";

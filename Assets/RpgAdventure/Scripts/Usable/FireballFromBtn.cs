@@ -13,6 +13,7 @@ namespace RpgAdventure
         private float m_CooldownTime = 2f;
         private float m_TimeCounter;
         private bool m_IsFireballReady;
+        
         public bool IsFireballReady
         {
             get => m_IsFireballReady;
@@ -22,22 +23,22 @@ namespace RpgAdventure
         {
             m_FireballBtn = GameObject.Find("FireballThrowBtn").GetComponent<Button>();
             m_FireballBtn.onClick.AddListener(ThrowingFireball);
-            fireballSlider.value = 1;
+            m_FireballBtn.interactable = false;
+            fireballSlider.value = 0f;
             m_IsFireballReady = true;
         }
         void Update()
         {
-
-            if (fireballSlider.value < 1)
-            {
-                m_TimeCounter += Time.deltaTime;
-                SetCooldown(m_TimeCounter);
-            }
-            if (fireballSlider.value == 1 && m_FireballBtn.interactable == false)
-            {
-                m_FireballBtn.interactable = true;
-            }
-
+                if (fireballSlider.value < 1)
+                {
+                    m_TimeCounter += Time.deltaTime;
+                    SetCooldown(m_TimeCounter);
+                }
+                if (fireballSlider.value == 1 && m_FireballBtn.interactable == false)
+                {
+                    m_IsFireballReady = true;
+                    m_FireballBtn.interactable = true;
+                }
         }
 
         private void SetCooldown ( float m_TimeCounter)
@@ -50,7 +51,7 @@ namespace RpgAdventure
         }
         private void ThrowFireball()
         {
-            if (fireballSlider.value ==1)
+            if (fireballSlider.value == 1)
             {
                 fireballSlider.value = 0;
                 m_IsFireballReady = false;

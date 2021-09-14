@@ -25,6 +25,10 @@ namespace RpgAdventure
         public Button ReturnFromStartGame;
         public Button ControlsBtn;
         public Button ReturnFromControlsBtn;
+        public Button LoadGame1Btn;
+        public Button LoadGame2Btn;
+        public Button LoadGame3Btn;
+        public Button LoadGame4Btn;
 
         public TMPro.TMP_InputField InputPlayerName;
         public TMPro.TMP_InputField InputPlayerName2;
@@ -55,6 +59,11 @@ namespace RpgAdventure
             btn8.onClick.AddListener(ReturnFromPlayerName);
             btn9.onClick.AddListener(ReturnFromControls);
             btn10.onClick.AddListener(ShowControls);
+
+            LoadGame1Btn.onClick.AddListener(LoadGameState1);
+            LoadGame2Btn.onClick.AddListener(LoadGameState2);
+            LoadGame3Btn.onClick.AddListener(LoadGameState3);
+            LoadGame4Btn.onClick.AddListener(LoadGameState4);
 
             InputPlayerName2.text = this.playerName;
             InputPlayerName.onEndEdit.AddListener(SubmitName);
@@ -87,6 +96,30 @@ namespace RpgAdventure
         {
             MainMenu.SetActive(false);
             LoadGameMenu.SetActive(true);
+        }
+        private void LoadGameState1()
+        {
+            Debug.Log("Loading save game 1");
+            DataManager.instance.loadingNumber = 1;
+            SceneManager.LoadScene(1);
+        }
+        private void LoadGameState2()
+        {
+            Debug.Log("Loading save game 2");
+            DataManager.instance.loadingNumber = 2;
+            SceneManager.LoadScene(1);
+        }
+        private void LoadGameState3()
+        {
+            Debug.Log("Loading save game 3");
+            DataManager.instance.loadingNumber = 3;
+            SceneManager.LoadScene(1);
+        }
+        private void LoadGameState4()
+        {
+            Debug.Log("Loading save game 4");
+            DataManager.instance.loadingNumber = 4;
+            SceneManager.LoadScene(1);
         }
         public void ReturnFromLoadGame()
         {

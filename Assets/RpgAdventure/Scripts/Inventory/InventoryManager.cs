@@ -150,6 +150,7 @@ namespace RpgAdventure
                 inventoryPanel.GetChild(inventorySlot.index).GetComponentInChildren<Text>().text = ItemUncloneName(prefabInstance.name);
                 inventoryPanel.GetChild(inventorySlot.index).GetChild(2).GetComponent<Text>().text = prefabInstance.GetComponent<MeleeWeapon>().damage.ToString();
                 indexer++;
+                
             }
         }
 

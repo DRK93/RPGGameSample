@@ -63,6 +63,15 @@ namespace RpgAdventure
             m_NumberOfQuests++;
         }
 
+        public void ClearQuestLog()
+        {
+            Debug.Log("Removing quests from quest log");
+            for (int i = QuestScrollPanel.transform.childCount-1; i>=0; i--)
+            {
+                Destroy(QuestScrollPanel.transform.GetChild(i).gameObject);
+            }
+        }
+
         public GameObject AddQuestPanelInJournal(AcceptedQuest quest)
         {
             GameObject questPanelInstance = Instantiate(questPanelPrefab, QuestScrollPanel.transform);
@@ -134,8 +143,10 @@ namespace RpgAdventure
         }
         public void Deserialize(ComponentData data)
         {
+            ClearQuestLog();
             ExtendedComponentData unpacked = (ExtendedComponentData)data;
             quests = new List<AcceptedQuest>();
+            QuestManager.GetComponent<QuestUpdate>().questPanels = new List<GameObject>();
             m_questUID = new List<string>();
             m_NumberOfQuests = unpacked.GetInt("questnumber");
 

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using NGS.ExtendableSaveSystem;
 
 namespace RpgAdventure
 {
@@ -13,6 +14,8 @@ namespace RpgAdventure
         public GameObject saveGamePanel;
         public GameObject loadGamePanel;
         public GameObject controlsPanel;
+        public GameObject HUD_UI;
+        public GameObject loadingScreenUI;
         public Button resumeBtn;
         public Button saveGameBtn;
         public Button loadGameBtn;
@@ -22,12 +25,21 @@ namespace RpgAdventure
         public Button saveReturnBtn;
         public Button loadReturnBtn;
         public Button controlsReturtnBtn;
+        public bool m_IsLoadingScreenOff;
 
+        private LoadingManager m_LoadingManager;
+        private float m_TimeCounter = 0f;
+        private float m_LoadingTime = 2.0f;
         private bool IsGameMenuKey;
         private bool IsGameMenuActive;
 
         void Awake()
         {
+            HUD_UI.SetActive(true);
+            m_LoadingManager = GetComponent<LoadingManager>();
+            loadingScreenUI.SetActive(true);
+            m_LoadingManager.SetLoadingFullTime(m_LoadingTime);
+
             resumeBtn.onClick.AddListener(ResumeBtn);
             saveGameBtn.onClick.AddListener(SaveGameBtn);
             loadGameBtn.onClick.AddListener(LoadGameBtn);
@@ -40,10 +52,33 @@ namespace RpgAdventure
 
             IsGameMenuActive = false;
             IsGameMenuKey = false;
+            
         }
 
+        IEnumerator Start()
+        {
+            yield return new WaitForSeconds(0.5f);
+            if (DataManager.instance != null)
+            {
+                WhichSaveStateLoaded(DataManager.instance.loadingNumber);
+            }
+        }
         void Update()
         {
+            if (m_IsLoadingScreenOff == false)
+            {
+                if (m_TimeCounter <= m_LoadingTime)
+                {
+                    m_TimeCounter += Time.deltaTime;
+                    m_LoadingManager.SetLoadTime(m_TimeCounter);
+                }
+                else
+                {
+                    m_IsLoadingScreenOff = true;
+                    loadingScreenUI.SetActive(false);
+                }
+            }
+
             IsGameMenuKey = Input.GetKeyDown(KeyCode.Escape);
             if (IsGameMenuKey && IsGameMenuActive == false)
             {
@@ -95,6 +130,26 @@ namespace RpgAdventure
         private void ExitBtn()
         {
             Application.Quit();
+        }
+        private void WhichSaveStateLoaded(int number)
+        {
+            switch (number)
+            {
+                case 0:
+                    break;
+                case 1:
+                    GameObject.Find("GameMenuManager").GetComponent<GameMaster>().LoadGame1();
+                    break;
+                case 2:
+                    GameObject.Find("GameMenuManager").GetComponent<GameMaster>().LoadGame2();
+                    break;
+                case 3:
+                    GameObject.Find("GameMenuManager").GetComponent<GameMaster>().LoadGame3();
+                    break;
+                case 4:
+                    GameObject.Find("GameMenuManager").GetComponent<GameMaster>().LoadGame4();
+                    break;
+            }
         }
     }
 }
