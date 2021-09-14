@@ -46,6 +46,7 @@ namespace RpgAdventure
 
         private float m_QuestPanelTopPosition = 0.0f;
         private int m_NumberOfQuests = 0;
+        private int m_DistanceCounter = 0;
 
         const float c_DistanceBetweenQuestPanels = 330.0f;
 
@@ -70,14 +71,15 @@ namespace RpgAdventure
             {
                 Destroy(QuestScrollPanel.transform.GetChild(i).gameObject);
             }
+            m_DistanceCounter = 0;
         }
 
         public GameObject AddQuestPanelInJournal(AcceptedQuest quest)
         {
             GameObject questPanelInstance = Instantiate(questPanelPrefab, QuestScrollPanel.transform);
             RectTransform rt = questPanelInstance.GetComponent<RectTransform>();
-            rt.SetInsetAndSizeFromParentEdge(RectTransform.Edge.Top, m_QuestPanelTopPosition + m_NumberOfQuests * c_DistanceBetweenQuestPanels, rt.rect.height);
-
+            rt.SetInsetAndSizeFromParentEdge(RectTransform.Edge.Top, m_QuestPanelTopPosition + m_DistanceCounter * c_DistanceBetweenQuestPanels, rt.rect.height);
+            m_DistanceCounter++;
             switch (quest.targets.Length)
             {
                 case 1:
