@@ -125,6 +125,7 @@ namespace RpgAdventure
         public void Deserialize(ComponentData data)
         {
             itemNames = new List<string>();
+
             ExtendedComponentData unpacked = (ExtendedComponentData)data;
             var itemCount = unpacked.GetInt("count");
             m_UsedItemIndex = unpacked.GetInt("used");
