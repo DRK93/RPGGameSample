@@ -98,7 +98,8 @@ namespace RpgAdventure
         {
             Vector3 toBase = m_OriginPosition - transform.position;
             //toBase.y = 0;
-            bool nearBase = toBase.magnitude < 1.0f;
+            Vector2 toBase2 = new Vector2(toBase.x, toBase.z);
+            bool nearBase = toBase2.magnitude < 2.0f;
             m_EnemyController.Animator.SetBool(m_HashNearBase, nearBase);
             if (nearBase)
             {
