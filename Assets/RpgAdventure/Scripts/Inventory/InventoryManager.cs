@@ -144,12 +144,12 @@ namespace RpgAdventure
             int indexer = 0;
             foreach(var itemN in itemNames)
             {
-                var prefabInstance = Instantiate(Resources.Load(itemN)) as GameObject;
                 var inventorySlot = GetSlot(indexer);
-                ItemUncloneName(prefabInstance.name);
-                inventorySlot.Place(prefabInstance);
-                inventoryPanel.GetChild(inventorySlot.index).GetComponentInChildren<Text>().text = ItemUncloneName(prefabInstance.name);
-                inventoryPanel.GetChild(inventorySlot.index).GetChild(2).GetComponent<Text>().text = prefabInstance.GetComponent<MeleeWeapon>().damage.ToString();
+                Destroy(inventorySlot.itemPrefab);
+                inventorySlot.Place(Instantiate(Resources.Load(itemN)) as GameObject);
+                ItemUncloneName(inventorySlot.itemPrefab.name);
+                inventoryPanel.GetChild(inventorySlot.index).GetComponentInChildren<Text>().text = ItemUncloneName(inventorySlot.itemPrefab.name);
+                inventoryPanel.GetChild(inventorySlot.index).GetChild(2).GetComponent<Text>().text = inventorySlot.itemPrefab.GetComponent<MeleeWeapon>().damage.ToString();
                 indexer++;
                 
             }
