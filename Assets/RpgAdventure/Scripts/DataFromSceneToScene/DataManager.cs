@@ -8,11 +8,10 @@ namespace RpgAdventure
     {
         public static DataManager instance;
 
-        public string playerName;
+        public string playerName = "Player";
         public int loadingNumber = 0;
         private void Awake()
         {
-            playerName = "Player";
             if (instance == null)
             {
                 instance = this;

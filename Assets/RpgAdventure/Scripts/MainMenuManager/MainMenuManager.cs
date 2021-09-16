@@ -15,6 +15,7 @@ namespace RpgAdventure
         public GameObject PlayerNameFormInput;
         public GameObject StartGamePlayerName;
         public GameObject Controls;
+        public GameObject HeadquatersLetter;
 
         public Button StartGameBtn;
         public Button LoadGameBtn;
@@ -39,11 +40,11 @@ namespace RpgAdventure
         private string m_savedGameTime2;
         private string m_savedGameTime3;
         private string m_savedGameTime4;
+        
 
         private void Awake()
         {
             playerName = "Player";
-
             StartGameBtn.onClick.AddListener(StartGame);
             LoadGameBtn.onClick.AddListener(LoadGame);
             OptionsBtn.onClick.AddListener(LoadOptions);
@@ -78,10 +79,10 @@ namespace RpgAdventure
             MainMenu.SetActive(false);
             StartGamePlayerName.SetActive(true);
         }
-
         public void StartGame2()
         {
-            SceneManager.LoadScene(1);
+            StartGamePlayerName.SetActive(false);
+            HeadquatersLetter.SetActive(true);
         }
         public void ReturnFromPlayerName()
         {

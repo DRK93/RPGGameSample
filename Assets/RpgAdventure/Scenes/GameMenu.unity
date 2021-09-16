@@ -766,6 +766,194 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: -130}
   m_SizeDelta: {x: -60, y: 40}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1001 &239145327
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1372360830}
+    m_Modifications:
+    - target: {fileID: 8187913537602786263, guid: 66fd90ebcd7858c4faf4c4b139d384f8, type: 3}
+      propertyPath: m_Pivot.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8187913537602786263, guid: 66fd90ebcd7858c4faf4c4b139d384f8, type: 3}
+      propertyPath: m_Pivot.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8187913537602786263, guid: 66fd90ebcd7858c4faf4c4b139d384f8, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 1269
+      objectReference: {fileID: 0}
+    - target: {fileID: 8187913537602786263, guid: 66fd90ebcd7858c4faf4c4b139d384f8, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 634
+      objectReference: {fileID: 0}
+    - target: {fileID: 8187913537602786263, guid: 66fd90ebcd7858c4faf4c4b139d384f8, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8187913537602786263, guid: 66fd90ebcd7858c4faf4c4b139d384f8, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8187913537602786263, guid: 66fd90ebcd7858c4faf4c4b139d384f8, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8187913537602786263, guid: 66fd90ebcd7858c4faf4c4b139d384f8, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -5.106804
+      objectReference: {fileID: 0}
+    - target: {fileID: 8187913537602786263, guid: 66fd90ebcd7858c4faf4c4b139d384f8, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8187913537602786263, guid: 66fd90ebcd7858c4faf4c4b139d384f8, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8187913537602786263, guid: 66fd90ebcd7858c4faf4c4b139d384f8, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8187913537602786263, guid: 66fd90ebcd7858c4faf4c4b139d384f8, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 632.37415
+      objectReference: {fileID: 0}
+    - target: {fileID: 8187913537602786263, guid: 66fd90ebcd7858c4faf4c4b139d384f8, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 298.25616
+      objectReference: {fileID: 0}
+    - target: {fileID: 8187913538128083022, guid: 66fd90ebcd7858c4faf4c4b139d384f8, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 8187913538128083022, guid: 66fd90ebcd7858c4faf4c4b139d384f8, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -450
+      objectReference: {fileID: 0}
+    - target: {fileID: 8187913538758165436, guid: 66fd90ebcd7858c4faf4c4b139d384f8, type: 3}
+      propertyPath: m_Name
+      value: StartingUI
+      objectReference: {fileID: 0}
+    - target: {fileID: 8187913538758165436, guid: 66fd90ebcd7858c4faf4c4b139d384f8, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8187913538758165437, guid: 66fd90ebcd7858c4faf4c4b139d384f8, type: 3}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8187913538758165437, guid: 66fd90ebcd7858c4faf4c4b139d384f8, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -632.37415
+      objectReference: {fileID: 0}
+    - target: {fileID: 8187913538758165437, guid: 66fd90ebcd7858c4faf4c4b139d384f8, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -298.25616
+      objectReference: {fileID: 0}
+    - target: {fileID: 8187913538758165437, guid: 66fd90ebcd7858c4faf4c4b139d384f8, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 5.106804
+      objectReference: {fileID: 0}
+    - target: {fileID: 8187913538758165437, guid: 66fd90ebcd7858c4faf4c4b139d384f8, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8187913538758165437, guid: 66fd90ebcd7858c4faf4c4b139d384f8, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8187913538758165437, guid: 66fd90ebcd7858c4faf4c4b139d384f8, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8187913538758165437, guid: 66fd90ebcd7858c4faf4c4b139d384f8, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8187913538758165437, guid: 66fd90ebcd7858c4faf4c4b139d384f8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8187913538758165437, guid: 66fd90ebcd7858c4faf4c4b139d384f8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8187913538758165437, guid: 66fd90ebcd7858c4faf4c4b139d384f8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8187913539117561834, guid: 66fd90ebcd7858c4faf4c4b139d384f8, type: 3}
+      propertyPath: m_text
+      value: 'Dear
+
+        It''s your firt assigment as newly promoted Warden. From
+        now your on your own. We in headquaters have high hopes for you.
+
+        Your
+        quest is to check situation in this place. It''s far from capital and other
+        highly populated regions. Small villages, lumbers, small mines and quarries,
+        no important trade roads, only to far away regions out of our sight and any
+        historical borders with rough people.
+
+        Start from most important
+        settlement near confluence of two biggest rivers in region.
+
+        Weeks
+        ago there was a military sqaud sent to strenghtened the local small fort
+        there. There were some bandits making more troubles than before. Three weeks
+        later we lost any contact with that post. It was seven weeks ago. We have
+        no idea what''s happening there.
+
+        Now we need to check what''s going
+        on for better understanding of situation before military send some serious
+        forces or some people will start to  spread bad rumors in capital or something
+        like that. We have a enough problems without that.'
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 66fd90ebcd7858c4faf4c4b139d384f8, type: 3}
+--- !u!4 &239145328 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8187913538758165437, guid: 66fd90ebcd7858c4faf4c4b139d384f8, type: 3}
+  m_PrefabInstance: {fileID: 239145327}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &239145329 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8187913539040967355, guid: 66fd90ebcd7858c4faf4c4b139d384f8, type: 3}
+  m_PrefabInstance: {fileID: 239145327}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1 &239145330 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8187913538847398756, guid: 66fd90ebcd7858c4faf4c4b139d384f8, type: 3}
+  m_PrefabInstance: {fileID: 239145327}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &239145331 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8187913538758165436, guid: 66fd90ebcd7858c4faf4c4b139d384f8, type: 3}
+  m_PrefabInstance: {fileID: 239145327}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &239145332
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 239145331}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee719c22e8f14084a98604727a07f449, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PlayerNameTextOnUI: {fileID: 239145330}
+  beginBtn: {fileID: 239145329}
 --- !u!1 &240404647
 GameObject:
   m_ObjectHideFlags: 0
@@ -1156,12 +1344,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 405153752}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -634.5, y: -317, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_Father: {fileID: 1372360830}
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &424011774
 GameObject:
@@ -1384,7 +1572,7 @@ RectTransform:
   - {fileID: 1821978687}
   - {fileID: 739959487}
   m_Father: {fileID: 1372360830}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -3467,7 +3655,7 @@ RectTransform:
   - {fileID: 814811867}
   - {fileID: 1420406372}
   m_Father: {fileID: 1372360830}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -3545,7 +3733,7 @@ RectTransform:
   - {fileID: 1615905606}
   - {fileID: 993173760}
   m_Father: {fileID: 1372360830}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -4019,9 +4207,11 @@ RectTransform:
   - {fileID: 225804507}
   - {fileID: 1995063119}
   - {fileID: 992563184}
+  - {fileID: 239145328}
   - {fileID: 1234410784}
   - {fileID: 463747048}
   - {fileID: 1248508840}
+  - {fileID: 405153755}
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -4048,6 +4238,7 @@ MonoBehaviour:
   PlayerNameFormInput: {fileID: 2017301955}
   StartGamePlayerName: {fileID: 992563183}
   Controls: {fileID: 1248508839}
+  HeadquatersLetter: {fileID: 239145331}
   StartGameBtn: {fileID: 1684424164}
   LoadGameBtn: {fileID: 1440148529}
   OptionsBtn: {fileID: 743643201}
@@ -4064,7 +4255,7 @@ MonoBehaviour:
   LoadGame4Btn: {fileID: 1420406373}
   InputPlayerName: {fileID: 2017301957}
   InputPlayerName2: {fileID: 550695476}
-  playerName: 
+  playerName: Player
 --- !u!1 &1420406371
 GameObject:
   m_ObjectHideFlags: 0
@@ -7045,7 +7236,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60bf6719c8ba8524b9f92f0896b75d73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerName: 
+  playerName: Player
   loadingNumber: 0
 --- !u!4 &2133032954
 Transform:
@@ -7059,7 +7250,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2140492891
 GameObject:

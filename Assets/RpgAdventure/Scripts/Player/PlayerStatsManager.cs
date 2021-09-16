@@ -19,6 +19,7 @@ namespace RpgAdventure
         public GameObject CharacterStatsPanel;
 
         private PlayerStats m_PlStats;
+        private string m_PlayerName;
         private int m_Level;
         private int m_Exp;
         private int m_ToNextLevel;
@@ -35,6 +36,7 @@ namespace RpgAdventure
         private int m_CurrentAddedPower;
         private int m_CurrentAddedSpellDmg;
         private int m_CurrentAddedSpellSpd;
+        
 
         private void Start()
         {
@@ -74,6 +76,7 @@ namespace RpgAdventure
 
         private void UpdateStatsOnCard()
         {
+            m_PlayerName = m_PlStats.playerName;
             m_Level = m_PlStats.currentLevel;
             m_Exp = m_PlStats.currentExp;
             m_ToNextLevel = m_PlStats.ExpToNextLevel;
@@ -85,6 +88,7 @@ namespace RpgAdventure
             m_UsedSkillPoints = m_PlStats.usedSkillPoints;
             m_EnemyDefeat = m_PlStats.defeatedEnemies;
             m_QuestCompleted = m_PlStats.questCompleted;
+            
         }
         private void HideAddButtons()
         {
@@ -240,18 +244,19 @@ namespace RpgAdventure
         }
         private void SetTextUpdate()
         {
-            CharacterStatsPanel.transform.GetChild(5).GetComponent<TextMeshProUGUI>().text = m_Level.ToString();
-            CharacterStatsPanel.transform.GetChild(7).GetComponent<TextMeshProUGUI>().text = m_Exp.ToString();
-            CharacterStatsPanel.transform.GetChild(9).GetComponent<TextMeshProUGUI>().text = m_ToNextLevel.ToString();
-            CharacterStatsPanel.transform.GetChild(11).GetComponent<TextMeshProUGUI>().text = m_EnemyDefeat.ToString();
-            CharacterStatsPanel.transform.GetChild(13).GetComponent<TextMeshProUGUI>().text = m_QuestCompleted.ToString();
-            CharacterStatsPanel.transform.GetChild(15).GetComponent<TextMeshProUGUI>().text = m_SkillPoints.ToString();
-            CharacterStatsPanel.transform.GetChild(17).GetComponent<TextMeshProUGUI>().text = m_UsedSkillPoints.ToString();
-            CharacterStatsPanel.transform.GetChild(19).GetComponent<TextMeshProUGUI>().text = m_CurSkillPoints.ToString();
-            CharacterStatsPanel.transform.GetChild(21).GetComponent<TextMeshProUGUI>().text = m_MaxHealth.ToString();
-            CharacterStatsPanel.transform.GetChild(23).GetComponent<TextMeshProUGUI>().text = m_Power.ToString();
-            CharacterStatsPanel.transform.GetChild(25).GetComponent<TextMeshProUGUI>().text = m_SpellDamage.ToString();
-            CharacterStatsPanel.transform.GetChild(27).GetComponent<TextMeshProUGUI>().text = m_SpellSpeed.ToString();
+            CharacterStatsPanel.transform.GetChild(2).GetComponent<TextMeshProUGUI>().text = m_PlayerName;
+            CharacterStatsPanel.transform.GetChild(6).GetComponent<TextMeshProUGUI>().text = m_Level.ToString();
+            CharacterStatsPanel.transform.GetChild(8).GetComponent<TextMeshProUGUI>().text = m_Exp.ToString();
+            CharacterStatsPanel.transform.GetChild(10).GetComponent<TextMeshProUGUI>().text = m_ToNextLevel.ToString();
+            CharacterStatsPanel.transform.GetChild(12).GetComponent<TextMeshProUGUI>().text = m_EnemyDefeat.ToString();
+            CharacterStatsPanel.transform.GetChild(14).GetComponent<TextMeshProUGUI>().text = m_QuestCompleted.ToString();
+            CharacterStatsPanel.transform.GetChild(16).GetComponent<TextMeshProUGUI>().text = m_SkillPoints.ToString();
+            CharacterStatsPanel.transform.GetChild(18).GetComponent<TextMeshProUGUI>().text = m_UsedSkillPoints.ToString();
+            CharacterStatsPanel.transform.GetChild(20).GetComponent<TextMeshProUGUI>().text = m_CurSkillPoints.ToString();
+            CharacterStatsPanel.transform.GetChild(22).GetComponent<TextMeshProUGUI>().text = m_MaxHealth.ToString();
+            CharacterStatsPanel.transform.GetChild(24).GetComponent<TextMeshProUGUI>().text = m_Power.ToString();
+            CharacterStatsPanel.transform.GetChild(26).GetComponent<TextMeshProUGUI>().text = m_SpellDamage.ToString();
+            CharacterStatsPanel.transform.GetChild(28).GetComponent<TextMeshProUGUI>().text = m_SpellSpeed.ToString();
         }
     }
 }

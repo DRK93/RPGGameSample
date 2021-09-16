@@ -18,6 +18,7 @@ namespace RpgAdventure
         public int defeatedEnemies;
         public int questCompleted;
         public bool leveledUp = false;
+        public string playerName = "Player";
         public int ExpToNextLevel
         {
             get
@@ -33,6 +34,14 @@ namespace RpgAdventure
             ComputeLevels(maxLevel);
             currentHitPoints = maxHitPoints;
             m_HudMan = FindObjectOfType<HudManager>();
+        }
+        private void Start()
+        {
+            if (FindObjectOfType<DataManager>())
+            if (FindObjectOfType<DataManager>().loadingNumber == 0)
+            {
+                playerName = FindObjectOfType<DataManager>().playerName;
+            }
         }
         private void ComputeLevels(int levelCount)
         {
@@ -83,6 +92,7 @@ namespace RpgAdventure
             ExtendedComponentData data = new ExtendedComponentData();
             data.SetTransform("transform", transform);
 
+            data.SetString("playername", playerName);
             data.SetInt("maxhp", maxHitPoints);
             data.SetInt("exp", experience);
             data.SetInt("powr", power);
@@ -104,6 +114,7 @@ namespace RpgAdventure
             ExtendedComponentData unpacked = (ExtendedComponentData)data;
             unpacked.GetTransform("transform", transform);
 
+            playerName = unpacked.GetString("playername");
             maxHitPoints = unpacked.GetInt("maxhp");
             experience = unpacked.GetInt("exp");
             power = unpacked.GetInt("powr");
