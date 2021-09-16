@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
@@ -32,6 +33,11 @@ namespace RpgAdventure
         private float m_LoadingTime = 2.0f;
         private bool IsGameMenuKey;
         private bool IsGameMenuActive;
+        private string[] nameList = { "save1", "save2", "save3", "save4" };
+        private string savedGameTime1;
+        private string savedGameTime2;
+        private string savedGameTime3;
+        private string savedGameTime4;
 
         void Awake()
         {
@@ -97,6 +103,8 @@ namespace RpgAdventure
         {
             gameMenuPanel.SetActive(false);
             saveGamePanel.SetActive(true);
+            foreach (var name in nameList)
+                CheckIfSaveUpdated(name);
         }
         private void SaveGameReturnBtn()
         {
@@ -107,6 +115,8 @@ namespace RpgAdventure
         {
             gameMenuPanel.SetActive(false);
             loadGamePanel.SetActive(true);
+            foreach (var name in nameList)
+                CheckIfLoadUpdated(name);
         }
         private void LoadGameReturnBtn()
         {
@@ -149,6 +159,80 @@ namespace RpgAdventure
                 case 4:
                     GameObject.Find("GameMenuManager").GetComponent<GameMaster>().LoadGame4();
                     break;
+            }
+        }
+
+        public void CheckIfSaveUpdated(string savePath)
+        {
+            switch (savePath)
+            {
+                case "save1":
+                    if (File.Exists("Assets/Saves/save1.data"))
+                    {
+                        savedGameTime1 = File.GetLastWriteTime("Assets/Saves/save1.data").ToString("dd/MM/yy HH:mm");
+                        GameObject.Find("Save1Btn").transform.GetChild(2).GetComponent<Text>().text = savedGameTime1;
+                    }
+                    break;
+                case "save2":
+                    if (File.Exists("Assets/Saves/save2.data"))
+                    {
+                        savedGameTime2 = File.GetLastWriteTime("Assets/Saves/save2.data").ToString("dd/MM/yy HH:mm");
+                        GameObject.Find("Save2Btn").transform.GetChild(2).GetComponent<Text>().text = savedGameTime2;
+                    }
+                    break;
+                case "save3":
+                    if (File.Exists("Assets/Saves/save3.data"))
+                    {
+                        savedGameTime3 = File.GetLastWriteTime("Assets/Saves/save3.data").ToString("dd/MM/yy HH:mm");
+                        GameObject.Find("Save3Btn").transform.GetChild(2).GetComponent<Text>().text = savedGameTime3;
+                    }
+                    break;
+                case "save4":
+                    if (File.Exists("Assets/Saves/save4.data"))
+                    {
+                        savedGameTime4 = File.GetLastWriteTime("Assets/Saves/save4.data").ToString("dd/MM/yy HH:mm");
+                        GameObject.Find("Save4Btn").transform.GetChild(2).GetComponent<Text>().text = savedGameTime4;
+                    }
+                    break;
+                default:
+                    break;
+            }
+        }
+        private void CheckIfLoadUpdated(string savePath)
+        {
+            switch (savePath)
+            {
+                case "save1":
+                    if (File.Exists("Assets/Saves/save1.data"))
+                    {
+                        savedGameTime1 = File.GetLastWriteTime("Assets/Saves/save1.data").ToString("dd/MM/yy HH:mm");
+                        GameObject.Find("Load1Btn").transform.GetChild(2).GetComponent<Text>().text = savedGameTime1;
+                    }
+                    break;
+                case "save2":
+                    if (File.Exists("Assets/Saves/save2.data"))
+                    {
+                        savedGameTime2 = File.GetLastWriteTime("Assets/Saves/save2.data").ToString("dd/MM/yy HH:mm");
+                        GameObject.Find("Load2Btn").transform.GetChild(2).GetComponent<Text>().text = savedGameTime2;
+                    }
+                    break;
+                case "save3":
+                    if (File.Exists("Assets/Saves/save3.data"))
+                    {
+                        savedGameTime3 = File.GetLastWriteTime("Assets/Saves/save3.data").ToString("dd/MM/yy HH:mm");
+                        GameObject.Find("Load3Btn").transform.GetChild(2).GetComponent<Text>().text = savedGameTime3;
+                    }
+                    break;
+                case "save4":
+                    if (File.Exists("Assets/Saves/save4.data"))
+                    {
+                        savedGameTime4 = File.GetLastWriteTime("Assets/Saves/save4.data").ToString("dd/MM/yy HH:mm");
+                        GameObject.Find("Load4Btn").transform.GetChild(2).GetComponent<Text>().text = savedGameTime4;
+                    }
+                    break;
+                default:
+                    break;
+
             }
         }
     }

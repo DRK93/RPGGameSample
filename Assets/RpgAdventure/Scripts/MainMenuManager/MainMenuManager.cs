@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -33,32 +34,26 @@ namespace RpgAdventure
         public TMPro.TMP_InputField InputPlayerName;
         public TMPro.TMP_InputField InputPlayerName2;
         public string playerName;
-        
-        
+
+        private string m_savedGameTime1;
+        private string m_savedGameTime2;
+        private string m_savedGameTime3;
+        private string m_savedGameTime4;
+
         private void Awake()
         {
             playerName = "Player";
-            Button btn1 = StartGameBtn.GetComponent<Button>();
-            Button btn2 = LoadGameBtn.GetComponent<Button>();
-            Button btn3 = OptionsBtn.GetComponent<Button>();
-            Button btn4 = ExitBtn.GetComponent<Button>();
-            Button btn5 = ReturnFromLoadGameBtn.GetComponent<Button>();
-            Button btn6 = ReturnFromOptionsBtn.GetComponent<Button>();
-            Button btn7 = StartGameBtn2.GetComponent<Button>();
-            Button btn8 = ReturnFromStartGame.GetComponent<Button>();
-            Button btn9 = ReturnFromControlsBtn.GetComponent<Button>();
-            Button btn10 = ControlsBtn.GetComponent<Button>();
 
-            btn1.onClick.AddListener(StartGame);
-            btn2.onClick.AddListener(LoadGame);
-            btn3.onClick.AddListener(LoadOptions);
-            btn4.onClick.AddListener(ExitMenu);
-            btn5.onClick.AddListener(ReturnFromLoadGame);
-            btn6.onClick.AddListener(ReturnFromOptions);
-            btn7.onClick.AddListener(StartGame2);
-            btn8.onClick.AddListener(ReturnFromPlayerName);
-            btn9.onClick.AddListener(ReturnFromControls);
-            btn10.onClick.AddListener(ShowControls);
+            StartGameBtn.onClick.AddListener(StartGame);
+            LoadGameBtn.onClick.AddListener(LoadGame);
+            OptionsBtn.onClick.AddListener(LoadOptions);
+            ExitBtn.onClick.AddListener(ExitMenu);
+            ReturnFromLoadGameBtn.onClick.AddListener(ReturnFromLoadGame);
+            ReturnFromOptionsBtn.onClick.AddListener(ReturnFromOptions);
+            StartGameBtn2.onClick.AddListener(StartGame2);
+            ReturnFromStartGame.onClick.AddListener(ReturnFromPlayerName);
+            ReturnFromControlsBtn.onClick.AddListener(ReturnFromControls);
+            ControlsBtn.onClick.AddListener(ShowControls);
 
             LoadGame1Btn.onClick.AddListener(LoadGameState1);
             LoadGame2Btn.onClick.AddListener(LoadGameState2);
@@ -68,6 +63,7 @@ namespace RpgAdventure
             InputPlayerName2.text = this.playerName;
             InputPlayerName.onEndEdit.AddListener(SubmitName);
             InputPlayerName2.onEndEdit.AddListener(SubmitName);
+  
         }
 
         private void SubmitName(string arg1)
@@ -96,6 +92,29 @@ namespace RpgAdventure
         {
             MainMenu.SetActive(false);
             LoadGameMenu.SetActive(true);
+            if (File.Exists("Assets/Saves/save1.data"))
+            {
+                m_savedGameTime1 = File.GetLastWriteTime("Assets/Saves/save1.data").ToString("dd/MM/yy HH:mm");
+                GameObject.Find("Load1Btn").transform.GetChild(2).GetComponent<Text>().text = m_savedGameTime1;
+            }
+
+            if (File.Exists("Assets/Saves/save2.data"))
+            {
+                m_savedGameTime2 = File.GetLastWriteTime("Assets/Saves/save2.data").ToString("dd/MM/yy HH:mm");
+                GameObject.Find("Load2Btn").transform.GetChild(2).GetComponent<Text>().text = m_savedGameTime2;
+            }
+
+            if (File.Exists("Assets/Saves/save3.data"))
+            {
+                m_savedGameTime3 = File.GetLastWriteTime("Assets/Saves/save3.data").ToString("dd/MM/yy HH:mm");
+                GameObject.Find("Load3Btn").transform.GetChild(2).GetComponent<Text>().text = m_savedGameTime3;
+            }
+
+            if (File.Exists("Assets/Saves/save4.data"))
+            {
+                m_savedGameTime4 = File.GetLastWriteTime("Assets/Saves/save4.data").ToString("dd/MM/yy HH:mm");
+                GameObject.Find("Load4Btn").transform.GetChild(2).GetComponent<Text>().text = m_savedGameTime4;
+            }
         }
         private void LoadGameState1()
         {
