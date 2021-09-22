@@ -8,6 +8,7 @@ public class SkinnedMeshToMesh : MonoBehaviour
     public SkinnedMeshRenderer skinnedMesh;
     public VisualEffect VFXGraph;
     public float refreshRate;
+    public float particleSize;
     // Start is called before the first frame update
     void Start()
     {
@@ -24,6 +25,7 @@ public class SkinnedMeshToMesh : MonoBehaviour
             Mesh mesh2 = new Mesh();
             mesh2.vertices = vertices;
             VFXGraph.SetMesh("PlayerMesh", mesh2);
+            VFXGraph.SetFloat("ParticleSize", particleSize);
             yield return new WaitForSeconds(refreshRate);
         }
         
