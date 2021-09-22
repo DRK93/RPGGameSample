@@ -7,7 +7,7 @@ namespace RpgAdventure
 {
     public class HealthPotionDrink : MonoBehaviour
     {
-        public GameObject m_HealParticle;
+        public GameObject m_HealEffect;
         public Slider m_HealthPotionSlider;
 
         private Button UsePotionBtn;
@@ -70,9 +70,9 @@ namespace RpgAdventure
 
         private IEnumerator HealEffect()
         {
-            m_HealParticle.SetActive(true);
+            m_HealEffect.SetActive(true);
             yield return new WaitForSeconds(1.0f);
-            m_HealParticle.SetActive(false);
+            m_HealEffect.SetActive(false);
         }
     }
 
