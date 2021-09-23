@@ -10,6 +10,8 @@ namespace RpgAdventure
         private GameObject m_Owner;
         private float m_TimerCount = 0.0f;
         private float m_spellLifeTime = 2.0f;
+        public GameObject fireballToTransform;
+        public GameObject impactBeam;
 
         public float SpellLifeTime { get => m_spellLifeTime; set => m_spellLifeTime = value; }
         public int SpellDmg { get => m_SpellDmg; set => m_SpellDmg = value; }
@@ -42,8 +44,15 @@ namespace RpgAdventure
                         other.GetComponent<BanditBehaviour>().DetectionRadiusChange();
                     }
                 }
+                SpawnImpactEffect();
                 Destroy(this.gameObject);
             }
+        }
+        private void SpawnImpactEffect()
+        {
+            GameObject impact = Instantiate(impactBeam, fireballToTransform.transform);
+            impact.transform.parent = null;
+            impactBeam.SetActive(true);
         }
     }
 }
