@@ -30,21 +30,25 @@ namespace RpgAdventure
                 return;
             else
             {
-                if(other.gameObject.layer == 6)
+                if(transform.parent==null)
                 {
-                    Damageable damageable = other.GetComponent<Damageable>();
-                    m_Owner = GameObject.Find("Player");
-                    if (damageable != null)
+                    if (other.gameObject.layer == 6)
                     {
-                        Damageable.DamageMessage data;
-                        data.amount = SpellDmg;
-                        data.damager = this;
-                        data.damageSource = m_Owner;
-                        damageable.ApplyDamage(data);
-                        other.GetComponent<BanditBehaviour>().DetectionRadiusChange();
+                        Damageable damageable = other.GetComponent<Damageable>();
+                        m_Owner = GameObject.Find("Player");
+                        if (damageable != null)
+                        {
+                            Damageable.DamageMessage data;
+                            data.amount = SpellDmg;
+                            data.damager = this;
+                            data.damageSource = m_Owner;
+                            damageable.ApplyDamage(data);
+                            other.GetComponent<BanditBehaviour>().DetectionRadiusChange();
+                        }
                     }
+                    SpawnImpactEffect();
                 }
-                SpawnImpactEffect();
+
                 Destroy(this.gameObject);
             }
         }
