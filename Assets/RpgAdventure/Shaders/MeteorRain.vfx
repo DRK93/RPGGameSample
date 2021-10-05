@@ -123,51 +123,10 @@ MonoBehaviour:
     - model: {fileID: 8926484042661614838}
       id: 0
       isStickyNote: 0
-    - model: {fileID: 8926484042661614874}
-      id: 0
-      isStickyNote: 0
-    - model: {fileID: 8926484042661614839}
-      id: 0
-      isStickyNote: 0
-    - model: {fileID: 8926484042661614850}
-      id: 0
-      isStickyNote: 0
     - model: {fileID: 8926484042661614864}
       id: 0
       isStickyNote: 0
-    - model: {fileID: 8926484042661614888}
-      id: 0
-      isStickyNote: 0
-    - model: {fileID: 8926484042661614875}
-      id: 0
-      isStickyNote: 0
-    - model: {fileID: 8926484042661614865}
-      id: 0
-      isStickyNote: 0
-    - model: {fileID: 8926484042661614866}
-      id: 0
-      isStickyNote: 0
-    - model: {fileID: 8926484042661615097}
-      id: 0
-      isStickyNote: 0
     - model: {fileID: 8926484042661614863}
-      id: 0
-      isStickyNote: 0
-    - model: {fileID: 8926484042661614892}
-      id: 0
-      isStickyNote: 0
-  - title: ImactTrail
-    position:
-      serializedVersion: 2
-      x: 0
-      y: 0
-      width: 100
-      height: 100
-    contents:
-    - model: {fileID: 0}
-      id: 0
-      isStickyNote: 0
-    - model: {fileID: 8926484042661615059}
       id: 0
       isStickyNote: 0
   stickyNoteInfos: []
@@ -6230,7 +6189,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_UIIgnoredErrors: []
-  m_Parent: {fileID: 0}
+  m_Parent: {fileID: 114350483966674976}
   m_Children: []
   m_UIPosition: {x: 0, y: 0}
   m_UICollapsed: 1
@@ -6533,7 +6492,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_UIIgnoredErrors: []
-  m_Parent: {fileID: 0}
+  m_Parent: {fileID: 114350483966674976}
   m_Children: []
   m_UIPosition: {x: 0, y: 0}
   m_UICollapsed: 1
@@ -7604,7 +7563,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_UIIgnoredErrors: []
-  m_Parent: {fileID: 0}
+  m_Parent: {fileID: 114350483966674976}
   m_Children: []
   m_UIPosition: {x: 0, y: 0}
   m_UICollapsed: 1
@@ -7734,7 +7693,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_UIIgnoredErrors: []
-  m_Parent: {fileID: 0}
+  m_Parent: {fileID: 114350483966674976}
   m_Children: []
   m_UIPosition: {x: 0, y: 0}
   m_UICollapsed: 1
