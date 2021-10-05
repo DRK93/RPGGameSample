@@ -2842,10 +2842,10 @@
         "m_Expanded": true,
         "m_Position": {
             "serializedVersion": "2",
-            "x": -1195.5400390625,
-            "y": 358.3974914550781,
-            "width": 0.0,
-            "height": 0.0
+            "x": -1203.0,
+            "y": 417.0,
+            "width": 146.0,
+            "height": 34.0
         }
     },
     "m_Slots": [
@@ -2968,8 +2968,8 @@
         "m_Expanded": true,
         "m_Position": {
             "serializedVersion": "2",
-            "x": -906.0,
-            "y": -212.99996948242188,
+            "x": -903.0000610351563,
+            "y": -210.00001525878907,
             "width": 149.0,
             "height": 34.0
         }
