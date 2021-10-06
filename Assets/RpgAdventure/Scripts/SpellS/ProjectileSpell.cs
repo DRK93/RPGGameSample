@@ -10,8 +10,10 @@ namespace RpgAdventure
         private GameObject m_Owner;
         private float m_TimerCount = 0.0f;
         private float m_spellLifeTime = 2.0f;
+        private GameObject forceField;
         public GameObject fireballToTransform;
         public GameObject impactBeam;
+        public GameObject bigBoom;
 
         public float SpellLifeTime { get => m_spellLifeTime; set => m_spellLifeTime = value; }
         public int SpellDmg { get => m_SpellDmg; set => m_SpellDmg = value; }
@@ -46,6 +48,10 @@ namespace RpgAdventure
                             other.GetComponent<BanditBehaviour>().DetectionRadiusChange();
                         }
                     }
+                    if (other.gameObject.layer == 9)
+                    {
+                        SpawnForceFieldImpact();
+                    }
                     SpawnImpactEffect();
                 }
 
@@ -58,6 +64,21 @@ namespace RpgAdventure
             impact.transform.parent = null;
             impactBeam.SetActive(true);
         }
+        private void SpawnForceFieldImpact()
+        {
+            GameObject bigImpact = Instantiate(bigBoom, fireballToTransform.transform);
+            bigImpact.transform.parent = null;
+            bigImpact.SetActive(true);
+            //StartCoroutine(ForceFieldDestroy());
+        }
+
+        //private IEnumerator ForceFieldDestroy()
+        //{
+            
+        //    yield return new WaitForSeconds(0.5f);
+        //    forceField = GameObject.Find("ForceField");
+        //    Destroy(forceField);
+        //}
     }
 }
 
