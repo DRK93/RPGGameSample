@@ -17,9 +17,9 @@ MonoBehaviour:
   categories: []
   uiBounds:
     serializedVersion: 2
-    x: 708
+    x: 699
     y: -190
-    width: 659
+    width: 668
     height: 1704
 --- !u!114 &114350483966674976
 MonoBehaviour:
@@ -31,7 +31,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7d4c867f6b72b714dbb5fd1780afe208, type: 3}
-  m_Name: ParticesToSkinnMesh 3
+  m_Name: ParticesToSkinnMesh 4
   m_EditorClassIdentifier: 
   m_UIIgnoredErrors: []
   m_Parent: {fileID: 0}
@@ -71,7 +71,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: UnityEngine.Color, UnityEngine.CoreModule, Version=0.0.0.0,
           Culture=neutral, PublicKeyToken=null
-      m_SerializableObject: '{"r":0.7176470756530762,"g":0.5601698160171509,"b":0.03921569883823395,"a":0.0}'
+      m_SerializableObject: '{"r":1.7207953929901124,"g":0.27929139137268069,"b":0.0,"a":0.0}'
     min: -Infinity
     max: Infinity
     enumValues: []
@@ -101,7 +101,7 @@ VisualEffectResource:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: ParticesToSkinnMesh 3
+  m_Name: ParticesToSkinnMesh 4
   m_Graph: {fileID: 114350483966674976}
   m_Infos:
     m_RendererSettings:
@@ -1128,7 +1128,7 @@ MonoBehaviour:
   frustumCulling: 0
   castShadows: 0
   useExposureWeight: 0
-  shaderGraph: {fileID: -5475051401550479605, guid: 3ad55918e43614a4fbdd47d97b434709, type: 3}
+  shaderGraph: {fileID: -5475051401550479605, guid: e1c34b96bf0be424292b90c95c3fa7ba, type: 3}
   primitiveType: 1
   useGeometryShader: 0
 --- !u!114 &8926484042661614589
@@ -1561,7 +1561,7 @@ MonoBehaviour:
       inputSlot: {fileID: 8926484042661614609}
     - outputSlot: {fileID: 8926484042661614603}
       inputSlot: {fileID: 8926484042661614622}
-    position: {x: 746, y: 1200}
+    position: {x: 699, y: 1119}
     expandedSlots: []
     expanded: 0
 --- !u!114 &8926484042661614603
@@ -1593,7 +1593,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: UnityEngine.Color, UnityEngine.CoreModule, Version=0.0.0.0,
           Culture=neutral, PublicKeyToken=null
-      m_SerializableObject: '{"r":0.7176470756530762,"g":0.5601698160171509,"b":0.03921569883823395,"a":0.0}'
+      m_SerializableObject: '{"r":1.7207953929901124,"g":0.27929139137268069,"b":0.0,"a":0.0}'
     m_Space: 2147483647
   m_Property:
     name: o
