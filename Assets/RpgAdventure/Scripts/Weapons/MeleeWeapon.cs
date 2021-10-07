@@ -19,7 +19,7 @@ namespace RpgAdventure
         public AttackPoint[] attackPoints = new AttackPoint[0];
         public RandomAudioPlayer swingAudio;
         public RandomAudioPlayer impactAudio;
-
+        public int additionaDamage = 0;
         private GameObject m_Owner;
         private bool m_IsAttack = false;
         private Vector3[] m_OriginAttackPosition;
@@ -73,7 +73,7 @@ namespace RpgAdventure
                 Damageable.DamageMessage data;
                 if (m_Owner.CompareTag("Player"))
                 {
-                    data.amount = damage + m_Owner.GetComponent<Damageable>().GetComponent<PlayerStats>().power;
+                    data.amount = damage + additionaDamage + m_Owner.GetComponent<Damageable>().GetComponent<PlayerStats>().power;
                 }
                 else
                 {

@@ -68,6 +68,7 @@ namespace RpgAdventure
         private readonly int m_HashJump = Animator.StringToHash("Jump");
         private readonly int m_HashAttackTempoTrigger = Animator.StringToHash("AttackTempo");
         private readonly int m_HashSpell = Animator.StringToHash("SpellAttack");
+        private readonly int m_HashSpell2 = Animator.StringToHash("SpellAttack2");
         private readonly int m_HashBlockInput = Animator.StringToHash("BlockInput");
         private readonly int m_HashJumping = Animator.StringToHash("Jumping");
         private readonly int m_HashFalling = Animator.StringToHash("Falling");
@@ -126,8 +127,17 @@ namespace RpgAdventure
 
             if (m_PlayerInput.IsSpell)
             {
-                m_Animator.SetTrigger(m_HashSpell);
-                GameObject.FindObjectOfType<FireballFromBtn>().FireballFromKeyBoard();
+                if (m_PlayerInput.spellNumber==1)
+                {
+                    m_Animator.SetTrigger(m_HashSpell);
+                    GameObject.FindObjectOfType<FireballFromBtn>().FireballFromKeyBoard();
+                }
+                if (m_PlayerInput.spellNumber==2)
+                {
+                    m_Animator.SetTrigger(m_HashSpell2);
+                    
+                }
+
             }
 
             if ((m_Animator.GetBool(m_HashJumping) ==false) && (m_Animator.GetBool(m_HashFalling) == false))

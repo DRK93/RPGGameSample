@@ -11,7 +11,7 @@ namespace RpgAdventure
 
         public bool isPlayerControllerInputBlock;
         public float distanceToInteract = 2.5f;
-
+        public int spellNumber;
         private static PlayerInput s_Instance;
         private Vector3 m_Movement;
         private bool m_IsSpell;
@@ -62,8 +62,10 @@ namespace RpgAdventure
             bool isKeyForRollClick = Input.GetKeyDown(KeyCode.Q);
             bool isKeyForJumpClick = Input.GetKeyDown(KeyCode.Space);
             bool isKeyForQuestJournalClick = Input.GetKeyDown(KeyCode.J);
+            //bool 
             bool isKeyForSpell = Input.GetKeyDown(KeyCode.Alpha1);
-            bool isKeyForHeal = Input.GetKeyDown(KeyCode.Alpha2);
+            bool isKeyForSpell2 = Input.GetKeyDown(KeyCode.Alpha2);
+            bool isKeyForHeal = Input.GetKeyDown(KeyCode.Alpha7);
 
             if (isLeftMouseClick)
             {
@@ -74,9 +76,16 @@ namespace RpgAdventure
             {
                 HandleRightMouseBtnDown();
             }
+
             if (isKeyForSpell)
             {
                 HandleKeyboardSpellKey();
+                spellNumber = 1;
+            }
+            if (isKeyForSpell2)
+            {
+                HandleKeyboardSpellKey();
+                spellNumber = 2;
             }
 
             if (isKeyForRollClick)

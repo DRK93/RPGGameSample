@@ -61,6 +61,7 @@ namespace RpgAdventure
         }
         private void ThrowingFireball()
         {
+            GameObject.Find("Player").GetComponent<PlayerInput>().spellNumber = 1;
             GameObject.Find("Player").GetComponent<PlayerInput>().SpellFromBtn();
             ThrowFireball();
         }

@@ -10,8 +10,12 @@ namespace RpgAdventure
         private GameObject m_Owner;
         private float m_TimerCount = 0.0f;
         private float m_spellLifeTime = 2.0f;
+        [SerializeField]
+        private int m_SpellDamageMultiply = 1;
+        [SerializeField]
+        private float m_spellLifeTimeMultiply = 1.0f;
         private GameObject forceField;
-        public GameObject fireballToTransform;
+        public GameObject spellToTransform;
         public GameObject impactBeam;
         public GameObject bigBoom;
 
@@ -21,7 +25,7 @@ namespace RpgAdventure
         private void Update()
         {
             m_TimerCount += Time.deltaTime;
-            if(m_TimerCount >= SpellLifeTime)
+            if(m_TimerCount >= SpellLifeTime * m_spellLifeTimeMultiply)
             {
                 Destroy(this.gameObject);
             }
@@ -41,7 +45,7 @@ namespace RpgAdventure
                         if (damageable != null)
                         {
                             Damageable.DamageMessage data;
-                            data.amount = SpellDmg;
+                            data.amount = SpellDmg * m_SpellDamageMultiply;
                             data.damager = this;
                             data.damageSource = m_Owner;
                             damageable.ApplyDamage(data);
@@ -60,25 +64,16 @@ namespace RpgAdventure
         }
         private void SpawnImpactEffect()
         {
-            GameObject impact = Instantiate(impactBeam, fireballToTransform.transform);
+            GameObject impact = Instantiate(impactBeam, spellToTransform.transform);
             impact.transform.parent = null;
             impactBeam.SetActive(true);
         }
         private void SpawnForceFieldImpact()
         {
-            GameObject bigImpact = Instantiate(bigBoom, fireballToTransform.transform);
+            GameObject bigImpact = Instantiate(bigBoom, spellToTransform.transform);
             bigImpact.transform.parent = null;
             bigImpact.SetActive(true);
-            //StartCoroutine(ForceFieldDestroy());
         }
-
-        //private IEnumerator ForceFieldDestroy()
-        //{
-            
-        //    yield return new WaitForSeconds(0.5f);
-        //    forceField = GameObject.Find("ForceField");
-        //    Destroy(forceField);
-        //}
     }
 }
 

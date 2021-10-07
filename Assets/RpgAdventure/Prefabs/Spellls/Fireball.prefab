@@ -128,7 +128,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc3aae3dad0e64b4e9f0106e7c6fe69b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fireballToTransform: {fileID: 8752502797331185317}
+  m_SpellDamageMultiply: 1
+  m_spellLifeTimeMultiply: 1
+  spellToTransform: {fileID: 8752502797331185317}
   impactBeam: {fileID: 6713557598820924117, guid: 863471e0fa384da44a0914e8b396b7cf, type: 3}
   bigBoom: {fileID: 6713557598820924117, guid: 2d64da6e9903baf4182e0dde6cfec46e, type: 3}
 --- !u!1 &8752502797331185317

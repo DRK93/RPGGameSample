@@ -8,7 +8,7 @@ using RpgAdventure;
         // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
         override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
         {
-        animator.GetComponent<SpellSpawner>().CreateSpell();
+        animator.GetComponent<SpellSpawner>().CreateSpell(GameObject.Find("Player").GetComponent<PlayerInput>().spellNumber);
         animator.SetBool("SpellCasting", true);
     }
 
@@ -21,7 +21,11 @@ using RpgAdventure;
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
+        int splNumber = GameObject.Find("Player").GetComponent<PlayerInput>().spellNumber;
+        if (splNumber == 1)
         animator.ResetTrigger("SpellAttack");
+        if (splNumber == 2)
+        animator.ResetTrigger("SpellAttack2");
         animator.SetBool("SpellCasting", false);
     }
 

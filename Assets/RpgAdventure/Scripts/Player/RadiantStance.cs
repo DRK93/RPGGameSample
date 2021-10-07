@@ -22,11 +22,13 @@ namespace RpgAdventure
                 {
                     radiantEffect.SetActive(true);
                     m_RadiantStatus = true;
+                    GetComponent<MeleeWeapon>().additionaDamage = 10;
                 }
                 else
                 {
                     radiantEffect.SetActive(false);
                     m_RadiantStatus = false;
+                    GetComponent<MeleeWeapon>().additionaDamage = 0;
                 }
             }
         }
