@@ -36,7 +36,7 @@ Material:
     - Vector1_638d1a28f43d49d49f62f1842022f2d7: 2
     - _FernelPower: 3
     - _Fill: 0.02
-    - _NoiseDissolve: 3
+    - _NoiseDissolve: 4
     - _NoiseScale: 50
     - _NoiseSpeed: 2
     - _Offset: 0
