@@ -8,10 +8,12 @@ namespace RpgAdventure
     {
         public GameObject fireball;
         public GameObject lavaball;
-        public GameObject electricshock;
+        public GameObject electricshockA;
+        public GameObject electricshockB;
         public GameObject rainOfFire;
         public GameObject leftHand;
         public GameObject rightHand;
+        public GameObject fireUp;
         private int m_spellSpeed;
         private int m_spellDamage;
         public int SpellSpeed { get => m_spellSpeed; set => m_spellSpeed = value; }
@@ -27,18 +29,19 @@ namespace RpgAdventure
 
         private void SpellCheck(int number)
         {
-            Debug.Log("Checkich which spell use");
             switch ( number)
             {
                 case 1:
                     StartCoroutine(WaitToCreateFireball());
                     break;
                 case 2:
-                    StartCoroutine(WaitToCreateLavaball());
+                    ElectricBalls();
                     break;
                 case 3:
+                    StartCoroutine(WaitToCreateLavaball());
                     break;
                 case 4:
+                    StartCoroutine(WaitToRainFire());
                     break;
                 default:
                     Debug.Log("Something went wrong");
@@ -66,7 +69,8 @@ namespace RpgAdventure
         private IEnumerator WaitToCreateLavaball()
         {
             yield return new WaitForSeconds(0.3f);
-            GameObject projectile = Instantiate(lavaball, leftHand.transform);
+            GameObject projectile = Instantiate(lavaball,rightHand.transform);
+            projectile.transform.localPosition += new Vector3(-0.3f,0.3f,0f);
             Rigidbody rb = projectile.GetComponent<Rigidbody>();
             StartCoroutine(WaitToThrowLavaball(projectile, rb));
         }
@@ -74,15 +78,55 @@ namespace RpgAdventure
         private IEnumerator WaitToThrowLavaball( GameObject lavaB, Rigidbody lavaRb)
         {
             yield return new WaitForSeconds(0.9f);
-            Debug.Log("Fly LavaBall");
-            Debug.Log(lavaB.transform.parent);
             if (lavaRb != null && lavaB !=null)
             {
                 lavaRb.velocity = transform.forward * SpellSpeed;
                 lavaB.transform.parent = null;
-                Debug.Log(lavaB.transform.parent);
                 lavaB.GetComponent<ProjectileSpell>().SpellDmg = SpellDamage;
             }
+        }
+
+        private void ElectricBalls()
+        {
+            StartCoroutine(WaitToCreateElectricballA());
+            StartCoroutine(WaitToCreateElectricballB());
+        }
+
+        private IEnumerator WaitToCreateElectricballA()
+        {
+            yield return new WaitForSeconds(0.3f);
+            GameObject projectileA = Instantiate(electricshockA, leftHand.transform);
+            projectileA.transform.localPosition += new Vector3(0, 0.2f, 0);
+            Rigidbody rb = projectileA.GetComponent<Rigidbody>();
+            StartCoroutine(WaitToThrowElectric(projectileA, rb));
+        }
+        private IEnumerator WaitToCreateElectricballB()
+        {
+            yield return new WaitForSeconds(0.3f);
+            GameObject projectileB = Instantiate(electricshockB, rightHand.transform);
+            projectileB.transform.localPosition += new Vector3(0, 0.2f, 0);
+            Rigidbody rb = projectileB.GetComponent<Rigidbody>();
+            StartCoroutine(WaitToThrowElectric(projectileB, rb));
+        }
+        private IEnumerator WaitToThrowElectric(GameObject elecB, Rigidbody elecRb)
+        {
+            yield return new WaitForSeconds(0.9f);
+            if (elecRb != null && elecB != null)
+            {
+                elecRb.velocity = transform.forward * SpellSpeed;
+                elecB.transform.parent = null;
+                elecB.GetComponent<ProjectileSpell>().SpellDmg = SpellDamage;
+            }
+        }
+
+        private IEnumerator WaitToRainFire()
+        {
+            fireUp.SetActive(true);
+            yield return new WaitForSeconds(0.9f);
+            GameObject rainDamage = Instantiate(rainOfFire, transform);
+            rainDamage.transform.parent = null;
+            yield return new WaitForSeconds(0.6f);
+            fireUp.SetActive(false);
         }
     }
 }

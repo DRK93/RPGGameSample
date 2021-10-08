@@ -8,9 +8,14 @@ using RpgAdventure;
         // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
         override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
         {
-        animator.GetComponent<SpellSpawner>().CreateSpell(GameObject.Find("Player").GetComponent<PlayerInput>().spellNumber);
+        int splNumber = GameObject.Find("Player").GetComponent<PlayerInput>().spellNumber;
+        animator.GetComponent<SpellSpawner>().CreateSpell(splNumber);
+        //if(splNumber == 4)
+        //{
+        //    GameObject.Find("FireUp").SetActive(true);
+        //}
         animator.SetBool("SpellCasting", true);
-    }
+        }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
     //override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
@@ -19,15 +24,23 @@ using RpgAdventure;
     //}
 
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state
-    override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
-    {
+        override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
+        {
         int splNumber = GameObject.Find("Player").GetComponent<PlayerInput>().spellNumber;
         if (splNumber == 1)
-        animator.ResetTrigger("SpellAttack");
+            animator.ResetTrigger("SpellAttack");
         if (splNumber == 2)
-        animator.ResetTrigger("SpellAttack2");
+            animator.ResetTrigger("SpellAttack2");
+        if (splNumber == 3)
+            animator.ResetTrigger("SpellAttack3");
+        if (splNumber == 4)
+        {
+            animator.ResetTrigger("SpellAttack4");
+            //GameObject.Find("FireUp").SetActive(false);
+        }
+
         animator.SetBool("SpellCasting", false);
-    }
+        }
 
     // OnStateMove is called right after Animator.OnAnimatorMove()
     //override public void OnStateMove(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
@@ -40,6 +53,6 @@ using RpgAdventure;
     //{
     //    // Implement code that sets up animation IK (inverse kinematics)
     //}
-}
+    }
 
 

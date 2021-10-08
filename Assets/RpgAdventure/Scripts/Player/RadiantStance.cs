@@ -15,20 +15,22 @@ namespace RpgAdventure
 
         void Update()
         {
-            bool isRadiantKeyDown = Input.GetKeyDown(KeyCode.Alpha3);
+            bool isRadiantKeyDown = Input.GetKeyDown(KeyCode.Alpha6);
             if (isRadiantKeyDown)
             {
                 if (m_RadiantStatus== false)
                 {
                     radiantEffect.SetActive(true);
                     m_RadiantStatus = true;
-                    GetComponent<MeleeWeapon>().additionaDamage = 10;
+                    if(GetComponent<MeleeWeapon>()!=null)
+                        GetComponent<MeleeWeapon>().additionaDamage = 10;
                 }
                 else
                 {
                     radiantEffect.SetActive(false);
                     m_RadiantStatus = false;
-                    GetComponent<MeleeWeapon>().additionaDamage = 0;
+                    if (GetComponent<MeleeWeapon>() != null)
+                        GetComponent<MeleeWeapon>().additionaDamage = 0;
                 }
             }
         }

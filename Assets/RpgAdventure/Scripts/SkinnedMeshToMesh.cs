@@ -6,16 +6,42 @@ using UnityEngine.VFX;
 public class SkinnedMeshToMesh : MonoBehaviour
 {
     public SkinnedMeshRenderer skinnedMesh;
-    public VisualEffect VFXGraph;
-    public float refreshRate;
-    public float particleSize;
+    public VisualEffect HealingVFX;
+    public VisualEffect SmallRadiatingVFX;
+    public VisualEffect BigRadiatingVFX;
+    public VisualEffect FireRadiantVFX;
+    [SerializeField]
+    private float refreshRate1;
+    [SerializeField]
+    private float particleSize1;
+    [SerializeField]
+    private float refreshRate2;
+    [SerializeField]
+    private float particleSize2;
+    [SerializeField]
+    private float refreshRate3;
+    [SerializeField]
+    private float particleSize3;
+    [SerializeField]
+    private float refreshRate4;
+    [SerializeField]
+    private float particleSize4;
+
     // Start is called before the first frame update
     void Start()
     {
-        StartCoroutine(VFXGraphUpdate());
-    }
+        if(transform.gameObject.tag == "Enemy")
+            StartCoroutine(VFXGraphUpdate(BigRadiatingVFX, refreshRate3, particleSize3));
+        else
+        {
+            StartCoroutine(VFXGraphUpdate(HealingVFX, refreshRate1, particleSize1));
+            StartCoroutine(VFXGraphUpdate(SmallRadiatingVFX, refreshRate2, particleSize2));
+            StartCoroutine(VFXGraphUpdate(BigRadiatingVFX, refreshRate3, particleSize3));
+            StartCoroutine(VFXGraphUpdate(FireRadiantVFX, refreshRate4, particleSize4));
+        }
 
-    IEnumerator VFXGraphUpdate()
+    }
+    IEnumerator VFXGraphUpdate(VisualEffect VFXGraph, float refreshRate, float particleSize)
     {
         while(gameObject.activeSelf)
         {

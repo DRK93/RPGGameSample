@@ -65,6 +65,8 @@ namespace RpgAdventure
             //bool 
             bool isKeyForSpell = Input.GetKeyDown(KeyCode.Alpha1);
             bool isKeyForSpell2 = Input.GetKeyDown(KeyCode.Alpha2);
+            bool isKeyForSpell3 = Input.GetKeyDown(KeyCode.Alpha3);
+            bool isKeyForSpell4 = Input.GetKeyDown(KeyCode.Alpha4);
             bool isKeyForHeal = Input.GetKeyDown(KeyCode.Alpha7);
 
             if (isLeftMouseClick)
@@ -82,10 +84,23 @@ namespace RpgAdventure
                 HandleKeyboardSpellKey();
                 spellNumber = 1;
             }
+
             if (isKeyForSpell2)
             {
                 HandleKeyboardSpellKey();
                 spellNumber = 2;
+            }
+
+            if (isKeyForSpell3)
+            {
+                HandleKeyboardSpellKey();
+                spellNumber = 3;
+            }
+
+            if (isKeyForSpell4)
+            {
+                HandleKeyboardSpellKey();
+                spellNumber = 4;
             }
 
             if (isKeyForRollClick)

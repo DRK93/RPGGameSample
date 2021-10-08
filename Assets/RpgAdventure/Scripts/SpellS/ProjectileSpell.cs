@@ -9,12 +9,12 @@ namespace RpgAdventure
         private int m_SpellDmg;
         private GameObject m_Owner;
         private float m_TimerCount = 0.0f;
+        [SerializeField]
         private float m_spellLifeTime = 2.0f;
         [SerializeField]
         private int m_SpellDamageMultiply = 1;
         [SerializeField]
         private float m_spellLifeTimeMultiply = 1.0f;
-        private GameObject forceField;
         public GameObject spellToTransform;
         public GameObject impactBeam;
         public GameObject bigBoom;
@@ -29,6 +29,14 @@ namespace RpgAdventure
             {
                 Destroy(this.gameObject);
             }
+            if (GameObject.Find("Player").GetComponent<PlayerInput>().spellNumber == 3)
+                if (transform.parent != null)
+                {
+                    if (transform != null)
+                        transform.localScale += Time.deltaTime * transform.localScale * 0.5f;
+                }
+                else
+                    GetComponent<SphereCollider>().isTrigger = true;
         }
         private void OnTriggerEnter(Collider other)
         {
