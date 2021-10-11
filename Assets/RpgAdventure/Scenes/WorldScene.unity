@@ -2383,7 +2383,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.4}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -7039,7 +7039,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.27450982}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.2}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -12050,7 +12050,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.27450982}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.2}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -13066,7 +13066,7 @@ GameObject:
   - component: {fileID: 762148468}
   - component: {fileID: 762148467}
   m_Layer: 0
-  m_Name: RadianPowerPanel
+  m_Name: RadiantLightPanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -13157,7 +13157,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.27450982}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.2}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -16425,7 +16425,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.4}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -17538,7 +17538,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 935414534}
   m_LocalRotation: {x: 0.04348094, y: 0.000000034647766, z: -0.0000000015079435, w: 0.99905425}
-  m_LocalPosition: {x: 22.65, y: 7.5, z: 55.8}
+  m_LocalPosition: {x: 22.65, y: 7.301, z: 57.783}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 698706170}
@@ -17997,7 +17997,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.4}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -20590,7 +20590,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.27450982}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.2}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -23414,8 +23414,13 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1200601678}
-  - component: {fileID: 1200601677}
   - component: {fileID: 1200601679}
+  - component: {fileID: 1200601685}
+  - component: {fileID: 1200601684}
+  - component: {fileID: 1200601683}
+  - component: {fileID: 1200601682}
+  - component: {fileID: 1200601681}
+  - component: {fileID: 1200601680}
   m_Layer: 0
   m_Name: UsableObjectManager
   m_TagString: Untagged
@@ -23423,20 +23428,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1200601677
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1200601676}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b43b2c0cd1f4b2d43ad996bcdcbd9380, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_HealEffect: {fileID: 269523107}
-  m_HealthPotionSlider: {fileID: 1537526324}
 --- !u!4 &1200601678
 Transform:
   m_ObjectHideFlags: 0
@@ -23460,10 +23451,120 @@ MonoBehaviour:
   m_GameObject: {fileID: 1200601676}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 78e96432552bec74eaac28f0a58e6069, type: 3}
+  m_Script: {fileID: 11500000, guid: 92afe24ec856f334a8507edc6e6ab265, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fireballSlider: {fileID: 704761660}
+  abilityButtons: []
+  m_HealEffect: {fileID: 269523107}
+  m_GlobalAbilityCd: 2.5
+--- !u!114 &1200601680
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1200601676}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 639d1a989a47e82459b155ec594070ef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  abilityNumber: 6
+  m_abilityPanel: {fileID: 1537526322}
+  m_abilityButton: {fileID: 288137458}
+  buttonSlider: {fileID: 1537526324}
+  m_abilityLevel: 0
+  m_CooldownTime: 10
+--- !u!114 &1200601681
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1200601676}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 639d1a989a47e82459b155ec594070ef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  abilityNumber: 5
+  m_abilityPanel: {fileID: 762148465}
+  m_abilityButton: {fileID: 1233301157}
+  buttonSlider: {fileID: 762148467}
+  m_abilityLevel: 4
+  m_CooldownTime: 20
+--- !u!114 &1200601682
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1200601676}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 639d1a989a47e82459b155ec594070ef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  abilityNumber: 4
+  m_abilityPanel: {fileID: 1069260317}
+  m_abilityButton: {fileID: 471599760}
+  buttonSlider: {fileID: 1069260319}
+  m_abilityLevel: 6
+  m_CooldownTime: 15
+--- !u!114 &1200601683
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1200601676}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 639d1a989a47e82459b155ec594070ef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  abilityNumber: 3
+  m_abilityPanel: {fileID: 1791340118}
+  m_abilityButton: {fileID: 263602176}
+  buttonSlider: {fileID: 1791340120}
+  m_abilityLevel: 5
+  m_CooldownTime: 4.5
+--- !u!114 &1200601684
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1200601676}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 639d1a989a47e82459b155ec594070ef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  abilityNumber: 2
+  m_abilityPanel: {fileID: 401586150}
+  m_abilityButton: {fileID: 1887487763}
+  buttonSlider: {fileID: 401586152}
+  m_abilityLevel: 2
+  m_CooldownTime: 3.5
+--- !u!114 &1200601685
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1200601676}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 639d1a989a47e82459b155ec594070ef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  abilityNumber: 1
+  m_abilityPanel: {fileID: 704761658}
+  m_abilityButton: {fileID: 1110719755}
+  buttonSlider: {fileID: 704761660}
+  m_abilityLevel: 0
+  m_CooldownTime: 2.5
 --- !u!1001 &1200613492
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -23949,7 +24050,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.4}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -29221,7 +29322,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.4}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -31017,7 +31118,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.27450982}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.2}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -32615,11 +32716,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2173718394917509316, guid: f1bb292f28fe82343ad2ef63f2fdb8b5, type: 3}
   m_PrefabInstance: {fileID: 1589981846}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1594082117 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1594082117, guid: edc7c481641aa6948a68716b692092ef, type: 3}
-  m_PrefabInstance: {fileID: 4736585063607901904}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1609617449
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -32719,7 +32815,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1614189653}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 22.65, y: 7.5, z: 55.8}
+  m_LocalPosition: {x: 22.65, y: 7.301, z: 57.783}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 498874115}
@@ -34987,7 +35083,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.27450982}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.2}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -39749,7 +39845,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.4}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -42082,10 +42178,10 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 0}
-    - target: {fileID: 6007523383009413022, guid: edc7c481641aa6948a68716b692092ef, type: 3}
-      propertyPath: fireUp
+    - target: {fileID: 4911239932956157212, guid: edc7c481641aa6948a68716b692092ef, type: 3}
+      propertyPath: useablbeManager
       value: 
-      objectReference: {fileID: 1594082117}
+      objectReference: {fileID: 1200601676}
     - target: {fileID: 6685918425115667425, guid: edc7c481641aa6948a68716b692092ef, type: 3}
       propertyPath: m_Name
       value: Player
@@ -42100,11 +42196,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6691591214508317705, guid: edc7c481641aa6948a68716b692092ef, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 5
+      value: 4.801
       objectReference: {fileID: 0}
     - target: {fileID: 6691591214508317705, guid: edc7c481641aa6948a68716b692092ef, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 61.3
+      value: 63.283
       objectReference: {fileID: 0}
     - target: {fileID: 6691591214508317705, guid: edc7c481641aa6948a68716b692092ef, type: 3}
       propertyPath: m_LocalRotation.w

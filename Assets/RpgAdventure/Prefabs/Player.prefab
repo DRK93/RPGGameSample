@@ -2107,6 +2107,7 @@ MonoBehaviour:
   rainOfFire: {fileID: 8486964820623381459, guid: 1eb42a6b2b16ca747b633962526e2642, type: 3}
   leftHand: {fileID: 6685749127629687849}
   rightHand: {fileID: 6685708516516152389}
+  fireUp: {fileID: 1594082117}
 --- !u!114 &486929711
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2145,6 +2146,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   radiantEffect: {fileID: 1692772404}
+  m_Duration: 10
 --- !u!1 &6685928153383726683
 GameObject:
   m_ObjectHideFlags: 0

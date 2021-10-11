@@ -10,10 +10,6 @@ using RpgAdventure;
         {
         int splNumber = GameObject.Find("Player").GetComponent<PlayerInput>().spellNumber;
         animator.GetComponent<SpellSpawner>().CreateSpell(splNumber);
-        //if(splNumber == 4)
-        //{
-        //    GameObject.Find("FireUp").SetActive(true);
-        //}
         animator.SetBool("SpellCasting", true);
         }
 
@@ -36,7 +32,6 @@ using RpgAdventure;
         if (splNumber == 4)
         {
             animator.ResetTrigger("SpellAttack4");
-            //GameObject.Find("FireUp").SetActive(false);
         }
 
         animator.SetBool("SpellCasting", false);

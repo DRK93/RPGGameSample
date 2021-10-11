@@ -53,9 +53,7 @@ namespace RpgAdventure
 
         const float k_Acceleration = 20f;
         const float k_Deceleration = 35.0f;
-        const int c_PotionPower = 100;
         
-
         private readonly int m_HashForwardSpeed = Animator.StringToHash("ForwardSpeed");
         private readonly int m_HashMeleeAttack = Animator.StringToHash("MeleeAttack");
         private readonly int m_HashDeath = Animator.StringToHash("Death");
@@ -127,28 +125,7 @@ namespace RpgAdventure
                 m_Animator.SetTrigger(m_HashRoll);
             }
 
-            if (m_PlayerInput.IsSpell)
-            {
-                if (m_PlayerInput.spellNumber==1)
-                {
-                    m_Animator.SetTrigger(m_HashSpell);
-                    GameObject.FindObjectOfType<FireballFromBtn>().FireballFromKeyBoard();
-                }
-                if (m_PlayerInput.spellNumber==2)
-                {
-                    m_Animator.SetTrigger(m_HashSpell2);       
-                }
-                if (m_PlayerInput.spellNumber == 3)
-                {
-                    m_Animator.SetTrigger(m_HashSpell3);
-                }
-                if (m_PlayerInput.spellNumber == 4)
-                {
-                    m_Animator.SetTrigger(m_HashSpell4);
-                }
-            }
-
-            if ((m_Animator.GetBool(m_HashJumping) ==false) && (m_Animator.GetBool(m_HashFalling) == false))
+            if ((m_Animator.GetBool(m_HashJumping) == false) && (m_Animator.GetBool(m_HashFalling) == false))
             { 
                 m_Animator.ResetTrigger(m_HashJump);
                 m_CurrentJumpingSpeed = 0;
@@ -202,7 +179,6 @@ namespace RpgAdventure
             Vector3 moveInput = m_PlayerInput.MoveInput.normalized;
             m_DesiredForwardSpeed = moveInput.magnitude * maxForwardSpeed;
             float accelaration;
-            //float accelaration = ((m_PlayerInput.IsMoveInput) || (m_Animator.GetBool("Jumping") == true) || (m_Animator.GetBool("Falling") == true)) ? k_Acceleration : k_Deceleration;
             if (m_PlayerInput.IsMoveInput || (m_Animator.GetBool("Jumping") == true) || (m_Animator.GetBool("Falling") == true))
             {
                 accelaration = k_Acceleration;
@@ -249,7 +225,6 @@ namespace RpgAdventure
             m_CurrentStateInfo = m_Animator.GetCurrentAnimatorStateInfo(0);
             m_NextStateInfo = m_Animator.GetNextAnimatorStateInfo(0);
             m_IsAnimatorTransisioning = m_Animator.IsInTransition(0);
-
         }
 
         private void OnAnimatorMove()
@@ -328,9 +303,9 @@ namespace RpgAdventure
             m_Damageable.SetInitialHealth();
         }
 
-        public void UseHealthPotion()
+        public void UseHealthPotion(int powerOfPotion)
         {
-            m_Damageable.ApplyPotion(c_PotionPower);
+            m_Damageable.ApplyPotion(powerOfPotion);
             m_HudManager.SetHealth(m_Damageable.CurrentHitPoints);
         }
 
@@ -366,9 +341,7 @@ namespace RpgAdventure
             meleeWeapon.GetComponent<FixedUpdateFollow>().SetFollowee(weaponHand);
             meleeWeapon.name = inventorySlot.itemPrefab.name;
             meleeWeapon.SetOwner(gameObject);
-
         }
-       
 
         private void UpdateInputBlocking()
         {
@@ -392,6 +365,35 @@ namespace RpgAdventure
             else if (footFallCurve < 0.01f && !sprintAudio.canPlay)
             {
                 sprintAudio.canPlay = true;
+            }
+        }
+
+        public void UseAbility(int abilityNumber)
+        {
+            switch(abilityNumber)
+            {
+                case 1:
+                    m_PlayerInput.spellNumber = abilityNumber;
+                    m_Animator.SetTrigger(m_HashSpell);
+                    break;
+                case 2:
+                    m_PlayerInput.spellNumber = abilityNumber;
+                    m_Animator.SetTrigger(m_HashSpell2);
+                    break;
+                case 3:
+                    m_PlayerInput.spellNumber = abilityNumber;
+                    m_Animator.SetTrigger(m_HashSpell3);
+                    break;
+                case 4:
+                    m_PlayerInput.spellNumber = abilityNumber;
+                    m_Animator.SetTrigger(m_HashSpell4);
+                    break;
+                case 5:
+                    break;
+                case 6:
+                    break;
+                default:
+                    break;
             }
         }
     }

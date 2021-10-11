@@ -12,6 +12,9 @@ namespace RpgAdventure
         public bool isPlayerControllerInputBlock;
         public float distanceToInteract = 2.5f;
         public int spellNumber;
+        [SerializeField]
+        private GameObject useablbeManager;
+        private UsableAbilities usableAbilities;
         private static PlayerInput s_Instance;
         private Vector3 m_Movement;
         private bool m_IsSpell;
@@ -47,6 +50,10 @@ namespace RpgAdventure
         {
             s_Instance = this;
         }
+        private void Start()
+        {
+            usableAbilities = useablbeManager.GetComponent<UsableAbilities>();
+        }
 
         void Update()
         {
@@ -62,12 +69,12 @@ namespace RpgAdventure
             bool isKeyForRollClick = Input.GetKeyDown(KeyCode.Q);
             bool isKeyForJumpClick = Input.GetKeyDown(KeyCode.Space);
             bool isKeyForQuestJournalClick = Input.GetKeyDown(KeyCode.J);
-            //bool 
-            bool isKeyForSpell = Input.GetKeyDown(KeyCode.Alpha1);
-            bool isKeyForSpell2 = Input.GetKeyDown(KeyCode.Alpha2);
-            bool isKeyForSpell3 = Input.GetKeyDown(KeyCode.Alpha3);
-            bool isKeyForSpell4 = Input.GetKeyDown(KeyCode.Alpha4);
-            bool isKeyForHeal = Input.GetKeyDown(KeyCode.Alpha7);
+            bool isKeyForAbility1 = Input.GetKeyDown(KeyCode.Alpha1);
+            bool isKeyForAbility2 = Input.GetKeyDown(KeyCode.Alpha2);
+            bool isKeyForAbility3 = Input.GetKeyDown(KeyCode.Alpha3);
+            bool isKeyForAbility4 = Input.GetKeyDown(KeyCode.Alpha4);
+            bool isKeyForAbility5 = Input.GetKeyDown(KeyCode.Alpha5);
+            bool isKeyForAbility6 = Input.GetKeyDown(KeyCode.Alpha6);
 
             if (isLeftMouseClick)
             {
@@ -79,28 +86,20 @@ namespace RpgAdventure
                 HandleRightMouseBtnDown();
             }
 
-            if (isKeyForSpell)
+            if (usableAbilities.CanBeUsed == true)
             {
-                HandleKeyboardSpellKey();
-                spellNumber = 1;
-            }
-
-            if (isKeyForSpell2)
-            {
-                HandleKeyboardSpellKey();
-                spellNumber = 2;
-            }
-
-            if (isKeyForSpell3)
-            {
-                HandleKeyboardSpellKey();
-                spellNumber = 3;
-            }
-
-            if (isKeyForSpell4)
-            {
-                HandleKeyboardSpellKey();
-                spellNumber = 4;
+                if(isKeyForAbility1)
+                    usableAbilities.UsingAbilityKeyBoard(1);
+                if (isKeyForAbility2)
+                    usableAbilities.UsingAbilityKeyBoard(2);
+                if (isKeyForAbility3)
+                    usableAbilities.UsingAbilityKeyBoard(3);
+                if (isKeyForAbility4)
+                    usableAbilities.UsingAbilityKeyBoard(4);
+                if (isKeyForAbility5)
+                    usableAbilities.UsingAbilityKeyBoard(5);
+                if (isKeyForAbility6)
+                    usableAbilities.UsingAbilityKeyBoard(6);
             }
 
             if (isKeyForRollClick)
@@ -115,12 +114,6 @@ namespace RpgAdventure
             if (isKeyForQuestJournalClick)
             {
                 FindObjectOfType<QuestManager>().QuestJournalUI.SetActive(true);
-            }
-
-            if(isKeyForHeal)
-            {
-                if (FindObjectOfType<HealthPotionDrink>().IsPotionReady == true)
-                    FindObjectOfType<HealthPotionDrink>().IsStartHealing = true;
             }
 
         }
@@ -186,18 +179,7 @@ namespace RpgAdventure
                 StartCoroutine(TriggerJump());
             }
         }
-        private void HandleKeyboardSpellKey()
-        {
-            if (!m_IsSpell && !IsPointerOverUiElement())
-            {
-                StartCoroutine(TriggerSpell());
-            }
-        }
 
-        public void SpellFromBtn()
-        {
-            StartCoroutine(TriggerSpell());
-        }
         private IEnumerator TriggerOptionTarget(Collider other)
         {
             m_OptionClickTarget = other;
@@ -227,12 +209,6 @@ namespace RpgAdventure
             m_IsJump = true;
             yield return new WaitForSeconds(0.4f);
             m_IsJump = false;
-        }
-        private IEnumerator TriggerSpell()
-        {
-            m_IsSpell = true;
-            yield return new WaitForSeconds(0.05f);
-            m_IsSpell = false;
         }
         private IEnumerator WasLeftMsClicked()
         {
