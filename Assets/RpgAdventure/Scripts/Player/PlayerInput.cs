@@ -15,6 +15,8 @@ namespace RpgAdventure
         [SerializeField]
         private GameObject useablbeManager;
         private UsableAbilities usableAbilities;
+        private DialogManager m_DialogManger;
+        private QuestGiver m_NPC;
         private static PlayerInput s_Instance;
         private Vector3 m_Movement;
         private bool m_IsSpell;
@@ -53,6 +55,7 @@ namespace RpgAdventure
         private void Start()
         {
             usableAbilities = useablbeManager.GetComponent<UsableAbilities>();
+            m_DialogManger = GameObject.Find("DialogManager").GetComponent<DialogManager>();
         }
 
         void Update()
@@ -102,27 +105,29 @@ namespace RpgAdventure
                     usableAbilities.UsingAbilityKeyBoard(6);
             }
 
-            if (isKeyForRollClick)
+            if (m_DialogManger.HasActiveDialog == false)
             {
-                HandleKeyboardQKey();
-            }
+                if (isKeyForRollClick)
+                {
+                    HandleKeyboardQKey();
+                }
 
-            if (isKeyForJumpClick)
-            {
-                HandleKeyboardSpaceKey();
+                if (isKeyForJumpClick)
+                {
+                    HandleKeyboardSpaceKey();
+                }
+                if (isKeyForQuestJournalClick)
+                {
+                    FindObjectOfType<QuestManager>().QuestJournalUI.SetActive(true);
+                }
             }
-            if (isKeyForQuestJournalClick)
-            {
-                FindObjectOfType<QuestManager>().QuestJournalUI.SetActive(true);
-            }
-
         }
 
         private void HandleLeftMouseBtnDown()
         {
             WasLeftMouseClicked();
 
-            if (!m_IsAttack && !IsPointerOverUiElement())
+            if (!m_IsAttack && !IsPointerOverUiElement() && (m_DialogManger.HasActiveDialog == false))
             {   
                 StartCoroutine(TriggerAttack());
             }
@@ -159,22 +164,31 @@ namespace RpgAdventure
                 m_OptionClickTarget = hit.collider;
                 StartCoroutine(TriggerOptionTarget(hit.collider));
             }
-            if (!m_IsBlock && !IsPointerOverUiElement())
-            {
-                StartCoroutine(TriggerBlock());
-            }
+            if (!m_IsBlock && !IsPointerOverUiElement() && m_DialogManger.HasActiveDialog == false)
+                if(!s_Instance.OptionClickTarget.CompareTag("QuestGiver"))
+                    {
+                        StartCoroutine(TriggerBlock());
+                    }
+                else
+                {
+                    m_NPC = s_Instance.OptionClickTarget.GetComponent<QuestGiver>();
+                    if(Vector3.Distance( s_Instance.transform.position, m_NPC.transform.position) > 2.5f)
+                    {
+                        StartCoroutine(TriggerBlock());
+                    }
+                }
         }
 
         private void HandleKeyboardQKey()
         {
-            if (!m_IsRoll && !IsPointerOverUiElement())
+            if (!m_IsRoll )
             {
                 StartCoroutine(TriggerRoll());
             }
         }
         private void HandleKeyboardSpaceKey()
         {
-            if (!m_IsJump && !IsPointerOverUiElement())
+            if (!m_IsJump )
             {
                 StartCoroutine(TriggerJump());
             }

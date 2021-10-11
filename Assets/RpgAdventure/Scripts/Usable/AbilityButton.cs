@@ -21,6 +21,7 @@ namespace RpgAdventure
         [SerializeField]
         private float m_CooldownTime;
         private float m_Counter;
+        private DialogManager m_DialogManger;
         private bool m_IsAbilityReady;
         private bool m_IsAbilityStarted;
         public bool IsAbilityReady => m_IsAbilityReady;
@@ -32,10 +33,11 @@ namespace RpgAdventure
         private void Start()
         {
             m_UsableThings = GetComponent<UsableAbilities>();
-            m_abilityButton.onClick.AddListener(UseButtonAbility);
+            m_abilityButton.onClick.AddListener(UseAbility);
             m_UsableThings.abilityButtons.Add(this);
             m_IsAbilityReady = false;
             m_abilityButton.interactable = false;
+            m_DialogManger = GameObject.Find("DialogManager").GetComponent<DialogManager>();
         }
 
         private void Update()
@@ -56,29 +58,23 @@ namespace RpgAdventure
         {
             buttonSlider.value = TimeCounter / m_CooldownTime;
         }
-        private void UseButtonAbility()
+
+        public void UseAbility()
         {
-            if (m_UsableThings.CanBeUsed == true)
+            if (m_DialogManger.HasActiveDialog == false)
             {
-                if(m_IsAbilityReady == true)
+                if (m_UsableThings.CanBeUsed == true)
                 {
-                    UseAbility();
-                    m_UsableThings.AbilityToUse(abilityNumber);
+                    if (m_IsAbilityReady == true)
+                    {
+                        UseAbilityUI();
+                        m_UsableThings.AbilityToUse(abilityNumber);
+                    }
                 }
             }
         }
-        public void UseButtonAbilityFromKey()
-        {
-            if (m_UsableThings.CanBeUsed == true)
-            {
-                if (m_IsAbilityReady == true)
-                {
-                    UseAbility();
-                    m_UsableThings.AbilityToUse(abilityNumber);
-                } 
-            }
-        }
-        private void UseAbility()
+        
+        private void UseAbilityUI()
         {
             m_Counter = 0;
             buttonSlider.value = 0;

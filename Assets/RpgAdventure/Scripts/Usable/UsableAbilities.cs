@@ -89,7 +89,7 @@ namespace RpgAdventure
             foreach (var abilityButton in abilityButtons)
             {
                 if (abilityButton.abilityNumber == abNumber)
-                    abilityButton.UseButtonAbilityFromKey();
+                    abilityButton.UseAbility();
             }
         }
         private IEnumerator WaitToNextAbiility()

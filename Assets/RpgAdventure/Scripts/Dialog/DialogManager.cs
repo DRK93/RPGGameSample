@@ -87,7 +87,6 @@ namespace RpgAdventure
             m_ActiveDialog = null;
             m_ForceDialogQuit = false;
             dialogUI.SetActive(false);
-            InventoryUI.SetActive(true);
         }
 
         private void CreateDialogMenu()
