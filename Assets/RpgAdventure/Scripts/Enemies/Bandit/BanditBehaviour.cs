@@ -110,6 +110,13 @@ namespace RpgAdventure
                     );
                 transform.rotation = targetRotation;
             }
+            else
+            {
+                if( m_FollowTarget == null)
+                {
+                    GoToOrignalSpot();
+                }
+            }
         }
 
         private void ReDetectTarget(PlayerController detectedTarget)
@@ -231,7 +238,20 @@ namespace RpgAdventure
             m_EnemyController.FollowTarget(m_FollowTarget.transform.position);
         }
 
-        private string EnemyNameCheck (string enemyName)
+        private IEnumerator WaitOnPursuit ()
+        {
+            yield return new WaitForSeconds(timeToWaitOnPursuit);
+            m_EnemyController.FollowTarget(m_OriginPosition);
+        }
+
+        private IEnumerator WaitToReturnDetectRad()
+        {
+            yield return new WaitForSeconds(5.0f);
+            playerScanner.detectionRadius = m_DetectionRadiusOrig;
+            playerScanner.detectionAngle = m_DetectionAngleOrig;
+        }
+
+        private string EnemyNameCheck(string enemyName)
         {
             if (enemyName.EndsWith(")"))
             {
@@ -250,19 +270,6 @@ namespace RpgAdventure
                 }
             }
             return enemyName;
-        }
-
-        private IEnumerator WaitOnPursuit ()
-        {
-            yield return new WaitForSeconds(timeToWaitOnPursuit);
-            m_EnemyController.FollowTarget(m_OriginPosition);
-        }
-
-        private IEnumerator WaitToReturnDetectRad()
-        {
-            yield return new WaitForSeconds(5.0f);
-            playerScanner.detectionRadius = m_DetectionRadiusOrig;
-            playerScanner.detectionAngle = m_DetectionAngleOrig;
         }
 
 #if UNITY_EDITOR

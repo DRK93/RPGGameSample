@@ -9,7 +9,7 @@ namespace RpgAdventure
     public class PlayerScanner
     {
         public float detectionRadius = 10.0f;
-        public float detectionAngle = 90.0f;
+        public float detectionAngle = 180.0f;
         public float meleeDetectionRadius = 2.0f;
         public PlayerController Detect(Transform detector)
         {
