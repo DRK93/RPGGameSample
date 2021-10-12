@@ -11,6 +11,9 @@ namespace RpgAdventure
             public MonoBehaviour damager;
             public int amount;
             public GameObject damageSource;
+            public int tool;
+            // tool = 1 --- it will be from melee weapon
+            // tool = 2 --- it will be from spell
         }
     }
 }

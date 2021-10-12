@@ -73,27 +73,14 @@ namespace RpgAdventure
 
         public void ApplyDamage(DamageMessage data)
         {
+
             if (m_CurrentHitPoints <= 0 || m_IsInvulnerable)
             {
                 return;
             }
-
-            Vector3 positionToDamager = data.damageSource.transform.position - transform.position;
-            positionToDamager.y = 0;
-
-            if (Vector3.Angle(transform.forward, positionToDamager) > m_CharacterStats.hitAngle * 0.5f)
-            {
-                return;
-            }
-
-            m_IsInvulnerable = true;
             MessageType messageType;
 
-            if (m_blockStance == true && Vector3.Angle(transform.forward, positionToDamager) < m_CharacterStats.blockAngle *0.5 )
-            {
-                messageType = MessageType.BLOCKED;
-            }
-            else
+            if (data.tool == 2)
             {
                 m_CurrentHitPoints -= data.amount;
                 m_CharacterStats.currentHitPoints = m_CurrentHitPoints;
@@ -110,7 +97,40 @@ namespace RpgAdventure
                     messageType = MessageType.DAMAGED;
                 }
             }
-                      
+            else
+            {
+                Vector3 positionToDamager = data.damageSource.transform.position - transform.position;
+                positionToDamager.y = 0;
+
+                if (Vector3.Angle(transform.forward, positionToDamager) > m_CharacterStats.hitAngle * 0.5f)
+                {
+                    return;
+                }
+                m_IsInvulnerable = true;
+
+                if (m_blockStance == true && Vector3.Angle(transform.forward, positionToDamager) < m_CharacterStats.blockAngle *0.5 )
+                {
+                    messageType = MessageType.BLOCKED;
+                }
+                else
+                {
+                    m_CurrentHitPoints -= data.amount;
+                    m_CharacterStats.currentHitPoints = m_CurrentHitPoints;
+                    if (m_CurrentHitPoints <= 0)
+                    {
+                        messageType = MessageType.DEAD;
+                    }
+                    else if (m_CurrentHitPoints < m_CharacterStats.maxHitPoints / 3)
+                    {
+                        messageType = MessageType.HIGHDAMAGED;
+                    }
+                    else
+                    {
+                        messageType = MessageType.DAMAGED;
+                    }
+                }
+            }
+   
             for (int i = 0; i < onDamageMessageReceivers.Count; i++)
             {
                 var receiver = onDamageMessageReceivers[i] as IMessageReceiver;

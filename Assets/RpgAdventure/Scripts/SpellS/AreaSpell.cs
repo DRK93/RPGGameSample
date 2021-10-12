@@ -55,6 +55,7 @@ namespace RpgAdventure
                     data.amount = m_SpellDmg + GameObject.Find("Player").GetComponent<PlayerStats>().spellDamage;
                     data.damager = this;
                     data.damageSource = m_Owner;
+                    data.tool = 2;
                     damageable.ApplyDamage(data);
                     enemy.GetComponent<BanditBehaviour>().DetectionRadiusChange();
                 }

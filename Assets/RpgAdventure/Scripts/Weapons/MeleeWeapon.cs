@@ -81,6 +81,7 @@ namespace RpgAdventure
                 }
                 data.damager = this;
                 data.damageSource = m_Owner;
+                data.tool = 1;
                 if (impactAudio != null)
                 {
                     impactAudio.PlayRandomClip();
