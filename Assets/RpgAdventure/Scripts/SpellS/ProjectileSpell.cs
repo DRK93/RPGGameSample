@@ -56,8 +56,7 @@ namespace RpgAdventure
                             data.amount = SpellDmg * m_SpellDamageMultiply;
                             data.damager = this;
                             data.damageSource = m_Owner;
-                            data.tool = 2;
-                            damageable.ApplyDamage(data);
+                            damageable.ApplyDamageFromSpell(data);
                             other.GetComponent<BanditBehaviour>().DetectionRadiusChange();
                         }
                     }

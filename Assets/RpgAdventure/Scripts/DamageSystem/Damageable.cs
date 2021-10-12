@@ -13,8 +13,10 @@ namespace RpgAdventure
         private bool m_blockStance;
         private int m_CurrentHitPoints;
         private CharacterStats m_CharacterStats;
-        private bool m_IsInvulnerable = false;
-        private float m_TimeSinceLastHit = 0.0f;
+        private List<bool> invulnerables;
+        private List<float> timesSinceLastHit;
+        private List<int> enemiesUIds;
+        private List<int> indexesToRemove;
         public int CurrentHitPoints
         {
             get { return m_CurrentHitPoints; }
@@ -39,16 +41,38 @@ namespace RpgAdventure
                 onDamageMessageReceivers.Add(GameObject.Find("Player").GetComponent<PlayerStats>());
             }
         }
+        private void Start()
+        {
+            invulnerables = new List<bool>();
+            timesSinceLastHit = new List<float>();
+            enemiesUIds = new List<int>();
+            indexesToRemove = new List<int>();
+        }
 
         private void Update()
         {
-            if (m_IsInvulnerable)
+
+            if(invulnerables != null)
             {
-                m_TimeSinceLastHit += Time.deltaTime;
-                if (m_TimeSinceLastHit >= m_CharacterStats.invulnerabilityTime)
+                indexesToRemove = new List<int>();
+                for (int i=0; i<invulnerables.Count; i++)
                 {
-                    m_IsInvulnerable = false;
-                    m_TimeSinceLastHit = 0;
+                    timesSinceLastHit[i] += Time.deltaTime;
+                    if (timesSinceLastHit[i] >= m_CharacterStats.invulnerabilityTime)
+                    {
+                        invulnerables[i] = false;
+                        indexesToRemove.Add(i);
+                    }
+                }
+                if (indexesToRemove != null)
+                {
+                    indexesToRemove.Reverse();
+                    foreach (var index in indexesToRemove)
+                    {
+                        invulnerables.RemoveAt(index);
+                        timesSinceLastHit.RemoveAt(index);
+                        enemiesUIds.RemoveAt(index);
+                    }
                 }
             }
         }
@@ -71,42 +95,77 @@ namespace RpgAdventure
             m_CurrentHitPoints = m_CharacterStats.maxHitPoints;
         }
 
-        public void ApplyDamage(DamageMessage data)
+        public void ApplyDamageFromSpell(DamageMessage data)
         {
-
-            if (m_CurrentHitPoints <= 0 || m_IsInvulnerable)
-            {
-                return;
-            }
             MessageType messageType;
 
-            if (data.tool == 2)
+            m_CurrentHitPoints -= data.amount;
+            m_CharacterStats.currentHitPoints = m_CurrentHitPoints;
+            if (m_CurrentHitPoints <= 0)
             {
-                m_CurrentHitPoints -= data.amount;
-                m_CharacterStats.currentHitPoints = m_CurrentHitPoints;
-                if (m_CurrentHitPoints <= 0)
-                {
-                    messageType = MessageType.DEAD;
-                }
-                else if (m_CurrentHitPoints < m_CharacterStats.maxHitPoints / 3)
-                {
-                    messageType = MessageType.HIGHDAMAGED;
-                }
-                else
-                {
-                    messageType = MessageType.DAMAGED;
-                }
+                messageType = MessageType.DEAD;
+            }
+            else if (m_CurrentHitPoints < m_CharacterStats.maxHitPoints / 3)
+            {
+                messageType = MessageType.HIGHDAMAGED;
             }
             else
             {
-                Vector3 positionToDamager = data.damageSource.transform.position - transform.position;
-                positionToDamager.y = 0;
+                messageType = MessageType.DAMAGED;
+            }
 
-                if (Vector3.Angle(transform.forward, positionToDamager) > m_CharacterStats.hitAngle * 0.5f)
+            for (int i = 0; i < onDamageMessageReceivers.Count; i++)
+            {
+                var receiver = onDamageMessageReceivers[i] as IMessageReceiver;
+                receiver.OnReceiveMessage(messageType, this, data);
+            }
+        }
+        public void ApplyDamageFromWeapon(DamageMessage data)
+        {
+            int enemyApplyingDmg = data.damageSource.GetComponent<CharacterStats>().uniqueID;
+
+            if (enemiesUIds != null)
+            {
+                var index = 1;
+                foreach (var enemy in enemiesUIds)
                 {
-                    return;
+                    if (enemyApplyingDmg == enemy)
+                    {
+                        return;
+                    }
+                    index++;
                 }
-                m_IsInvulnerable = true;
+                
+                enemiesUIds.Add(enemyApplyingDmg);
+                invulnerables.Add(false);
+                timesSinceLastHit.Add(0f);
+                ApplyDamage(data, invulnerables[invulnerables.Count-1]);
+            }
+            else
+            {
+                enemiesUIds.Add(enemyApplyingDmg);
+                invulnerables.Add(false);
+                timesSinceLastHit.Add(0f);
+                ApplyDamage(data,invulnerables[invulnerables.Count - 1]);
+            }
+        }
+        public void ApplyDamage(DamageMessage data, bool invulerable)
+        {
+            if (m_CurrentHitPoints <=0 || invulerable)
+            {
+                return;
+            }
+
+            MessageType messageType;
+            Vector3 positionToDamager = data.damageSource.transform.position - transform.position;
+            positionToDamager.y = 0;
+
+            if (Vector3.Angle(transform.forward, positionToDamager) > m_CharacterStats.hitAngle * 0.5f)
+            {
+                return;
+            }
+
+                invulerable = true;
 
                 if (m_blockStance == true && Vector3.Angle(transform.forward, positionToDamager) < m_CharacterStats.blockAngle *0.5 )
                 {
@@ -129,7 +188,6 @@ namespace RpgAdventure
                         messageType = MessageType.DAMAGED;
                     }
                 }
-            }
    
             for (int i = 0; i < onDamageMessageReceivers.Count; i++)
             {

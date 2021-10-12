@@ -15,7 +15,7 @@ namespace RpgAdventure
         private List<GameObject> enemyInArea;
         private List<int> enemyUniqId;
         private List<float> counterPerEnemy;
-
+        private List<int> indexerNumbers;
         void Start()
         {
             counter = 0f;
@@ -55,8 +55,7 @@ namespace RpgAdventure
                     data.amount = m_SpellDmg + GameObject.Find("Player").GetComponent<PlayerStats>().spellDamage;
                     data.damager = this;
                     data.damageSource = m_Owner;
-                    data.tool = 2;
-                    damageable.ApplyDamage(data);
+                    damageable.ApplyDamageFromSpell(data);
                     enemy.GetComponent<BanditBehaviour>().DetectionRadiusChange();
                 }
         }
@@ -69,12 +68,22 @@ namespace RpgAdventure
 
         public void ExitSpellArea(GameObject enemyOut)
         {
-            for(int i=0; i<enemyInArea.Count; i++)
+            indexerNumbers = new List<int>();
+            for (int i=0; i<enemyInArea.Count; i++)
             if (enemyOut.GetComponent<CharacterStats>().uniqueID == enemyInArea[i].GetComponent<CharacterStats>().uniqueID)
             {
-                enemyInArea.RemoveAt(i);
-                enemyUniqId.RemoveAt(i);
-                counterPerEnemy.RemoveAt(i);
+                    indexerNumbers.Add(i);
+            }
+
+            if( indexerNumbers!=null)
+            {
+                indexerNumbers.Reverse();
+                foreach (var index in indexerNumbers)
+                {
+                    counterPerEnemy.RemoveAt(index);
+                    enemyInArea.RemoveAt(index);
+                    enemyUniqId.RemoveAt(index);
+                }
             }
         }
     }
