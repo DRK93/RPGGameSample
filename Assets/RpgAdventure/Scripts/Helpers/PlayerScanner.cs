@@ -10,7 +10,7 @@ namespace RpgAdventure
     {
         public float detectionRadius = 10.0f;
         public float detectionAngle = 180.0f;
-        public float meleeDetectionRadius = 2.0f;
+        public float meleeDetectionRadius = 5.0f;
         public PlayerController Detect(Transform detector)
         {
             if (PlayerController.Instance == null)

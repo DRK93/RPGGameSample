@@ -56,7 +56,7 @@ namespace RpgAdventure
                     data.damager = this;
                     data.damageSource = m_Owner;
                     damageable.ApplyDamageFromSpell(data);
-                    enemy.GetComponent<BanditBehaviour>().DetectionRadiusChange();
+                    enemy.GetComponent<BanditBehaviour>().AttackedFromRange();
                 }
         }
         public void EnteringSpellArea(GameObject enemyIn)

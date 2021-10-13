@@ -20,9 +20,12 @@ namespace RpgAdventure
         private UniqueId m_EnemyId;
         private EnemyHealthBar m_EnemyHealthBar;
         private Damageable m_Damagable;
+        private GameObject[] alliesByTag;
+        private List<GameObject> allies;
         private float m_TimeSinceLostTarget = 0.0f;
         private Vector3 m_OriginPosition;
         private Quaternion m_OriginalRotation;
+        private float allyHelpDistance = 8f;
         private string m_EnemyName;
         private float m_DetectionRadiusOrig;
         private float m_DetectionAngleOrig;
@@ -97,7 +100,6 @@ namespace RpgAdventure
         private void CheckIfNearBase()
         {
             Vector3 toBase = m_OriginPosition - transform.position;
-            //toBase.y = 0;
             Vector2 toBase2 = new Vector2(toBase.x, toBase.z);
             bool nearBase = toBase2.magnitude < 2.0f;
             m_EnemyController.Animator.SetBool(m_HashNearBase, nearBase);
@@ -119,6 +121,13 @@ namespace RpgAdventure
             }
         }
 
+        private void GoToOrignalSpot()
+        {
+            m_FollowTarget = null;
+            m_EnemyController.Animator.SetBool(m_HashInPursuit, false);
+            m_EnemyController.FollowTarget(m_OriginPosition);
+        }
+
         private void ReDetectTarget(PlayerController detectedTarget)
         {
             if (detectedTarget == null)
@@ -134,77 +143,12 @@ namespace RpgAdventure
                 m_TimeSinceLostTarget = 0;
             }
         }
-        public void DetectionRadiusChange()
-        {
-            playerScanner.detectionRadius = 30.0f;
-            playerScanner.detectionAngle = 360.0f;
-            StartCoroutine(WaitToReturnDetectRad());
-        }
-        public void MeleeAttackStart()
-        {
-            meleeWeapon.BeginAttack();
-        }
-
-        public void MeleeAttackEnd()
-        {
-            meleeWeapon.EndAttack();
-        }
-
-        public void TempoWindowBegin()
-        {
-        }
-
-        public void TempoWindowEnd()
-        {
-        }
-
-        public void OnReceiveMessage(MessageType type, object sender, object message)
-        {
-            switch(type)
-            {
-                case MessageType.DEAD:
-                    OnDeath();
-                    m_EnemyHealthBar.SetHealth((sender as Damageable).CurrentHitPoints);
-                    m_Damagable.GetComponent<CharacterStats>().isDead = true;
-                    m_EnemyAliveList.enmiesSaveSystem[m_Damagable.GetComponent<CharacterStats>().uniqueID] = m_Damagable.GetComponent<CharacterStats>().isDead;
-                    break;
-                case MessageType.DAMAGED:
-                    
-                    OnReceiveDamage();
-                    m_EnemyHealthBar.SetHealth((sender as Damageable).CurrentHitPoints);
-                    break;
-                case MessageType.HIGHDAMAGED:
-
-                    OnReceiveDamage();
-                    m_EnemyHealthBar.SetHealth((sender as Damageable).CurrentHitPoints);
-                    break;
-                default:
-                    break;
-            }
-        }
-
-        private void OnDeath()
-        {
-            m_EnemyController.StopFollowTarget();
-            m_EnemyController.Animator.SetTrigger(m_HashDeath);
-        }
-        private void OnReceiveDamage()
-        {
-            m_EnemyController.Animator.SetTrigger(m_HashHurt);
-        }
 
         private void StopPursuit()
         {
-                 m_FollowTarget = null;
-                 m_EnemyController.Animator.SetBool(m_HashInPursuit, false);
-                 StartCoroutine(WaitOnPursuit());
-        }
-
-        private void GoToOrignalSpot()
-        {
             m_FollowTarget = null;
             m_EnemyController.Animator.SetBool(m_HashInPursuit, false);
-            m_EnemyController.FollowTarget(m_OriginPosition);
+            StartCoroutine(WaitOnPursuit());
         }
 
         private void AttackOrFollowTarget()
@@ -237,18 +181,56 @@ namespace RpgAdventure
             m_EnemyController.Animator.SetBool(m_HashInPursuit, true);
             m_EnemyController.FollowTarget(m_FollowTarget.transform.position);
         }
-
-        private IEnumerator WaitOnPursuit ()
+        public void MeleeAttackStart()
         {
-            yield return new WaitForSeconds(timeToWaitOnPursuit);
-            m_EnemyController.FollowTarget(m_OriginPosition);
+            meleeWeapon.BeginAttack();
         }
 
-        private IEnumerator WaitToReturnDetectRad()
+        public void MeleeAttackEnd()
         {
-            yield return new WaitForSeconds(5.0f);
-            playerScanner.detectionRadius = m_DetectionRadiusOrig;
-            playerScanner.detectionAngle = m_DetectionAngleOrig;
+            meleeWeapon.EndAttack();
+        }
+
+        public void TempoWindowBegin()
+        {
+        }
+
+        public void TempoWindowEnd()
+        {
+        }
+
+        public void OnReceiveMessage(MessageType type, object sender, object message)
+        {
+            switch (type)
+            {
+                case MessageType.DEAD:
+                    OnDeath();
+                    m_EnemyHealthBar.SetHealth((sender as Damageable).CurrentHitPoints);
+                    m_Damagable.GetComponent<CharacterStats>().isDead = true;
+                    m_EnemyAliveList.enmiesSaveSystem[m_Damagable.GetComponent<CharacterStats>().uniqueID] = m_Damagable.GetComponent<CharacterStats>().isDead;
+                    break;
+                case MessageType.DAMAGED:
+
+                    OnReceiveDamage();
+                    m_EnemyHealthBar.SetHealth((sender as Damageable).CurrentHitPoints);
+                    break;
+                case MessageType.HIGHDAMAGED:
+
+                    OnReceiveDamage();
+                    m_EnemyHealthBar.SetHealth((sender as Damageable).CurrentHitPoints);
+                    break;
+                default:
+                    break;
+            }
+        }
+        private void OnDeath()
+        {
+            m_EnemyController.StopFollowTarget();
+            m_EnemyController.Animator.SetTrigger(m_HashDeath);
+        }
+        private void OnReceiveDamage()
+        {
+            m_EnemyController.Animator.SetTrigger(m_HashHurt);
         }
 
         private string EnemyNameCheck(string enemyName)
@@ -271,6 +253,50 @@ namespace RpgAdventure
             }
             return enemyName;
         }
+        private void AlliesList()
+        {
+            alliesByTag = null;
+            allies = new List<GameObject>();
+            alliesByTag = GameObject.FindGameObjectsWithTag("Enemy");
+            foreach (var ally in alliesByTag)
+            {
+                Vector3 toAlly = ally.transform.position - transform.position;
+                if (toAlly.magnitude <= allyHelpDistance)
+                {
+                    allies.Add(ally);
+                }
+            }
+            if (allies != null)
+            {
+                foreach (var ally in allies)
+                    ally.GetComponent<BanditBehaviour>().DetectionRadiusChange(20f);
+            }
+        }
+        public void AttackedFromRange()
+        {
+            DetectionRadiusChange(20f);
+            AlliesList();
+        }
+        public void DetectionRadiusChange(float addingNumber)
+        {
+            playerScanner.detectionRadius += addingNumber;
+            playerScanner.detectionAngle = 360.0f;
+            StartCoroutine(WaitToReturnDetectRad());
+        }
+
+        private IEnumerator WaitOnPursuit ()
+        {
+            yield return new WaitForSeconds(timeToWaitOnPursuit);
+            m_EnemyController.FollowTarget(m_OriginPosition);
+        }
+
+        private IEnumerator WaitToReturnDetectRad()
+        {
+            yield return new WaitForSeconds(5.0f);
+            playerScanner.detectionRadius = m_DetectionRadiusOrig;
+            playerScanner.detectionAngle = m_DetectionAngleOrig;
+        }
+
 
 #if UNITY_EDITOR
         private void OnDrawGizmosSelected()

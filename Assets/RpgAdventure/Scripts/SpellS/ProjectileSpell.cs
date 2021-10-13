@@ -57,7 +57,7 @@ namespace RpgAdventure
                             data.damager = this;
                             data.damageSource = m_Owner;
                             damageable.ApplyDamageFromSpell(data);
-                            other.GetComponent<BanditBehaviour>().DetectionRadiusChange();
+                            other.GetComponent<BanditBehaviour>().AttackedFromRange();
                         }
                     }
                     if (other.gameObject.layer == 9)

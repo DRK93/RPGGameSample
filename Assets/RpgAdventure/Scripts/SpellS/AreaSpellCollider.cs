@@ -6,15 +6,6 @@ namespace RpgAdventure
 {
     public class AreaSpellCollider : MonoBehaviour
     {
-       // private Vector3 halfExtents;
-        private void Start()
-        {
-           // halfExtents = transform.h
-            //if (Physics.CheckBox(transform.position, halfExtents)
-               // {
-
-            //}
-        }
         private void OnTriggerEnter(Collider other)
         {
             if(other.gameObject.layer == 6)
