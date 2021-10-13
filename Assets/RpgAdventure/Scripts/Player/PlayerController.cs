@@ -88,92 +88,28 @@ namespace RpgAdventure
         }
         void FixedUpdate()
         {
-
             CacheAnimationState();
             UpdateInputBlocking();
             ComputeForwardMovement();
             ComputeVerticalMovement();
             ComputeRotation();
-            
-
-            if (m_PlayerInput.IsMoveInput || m_PlayerInput.IsJump)
-            {
-                float rotationSpeed = Mathf.Lerp(m_MaxRotationSpeed, m_MinRotationSpeed, m_ForwardSpeed / m_DesiredForwardSpeed);
-                m_TargetRotation = Quaternion.RotateTowards
-                    (transform.rotation,
-                    m_TargetRotation,
-                    rotationSpeed * Time.fixedDeltaTime
-                    );
-                transform.rotation = m_TargetRotation;
-            }
-
-            m_Animator.ResetTrigger(m_HashMeleeAttack);
-            if (m_PlayerInput.IsAttack)
-            {
-                m_Animator.SetTrigger(m_HashMeleeAttack);
-            }
-
-            m_Animator.ResetTrigger(m_HashBlockAttack);
-            if (m_PlayerInput.IsBlocking)
-            {
-                m_Animator.SetTrigger(m_HashBlockAttack);
-            }
-
-            m_Animator.ResetTrigger(m_HashRoll);
-            if (m_PlayerInput.IsRoll)
-            {
-                m_Animator.SetTrigger(m_HashRoll);
-            }
-
-            if ((m_Animator.GetBool(m_HashJumping) == false) && (m_Animator.GetBool(m_HashFalling) == false))
-            { 
-                m_Animator.ResetTrigger(m_HashJump);
-                m_CurrentJumpingSpeed = 0;
-            }
-
-            if (m_PlayerInput.IsJump)
-            {
-                m_Animator.SetTrigger(m_HashJump);
-                m_CurrentJumpingSpeed = 8;
-            }
-
-            if (Physics.Raycast(transform.position + (Vector3.up * 0.1f), Vector3.down, groundDistance, whatIsGround))
-            {
-                m_Animator.SetBool(m_HashGrounded, true);
-                m_Animator.applyRootMotion = true;
-            }
-            else
-            {
-                m_Animator.SetBool(m_HashGrounded, false);
-            }
+            ComputeIfJump();
+            CheckAnimatorTriggers();
             PlaySprintAudio();
         }
 
-        private string CheckWhatIsBelow()
+        private void CacheAnimationState()
         {
-            RaycastHit rayCastHit1;
-            if (Physics.Raycast(transform.position + (Vector3.up * 0.5f), Vector3.down, out rayCastHit1, 40))
-            {
-                return rayCastHit1.transform.name;
-            }
-            else
-                return "Nothing below, good luck at falling down!!!";
+            m_CurrentStateInfo = m_Animator.GetCurrentAnimatorStateInfo(0);
+            m_NextStateInfo = m_Animator.GetNextAnimatorStateInfo(0);
+            m_IsAnimatorTransisioning = m_Animator.IsInTransition(0);
         }
-        private void ComputeVerticalMovement()
+        private void UpdateInputBlocking()
         {
-  
-            if (m_Animator.GetBool(m_HashJumping) == true)
-            {
-                
-                m_VerticalSpeed = 0.3f* m_CurrentJumpingSpeed;
-                m_CurrentJumpingSpeed -= 200 * Time.deltaTime;
-            }
-            else
-            {
-                m_VerticalSpeed = -0.2f*gravity;
-            }
+            bool inputBlocked = m_CurrentStateInfo.tagHash == m_HashBlockInput && !m_IsAnimatorTransisioning;
+            inputBlocked = inputBlocked | m_NextStateInfo.tagHash == m_HashBlockInput;
+            m_PlayerInput.isPlayerControllerInputBlock = inputBlocked;
         }
-
         private void ComputeForwardMovement()
         {
             Vector3 moveInput = m_PlayerInput.MoveInput.normalized;
@@ -199,6 +135,31 @@ namespace RpgAdventure
             m_Animator.SetFloat(m_HashForwardSpeed, m_ForwardSpeed);
         }
 
+        private string CheckWhatIsBelow()
+        {
+            RaycastHit rayCastHit1;
+            if (Physics.Raycast(transform.position + (Vector3.up * 0.5f), Vector3.down, out rayCastHit1, 40))
+            {
+                return rayCastHit1.transform.name;
+            }
+            else
+                return "Nothing below, good luck at falling down!!!";
+        }
+        private void ComputeVerticalMovement()
+        {
+
+            if (m_Animator.GetBool(m_HashJumping) == true)
+            {
+
+                m_VerticalSpeed = 0.3f * m_CurrentJumpingSpeed;
+                m_CurrentJumpingSpeed -= 200 * Time.deltaTime;
+            }
+            else
+            {
+                m_VerticalSpeed = -0.2f * gravity;
+            }
+        }
+
         private void ComputeRotation()
         {
             Vector3 moveInput = m_PlayerInput.MoveInput.normalized;
@@ -220,12 +181,69 @@ namespace RpgAdventure
             m_TargetRotation = targetRotation;
         }
 
-        private void CacheAnimationState()
+        private void ComputeIfJump()
         {
-            m_CurrentStateInfo = m_Animator.GetCurrentAnimatorStateInfo(0);
-            m_NextStateInfo = m_Animator.GetNextAnimatorStateInfo(0);
-            m_IsAnimatorTransisioning = m_Animator.IsInTransition(0);
+            if (m_PlayerInput.IsMoveInput || m_PlayerInput.IsJump)
+            {
+                float rotationSpeed = Mathf.Lerp(m_MaxRotationSpeed, m_MinRotationSpeed, m_ForwardSpeed / m_DesiredForwardSpeed);
+                m_TargetRotation = Quaternion.RotateTowards
+                    (transform.rotation,
+                    m_TargetRotation,
+                    rotationSpeed * Time.fixedDeltaTime
+                    );
+                transform.rotation = m_TargetRotation;
+            }
         }
+
+        private void CheckAnimatorTriggers()
+        {
+            m_Animator.ResetTrigger(m_HashMeleeAttack);
+
+            if (m_PlayerInput.IsAttack)
+            {
+                m_Animator.SetTrigger(m_HashMeleeAttack);
+            }
+
+            if (m_PlayerInput.IsLeftMouseClicked && m_IsPossibleToTempoAttack)
+            {
+                StartCoroutine(DelayForFirstAttack());
+            }
+
+            //m_Animator.ResetTrigger(m_HashBlockAttack);
+            if (m_PlayerInput.IsBlocking)
+            {
+                m_Animator.SetTrigger(m_HashBlockAttack);
+            }
+
+            m_Animator.ResetTrigger(m_HashRoll);
+            if (m_PlayerInput.IsRoll)
+            {
+                m_Animator.SetTrigger(m_HashRoll);
+            }
+
+            if ((m_Animator.GetBool(m_HashJumping) == false) && (m_Animator.GetBool(m_HashFalling) == false))
+            {
+                m_Animator.ResetTrigger(m_HashJump);
+                m_CurrentJumpingSpeed = 0;
+            }
+
+            if (m_PlayerInput.IsJump)
+            {
+                m_Animator.SetTrigger(m_HashJump);
+                m_CurrentJumpingSpeed = 8;
+            }
+
+            if (Physics.Raycast(transform.position + (Vector3.up * 0.1f), Vector3.down, groundDistance, whatIsGround))
+            {
+                m_Animator.SetBool(m_HashGrounded, true);
+                m_Animator.applyRootMotion = true;
+            }
+            else
+            {
+                m_Animator.SetBool(m_HashGrounded, false);
+            }
+        }
+
 
         private void OnAnimatorMove()
         {
@@ -285,12 +303,15 @@ namespace RpgAdventure
         public void TempoWindowBegin()
         {
             m_IsPossibleToTempoAttack = true;
+        }
+        private IEnumerator DelayForFirstAttack()
+        {
+            yield return new WaitForSeconds(0.1f);
             if (m_PlayerInput.IsLeftMouseClicked && m_IsPossibleToTempoAttack)
             {
                 m_Animator.SetTrigger(m_HashAttackTempoTrigger);
             }
         }
-
         public void TempoWindowEnd()
         {
             m_IsPossibleToTempoAttack = false;
@@ -343,31 +364,6 @@ namespace RpgAdventure
             meleeWeapon.SetOwner(gameObject);
         }
 
-        private void UpdateInputBlocking()
-        {
-            bool inputBlocked = m_CurrentStateInfo.tagHash == m_HashBlockInput && !m_IsAnimatorTransisioning;
-            inputBlocked = inputBlocked | m_NextStateInfo.tagHash == m_HashBlockInput;
-            m_PlayerInput.isPlayerControllerInputBlock = inputBlocked;
-        }
-        private void PlaySprintAudio()
-        {
-            float footFallCurve = m_Animator.GetFloat(m_HashFootFall);
-            if (footFallCurve > 0.01f && !sprintAudio.isPlaying && sprintAudio.canPlay)
-            {
-                sprintAudio.isPlaying = true;
-                sprintAudio.canPlay = false;
-                sprintAudio.PlayRandomClip();
-            }
-            else if (sprintAudio.isPlaying)
-            {
-                sprintAudio.isPlaying = false;
-            }
-            else if (footFallCurve < 0.01f && !sprintAudio.canPlay)
-            {
-                sprintAudio.canPlay = true;
-            }
-        }
-
         public void UseAbility(int abilityNumber)
         {
             switch(abilityNumber)
@@ -394,6 +390,24 @@ namespace RpgAdventure
                     break;
                 default:
                     break;
+            }
+        }
+        private void PlaySprintAudio()
+        {
+            float footFallCurve = m_Animator.GetFloat(m_HashFootFall);
+            if (footFallCurve > 0.01f && !sprintAudio.isPlaying && sprintAudio.canPlay)
+            {
+                sprintAudio.isPlaying = true;
+                sprintAudio.canPlay = false;
+                sprintAudio.PlayRandomClip();
+            }
+            else if (sprintAudio.isPlaying)
+            {
+                sprintAudio.isPlaying = false;
+            }
+            else if (footFallCurve < 0.01f && !sprintAudio.canPlay)
+            {
+                sprintAudio.canPlay = true;
             }
         }
     }
