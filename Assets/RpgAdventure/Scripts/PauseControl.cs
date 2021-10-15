@@ -12,11 +12,13 @@ namespace RpgAdventure
         {
             Time.timeScale = 0f;
             gameIsPaused = true;
+            AudioListener.pause = true;
         }
         public void StartGame()
         {
             Time.timeScale = 1f;
             gameIsPaused = false;
+            AudioListener.pause = false;
         }
     }
 }

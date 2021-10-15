@@ -165,29 +165,32 @@ namespace RpgAdventure
                 return;
             }
 
-                invulerable = true;
+            invulerable = true;
+            GameObject weaponWhichHit = data.damageSource;
 
-                if (m_blockStance == true && Vector3.Angle(transform.forward, positionToDamager) < m_CharacterStats.blockAngle *0.5 )
+            if (m_blockStance == true && Vector3.Angle(transform.forward, positionToDamager) < m_CharacterStats.blockAngle *0.5 )
+            {
+                data.damager.GetComponent<MeleeWeapon>().blockedHitAudio.PlayRandomClip();
+                messageType = MessageType.BLOCKED;
+            }
+            else
+            {
+                data.damager.GetComponent<MeleeWeapon>().impactAudio.PlayRandomClip();
+                m_CurrentHitPoints -= data.amount;
+                m_CharacterStats.currentHitPoints = m_CurrentHitPoints;
+                if (m_CurrentHitPoints <= 0)
                 {
-                    messageType = MessageType.BLOCKED;
+                    messageType = MessageType.DEAD;
+                }
+                else if (m_CurrentHitPoints < m_CharacterStats.maxHitPoints / 3)
+                {
+                    messageType = MessageType.HIGHDAMAGED;
                 }
                 else
                 {
-                    m_CurrentHitPoints -= data.amount;
-                    m_CharacterStats.currentHitPoints = m_CurrentHitPoints;
-                    if (m_CurrentHitPoints <= 0)
-                    {
-                        messageType = MessageType.DEAD;
-                    }
-                    else if (m_CurrentHitPoints < m_CharacterStats.maxHitPoints / 3)
-                    {
-                        messageType = MessageType.HIGHDAMAGED;
-                    }
-                    else
-                    {
-                        messageType = MessageType.DAMAGED;
-                    }
+                    messageType = MessageType.DAMAGED;
                 }
+            }
    
             for (int i = 0; i < onDamageMessageReceivers.Count; i++)
             {

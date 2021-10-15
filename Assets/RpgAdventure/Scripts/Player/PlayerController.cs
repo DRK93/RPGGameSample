@@ -338,6 +338,8 @@ namespace RpgAdventure
         public void StartBlocking()
         {
             m_Damageable.BlockStance = true;
+            if (meleeWeapon != null)
+                meleeWeapon.blockStanceAudio.PlayRandomClip();
         }
 
         public void FinishBlocking()

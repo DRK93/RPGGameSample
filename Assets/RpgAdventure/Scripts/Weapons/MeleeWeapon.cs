@@ -19,6 +19,8 @@ namespace RpgAdventure
         public AttackPoint[] attackPoints = new AttackPoint[0];
         public RandomAudioPlayer swingAudio;
         public RandomAudioPlayer impactAudio;
+        public RandomAudioPlayer blockedHitAudio;
+        public RandomAudioPlayer blockStanceAudio;
         public int additionaDamage = 0;
         private GameObject m_Owner;
         private bool m_IsAttack = false;
@@ -81,11 +83,12 @@ namespace RpgAdventure
                 }
                 data.damager = this;
                 data.damageSource = m_Owner;
-                if (impactAudio != null)
-                {
-                    impactAudio.PlayRandomClip();
-                }
+                //if (impactAudio != null)
+                //{
+                    //impactAudio.PlayRandomClip();
+                //}
                 damageable.ApplyDamageFromWeapon(data);
+                
             }
         }
 

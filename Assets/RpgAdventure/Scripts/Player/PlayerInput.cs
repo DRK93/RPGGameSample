@@ -216,7 +216,7 @@ namespace RpgAdventure
         private IEnumerator TriggerBlock()
         {
             m_IsBlock = true;
-            yield return new WaitForSeconds(0.03f);
+            yield return new WaitForSeconds(0.1f);
             m_IsBlock = false;
         }
         private IEnumerator TriggerRoll()

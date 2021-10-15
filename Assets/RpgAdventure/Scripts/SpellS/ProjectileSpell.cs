@@ -8,6 +8,7 @@ namespace RpgAdventure
     {
         private int m_SpellDmg;
         private GameObject m_Owner;
+        private SpellAudio m_SpellAudio;
         private float m_TimerCount = 0.0f;
         [SerializeField]
         private float m_spellLifeTime = 2.0f;
@@ -15,13 +16,20 @@ namespace RpgAdventure
         private int m_SpellDamageMultiply = 1;
         [SerializeField]
         private float m_spellLifeTimeMultiply = 1.0f;
+
         public GameObject spellToTransform;
         public GameObject impactBeam;
         public GameObject bigBoom;
+        public RandomAudioPlayer castingSpellAudio;
+        public RandomAudioPlayer spellImpactAudio;
 
         public float SpellLifeTime { get => m_spellLifeTime; set => m_spellLifeTime = value; }
         public int SpellDmg { get => m_SpellDmg; set => m_SpellDmg = value; }
 
+        private void Start()
+        {
+            castingSpellAudio.PlayRandomClip();
+        }
         private void Update()
         {
             m_TimerCount += Time.deltaTime;
@@ -66,7 +74,6 @@ namespace RpgAdventure
                     }
                     SpawnImpactEffect();
                 }
-
                 Destroy(this.gameObject);
             }
         }
