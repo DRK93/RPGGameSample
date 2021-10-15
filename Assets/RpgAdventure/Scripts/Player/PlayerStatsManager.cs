@@ -19,6 +19,7 @@ namespace RpgAdventure
         public GameObject CharacterStatsPanel;
 
         private PlayerStats m_PlStats;
+        private PauseControl m_pauseControl;
         private string m_PlayerName;
         private int m_Level;
         private int m_Exp;
@@ -57,7 +58,7 @@ namespace RpgAdventure
             addPowerBtn.onClick.AddListener(AddPowerPointBtn);
             addSpellDmgBtn.onClick.AddListener(AddSpellDmgPointBtn);
             addSpellSpeedBtn.onClick.AddListener(AddSpellSpeedPointBtn);
-
+            m_pauseControl = GameObject.Find("GameMenuManager").GetComponent<PauseControl>();
             HideAllButtons();
         }
         private void Update()
@@ -88,17 +89,11 @@ namespace RpgAdventure
             m_UsedSkillPoints = m_PlStats.usedSkillPoints;
             m_EnemyDefeat = m_PlStats.defeatedEnemies;
             m_QuestCompleted = m_PlStats.questCompleted;
-            
         }
-        private void HideAddButtons()
-        {
-            addHealthBtn.gameObject.SetActive(false);
-            addPowerBtn.gameObject.SetActive(false);
-            addSpellDmgBtn.gameObject.SetActive(false);
-            addSpellSpeedBtn.gameObject.SetActive(false);
-        }
+
         private void ShowCharacterCard()
         {
+            m_pauseControl.PauseGame();
             CharacterCardUI.SetActive(true);
             m_Exp = m_PlStats.currentExp;
             m_EnemyDefeat = m_PlStats.defeatedEnemies;
@@ -139,7 +134,6 @@ namespace RpgAdventure
             m_SpellSpeed += -m_CurrentAddedSpellSpd;
             m_SkillPoints += m_CurSkillPoints;
             m_UsedSkillPoints += -m_CurSkillPoints;
-
             m_CurSkillPoints = 0;
             m_CurrentAddedHealth = 0;
             m_CurrentAddedPower = 0;
@@ -162,7 +156,13 @@ namespace RpgAdventure
             undoBtn.gameObject.SetActive(true);
             if (m_SkillPoints == 0)
                 HideAddButtons();
-
+        }
+        private void HideAddButtons()
+        {
+            addHealthBtn.gameObject.SetActive(false);
+            addPowerBtn.gameObject.SetActive(false);
+            addSpellDmgBtn.gameObject.SetActive(false);
+            addSpellSpeedBtn.gameObject.SetActive(false);
         }
         private void AddPowerPointBtn()
         {
@@ -205,6 +205,7 @@ namespace RpgAdventure
         }
         private void CloseBtn()
         {
+            m_pauseControl.StartGame();
             CharacterCardUI.SetActive(false);
         }
         private void SendStatsChange()

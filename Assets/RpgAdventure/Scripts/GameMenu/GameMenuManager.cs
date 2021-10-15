@@ -28,6 +28,7 @@ namespace RpgAdventure
         public Button controlsReturtnBtn;
         public bool m_IsLoadingScreenOff;
 
+        private PauseControl m_pauseControl;
         private LoadingManager m_LoadingManager;
         private float m_TimeCounter = 0f;
         private float m_LoadingTime = 2.0f;
@@ -58,7 +59,7 @@ namespace RpgAdventure
 
             IsGameMenuActive = false;
             IsGameMenuKey = false;
-            
+            m_pauseControl = GetComponent<PauseControl>();
         }
 
         IEnumerator Start()
@@ -88,16 +89,24 @@ namespace RpgAdventure
             IsGameMenuKey = Input.GetKeyDown(KeyCode.Escape);
             if (IsGameMenuKey && IsGameMenuActive == false)
             {
-                gameMenuUI.SetActive(true);
-                gameMenuPanel.SetActive(true);
-                IsGameMenuActive = true;
+                GameMenuAcitvate();
+                m_pauseControl.PauseGame();
+
             }
         }
 
+        private void GameMenuAcitvate()
+        {
+            gameMenuUI.SetActive(true);
+            gameMenuPanel.SetActive(true);
+            IsGameMenuActive = true;
+        }
         private void ResumeBtn()
         {
+            m_pauseControl.StartGame();
             gameMenuUI.SetActive(false);
             IsGameMenuActive = false;
+
         }
         private void SaveGameBtn()
         {
@@ -113,6 +122,7 @@ namespace RpgAdventure
         }
         private void LoadGameBtn()
         {
+            m_pauseControl.StartGame();
             gameMenuPanel.SetActive(false);
             loadGamePanel.SetActive(true);
             foreach (var name in nameList)

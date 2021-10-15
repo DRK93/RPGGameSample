@@ -27,7 +27,8 @@ namespace RpgAdventure
         public GameObject QuestJournalUI;
         public Button QuestJournalLeaveBtn;
         public List<QuestGiver> QuestGivers;
-        
+
+        private PauseControl m_PauseControl;
 
         private void Awake()
         {
@@ -36,9 +37,14 @@ namespace RpgAdventure
             QuestJournalUI.SetActive(false);
             QuestJournalLeaveBtn.onClick.AddListener(LeaveQuestJournal);
         }
+        private void Start()
+        {
+            m_PauseControl = GameObject.Find("GameMenuManager").GetComponent<PauseControl>();
+        }
 
         private void LeaveQuestJournal()
         {
+            m_PauseControl.StartGame();
             QuestJournalUI.SetActive(false);
         }
 

@@ -17,6 +17,7 @@ namespace RpgAdventure
         private UsableAbilities usableAbilities;
         private DialogManager m_DialogManger;
         private QuestGiver m_NPC;
+        private PauseControl m_pauseControl;
         private static PlayerInput s_Instance;
         private Vector3 m_Movement;
         private bool m_IsSpell;
@@ -56,6 +57,7 @@ namespace RpgAdventure
         {
             usableAbilities = useablbeManager.GetComponent<UsableAbilities>();
             m_DialogManger = GameObject.Find("DialogManager").GetComponent<DialogManager>();
+            m_pauseControl = GameObject.Find("GameMenuManager").GetComponent<PauseControl>();
         }
 
         void Update()
@@ -66,7 +68,7 @@ namespace RpgAdventure
                 0,
                 Input.GetAxis("Vertical")
                 );
-
+           
             bool isLeftMouseClick = Input.GetMouseButtonDown(0);
             bool isRightMouseClick = Input.GetMouseButtonDown(1);
             bool isKeyForRollClick = Input.GetKeyDown(KeyCode.Q);
@@ -89,38 +91,43 @@ namespace RpgAdventure
                 HandleRightMouseBtnDown();
             }
 
-            if (usableAbilities.CanBeUsed == true)
+            if (!PauseControl.gameIsPaused)
             {
-                if(isKeyForAbility1)
-                    usableAbilities.UsingAbilityKeyBoard(1);
-                if (isKeyForAbility2)
-                    usableAbilities.UsingAbilityKeyBoard(2);
-                if (isKeyForAbility3)
-                    usableAbilities.UsingAbilityKeyBoard(3);
-                if (isKeyForAbility4)
-                    usableAbilities.UsingAbilityKeyBoard(4);
-                if (isKeyForAbility5)
-                    usableAbilities.UsingAbilityKeyBoard(5);
-                if (isKeyForAbility6)
-                    usableAbilities.UsingAbilityKeyBoard(6);
-            }
-
-            if (m_DialogManger.HasActiveDialog == false)
-            {
-                if (isKeyForRollClick)
+                if (usableAbilities.CanBeUsed == true)
                 {
-                    HandleKeyboardQKey();
+                    if (isKeyForAbility1)
+                        usableAbilities.UsingAbilityKeyBoard(1);
+                    if (isKeyForAbility2)
+                        usableAbilities.UsingAbilityKeyBoard(2);
+                    if (isKeyForAbility3)
+                        usableAbilities.UsingAbilityKeyBoard(3);
+                    if (isKeyForAbility4)
+                        usableAbilities.UsingAbilityKeyBoard(4);
+                    if (isKeyForAbility5)
+                        usableAbilities.UsingAbilityKeyBoard(5);
+                    if (isKeyForAbility6)
+                        usableAbilities.UsingAbilityKeyBoard(6);
                 }
 
-                if (isKeyForJumpClick)
+                if (m_DialogManger.HasActiveDialog == false)
                 {
-                    HandleKeyboardSpaceKey();
-                }
-                if (isKeyForQuestJournalClick)
-                {
-                    FindObjectOfType<QuestManager>().QuestJournalUI.SetActive(true);
+                    if (isKeyForRollClick)
+                    {
+                        HandleKeyboardQKey();
+                    }
+
+                    if (isKeyForJumpClick)
+                    {
+                        HandleKeyboardSpaceKey();
+                    }
+                    if (isKeyForQuestJournalClick)
+                    {
+                        m_pauseControl.PauseGame();
+                        FindObjectOfType<QuestManager>().QuestJournalUI.SetActive(true);
+                    }
                 }
             }
+
         }
 
         private void HandleLeftMouseBtnDown()
