@@ -128,6 +128,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc3aae3dad0e64b4e9f0106e7c6fe69b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_spellLifeTime: 2
   m_SpellDamageMultiply: 1
   m_spellLifeTimeMultiply: 1
   spellToTransform: {fileID: 8752502797331185317}
@@ -355,7 +356,7 @@ ParticleSystem:
       serializedVersion: 2
       minMaxState: 0
       minColor: {r: 1, g: 1, b: 1, a: 1}
-      maxColor: {r: 0.9254902, g: 0.7354627, b: 0.066666655, a: 1}
+      maxColor: {r: 0.94256836, g: 0.9528302, b: 0.23820755, a: 1}
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
@@ -1436,8 +1437,8 @@ ParticleSystem:
       maxColor: {r: 1, g: 1, b: 1, a: 1}
       maxGradient:
         serializedVersion: 2
-        key0: {r: 1, g: 0.56976867, b: 0, a: 1}
-        key1: {r: 1, g: 1, b: 0.23529412, a: 1}
+        key0: {r: 1, g: 0.753687, b: 0, a: 1}
+        key1: {r: 1, g: 1, b: 0.05699998, a: 1}
         key2: {r: 0, g: 0, b: 0, a: 0}
         key3: {r: 0, g: 0, b: 0, a: 0}
         key4: {r: 0, g: 0, b: 0, a: 0}
@@ -4891,7 +4892,7 @@ ParticleSystemRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10301, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: e385935886d24cb44893eedccf4e9001, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

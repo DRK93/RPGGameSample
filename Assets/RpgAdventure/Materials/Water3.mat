@@ -40,15 +40,15 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
-    - _Alpha: 0.633
+    - _Alpha: 1
     - _AlphaClipThreshold: 0
-    - _AmbientOcclusion: 0.695
-    - _Depth: 0.99
+    - _AmbientOcclusion: 1
+    - _Depth: 0.3
     - _Displacement: 0.4
-    - _NormalStrength: 0.128
-    - _Smoothness: 0.606
-    - _Strength: 2
+    - _NormalStrength: 1
+    - _Smoothness: 0.624
+    - _Strength: 1.2
     m_Colors:
-    - _DeepWater: {r: 0.19607843, g: 0.54043216, b: 0.58431375, a: 1}
-    - _ShallowWater: {r: 0.41798684, g: 0.7891567, b: 0.8773585, a: 0.64705884}
+    - _DeepWater: {r: 0.1496529, g: 0.5252997, b: 0.5566038, a: 1}
+    - _ShallowWater: {r: 0.60648805, g: 0.70298105, b: 0.7264151, a: 0.64705884}
   m_BuildTextureStacks: []
