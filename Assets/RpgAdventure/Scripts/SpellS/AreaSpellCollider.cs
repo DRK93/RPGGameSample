@@ -18,7 +18,7 @@ namespace RpgAdventure
         {
             if (other.gameObject.layer == 6)
             {
-                transform.parent.gameObject.GetComponent<AreaSpell>().EnteringSpellArea(other.gameObject);
+                transform.parent.gameObject.GetComponent<AreaSpell>().ExitSpellArea(other.gameObject);
             }
         }
 

@@ -10,6 +10,9 @@ TagManager:
   - Guard
   - Villager
   - Water
+  - Village
+  - EastForrest
+  - GameBeginZone
   layers:
   - Default
   - TransparentFX
@@ -22,7 +25,7 @@ TagManager:
   - Floor
   - ForceField
   - Spells
-  - 
+  - Audio
   - 
   - 
   - 
