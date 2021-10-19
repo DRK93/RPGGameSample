@@ -44,6 +44,8 @@ namespace RpgAdventure
 
         private void Awake()
         {
+            Time.timeScale = 1f;
+            AudioListener.pause = false;
             playerName = "Player";
             StartGameBtn.onClick.AddListener(StartGame);
             LoadGameBtn.onClick.AddListener(LoadGame);

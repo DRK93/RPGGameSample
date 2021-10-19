@@ -42,6 +42,7 @@ namespace RpgAdventure
 
         void Awake()
         {
+            AudioListener.pause = true;
             HUD_UI.SetActive(true);
             m_LoadingManager = GetComponent<LoadingManager>();
             loadingScreenUI.SetActive(true);
@@ -60,6 +61,7 @@ namespace RpgAdventure
             IsGameMenuActive = false;
             IsGameMenuKey = false;
             m_pauseControl = GetComponent<PauseControl>();
+            StartCoroutine(StartAudio());
         }
 
         IEnumerator Start()
@@ -95,6 +97,11 @@ namespace RpgAdventure
             }
         }
 
+        private IEnumerator StartAudio()
+        {
+            yield return new WaitForSeconds(2.0f);
+            AudioListener.pause = false;
+        }
         private void GameMenuAcitvate()
         {
             gameMenuUI.SetActive(true);
