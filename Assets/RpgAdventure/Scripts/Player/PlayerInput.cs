@@ -62,24 +62,14 @@ namespace RpgAdventure
 
         void Update()
         {
+            bool isLeftMouseClick = Input.GetMouseButtonDown(0);
+            bool isRightMouseClick = Input.GetMouseButtonDown(1);
             m_Movement.Set
                 (
                 Input.GetAxis("Horizontal"),
                 0,
                 Input.GetAxis("Vertical")
                 );
-           
-            bool isLeftMouseClick = Input.GetMouseButtonDown(0);
-            bool isRightMouseClick = Input.GetMouseButtonDown(1);
-            bool isKeyForRollClick = Input.GetKeyDown(KeyCode.Q);
-            bool isKeyForJumpClick = Input.GetKeyDown(KeyCode.Space);
-            bool isKeyForQuestJournalClick = Input.GetKeyDown(KeyCode.J);
-            bool isKeyForAbility1 = Input.GetKeyDown(KeyCode.Alpha1);
-            bool isKeyForAbility2 = Input.GetKeyDown(KeyCode.Alpha2);
-            bool isKeyForAbility3 = Input.GetKeyDown(KeyCode.Alpha3);
-            bool isKeyForAbility4 = Input.GetKeyDown(KeyCode.Alpha4);
-            bool isKeyForAbility5 = Input.GetKeyDown(KeyCode.Alpha5);
-            bool isKeyForAbility6 = Input.GetKeyDown(KeyCode.Alpha6);
 
             if (isLeftMouseClick)
             {
@@ -93,39 +83,7 @@ namespace RpgAdventure
 
             if (!PauseControl.gameIsPaused)
             {
-                if (usableAbilities.CanBeUsed == true)
-                {
-                    if (isKeyForAbility1)
-                        usableAbilities.UsingAbilityKeyBoard(1);
-                    if (isKeyForAbility2)
-                        usableAbilities.UsingAbilityKeyBoard(2);
-                    if (isKeyForAbility3)
-                        usableAbilities.UsingAbilityKeyBoard(3);
-                    if (isKeyForAbility4)
-                        usableAbilities.UsingAbilityKeyBoard(4);
-                    if (isKeyForAbility5)
-                        usableAbilities.UsingAbilityKeyBoard(5);
-                    if (isKeyForAbility6)
-                        usableAbilities.UsingAbilityKeyBoard(6);
-                }
-
-                if (m_DialogManger.HasActiveDialog == false)
-                {
-                    if (isKeyForRollClick)
-                    {
-                        HandleKeyboardQKey();
-                    }
-
-                    if (isKeyForJumpClick)
-                    {
-                        HandleKeyboardSpaceKey();
-                    }
-                    if (isKeyForQuestJournalClick)
-                    {
-                        m_pauseControl.PauseGame();
-                        FindObjectOfType<QuestManager>().QuestJournalUI.SetActive(true);
-                    }
-                }
+                HandleKeyboardKeys();
             }
 
         }
@@ -195,7 +153,51 @@ namespace RpgAdventure
             }
             
         }
+        private void HandleKeyboardKeys()
+        {
+            bool isKeyForRollClick = Input.GetKeyDown(KeyCode.Q);
+            bool isKeyForJumpClick = Input.GetKeyDown(KeyCode.Space);
+            bool isKeyForQuestJournalClick = Input.GetKeyDown(KeyCode.J);
+            bool isKeyForAbility1 = Input.GetKeyDown(KeyCode.Alpha1);
+            bool isKeyForAbility2 = Input.GetKeyDown(KeyCode.Alpha2);
+            bool isKeyForAbility3 = Input.GetKeyDown(KeyCode.Alpha3);
+            bool isKeyForAbility4 = Input.GetKeyDown(KeyCode.Alpha4);
+            bool isKeyForAbility5 = Input.GetKeyDown(KeyCode.Alpha5);
+            bool isKeyForAbility6 = Input.GetKeyDown(KeyCode.Alpha6);
+            if (usableAbilities.CanBeUsed == true)
+            {
+                if (isKeyForAbility1)
+                    usableAbilities.UsingAbilityKeyBoard(1);
+                if (isKeyForAbility2)
+                    usableAbilities.UsingAbilityKeyBoard(2);
+                if (isKeyForAbility3)
+                    usableAbilities.UsingAbilityKeyBoard(3);
+                if (isKeyForAbility4)
+                    usableAbilities.UsingAbilityKeyBoard(4);
+                if (isKeyForAbility5)
+                    usableAbilities.UsingAbilityKeyBoard(5);
+                if (isKeyForAbility6)
+                    usableAbilities.UsingAbilityKeyBoard(6);
+            }
 
+            if (m_DialogManger.HasActiveDialog == false)
+            {
+                if (isKeyForRollClick)
+                {
+                    HandleKeyboardQKey();
+                }
+
+                if (isKeyForJumpClick)
+                {
+                    HandleKeyboardSpaceKey();
+                }
+                if (isKeyForQuestJournalClick)
+                {
+                    m_pauseControl.PauseGame();
+                    FindObjectOfType<QuestManager>().QuestJournalUI.SetActive(true);
+                }
+            }
+        }
         private void HandleKeyboardQKey()
         {
             if (!m_IsRoll )

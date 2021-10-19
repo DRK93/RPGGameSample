@@ -126,28 +126,18 @@ namespace RpgAdventure
 
             if (enemiesUIds != null)
             {
-                var index = 1;
                 foreach (var enemy in enemiesUIds)
                 {
                     if (enemyApplyingDmg == enemy)
                     {
                         return;
                     }
-                    index++;
                 }
-                
-                enemiesUIds.Add(enemyApplyingDmg);
-                invulnerables.Add(false);
-                timesSinceLastHit.Add(0f);
-                ApplyDamage(data, invulnerables[invulnerables.Count-1]);
             }
-            else
-            {
-                enemiesUIds.Add(enemyApplyingDmg);
-                invulnerables.Add(false);
-                timesSinceLastHit.Add(0f);
-                ApplyDamage(data,invulnerables[invulnerables.Count - 1]);
-            }
+            enemiesUIds.Add(enemyApplyingDmg);
+            invulnerables.Add(false);
+            timesSinceLastHit.Add(0f);
+            ApplyDamage(data,invulnerables[invulnerables.Count - 1]);
         }
         public void ApplyDamage(DamageMessage data, bool invulerable)
         {
@@ -166,7 +156,6 @@ namespace RpgAdventure
             }
 
             invulerable = true;
-            GameObject weaponWhichHit = data.damageSource;
 
             if (m_blockStance == true && Vector3.Angle(transform.forward, positionToDamager) < m_CharacterStats.blockAngle *0.5 )
             {
