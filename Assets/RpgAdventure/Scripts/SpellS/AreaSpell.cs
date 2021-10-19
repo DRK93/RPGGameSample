@@ -70,10 +70,18 @@ namespace RpgAdventure
         {
             indexerNumbers = new List<int>();
             for (int i=0; i<enemyInArea.Count; i++)
-            if (enemyOut.GetComponent<CharacterStats>().uniqueID == enemyInArea[i].GetComponent<CharacterStats>().uniqueID)
             {
+                if (enemyInArea[i] == null)
                     indexerNumbers.Add(i);
+                else
+                {
+                    if (enemyOut.GetComponent<CharacterStats>().uniqueID == enemyInArea[i].GetComponent<CharacterStats>().uniqueID)
+                    {
+                        indexerNumbers.Add(i);
+                    }
+                }
             }
+
 
             if( indexerNumbers!=null)
             {

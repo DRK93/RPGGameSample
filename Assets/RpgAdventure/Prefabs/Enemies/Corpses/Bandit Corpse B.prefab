@@ -4872,6 +4872,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bandit Corpse B
       objectReference: {fileID: 0}
+    - target: {fileID: 8206869038367479035, guid: e0c7f0dfe9619f84087c8fb47d814e89, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e0c7f0dfe9619f84087c8fb47d814e89, type: 3}
 --- !u!1 &8050660525865581702 stripped

@@ -9628,6 +9628,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4663902963006371211, guid: f7795afbfdbab5744a3bdd4a8c66cc08, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4749305493045514067, guid: f7795afbfdbab5744a3bdd4a8c66cc08, type: 3}
       propertyPath: m_Name
       value: Bandit Corpse A

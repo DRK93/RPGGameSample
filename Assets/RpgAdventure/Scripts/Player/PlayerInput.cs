@@ -170,20 +170,26 @@ namespace RpgAdventure
             {
                 m_OptionClickTarget = hit.collider;
                 StartCoroutine(TriggerOptionTarget(hit.collider));
+                if (!m_IsBlock && !IsPointerOverUiElement() && m_DialogManger.HasActiveDialog == false)
+                    if (!s_Instance.OptionClickTarget.CompareTag("QuestGiver"))
+                    {
+                        StartCoroutine(TriggerBlock());
+                    }
+                    else
+                    {
+                        m_NPC = s_Instance.OptionClickTarget.GetComponent<QuestGiver>();
+                        if (Vector3.Distance(s_Instance.transform.position, m_NPC.transform.position) > 2.5f)
+                        {
+                            StartCoroutine(TriggerBlock());
+                        }
+                    }
             }
-            if (!m_IsBlock && !IsPointerOverUiElement() && m_DialogManger.HasActiveDialog == false)
-                if(!s_Instance.OptionClickTarget.CompareTag("QuestGiver"))
-                    {
-                        StartCoroutine(TriggerBlock());
-                    }
-                else
-                {
-                    m_NPC = s_Instance.OptionClickTarget.GetComponent<QuestGiver>();
-                    if(Vector3.Distance( s_Instance.transform.position, m_NPC.transform.position) > 2.5f)
-                    {
-                        StartCoroutine(TriggerBlock());
-                    }
-                }
+            else
+            {
+                if (!m_IsBlock && !IsPointerOverUiElement() && m_DialogManger.HasActiveDialog == false)
+                    StartCoroutine(TriggerBlock());
+            }
+            
         }
 
         private void HandleKeyboardQKey()
@@ -216,7 +222,7 @@ namespace RpgAdventure
         private IEnumerator TriggerBlock()
         {
             m_IsBlock = true;
-            yield return new WaitForSeconds(0.1f);
+            yield return new WaitForSeconds(0.01f);
             m_IsBlock = false;
         }
         private IEnumerator TriggerRoll()
