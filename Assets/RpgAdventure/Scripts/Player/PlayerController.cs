@@ -84,7 +84,7 @@ namespace RpgAdventure
             m_HudManager = FindObjectOfType<HudManager>();
             m_Damageable = GetComponent<Damageable>();
             s_Instance = this;
-            m_HudManager.SetMaxHealth(m_Damageable.GetComponent<PlayerStats>().maxHitPoints);
+            m_HudManager.SetMaxHealth(m_Damageable.GetComponent<PlayerStats>().maxHitPoints, m_Damageable.GetComponent<PlayerStats>().currentHitPoints);
         }
         void FixedUpdate()
         {

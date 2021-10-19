@@ -128,7 +128,7 @@ namespace RpgAdventure
             defeatedEnemies = unpacked.GetInt("defenemy");
             questCompleted = unpacked.GetInt("qcmpl");
             
-            m_HudMan.SetMaxHealth(maxHitPoints);
+            m_HudMan.SetMaxHealth(maxHitPoints,currentHitPoints);
             m_HudMan.SetHealth(currentHitPoints);
 
         }

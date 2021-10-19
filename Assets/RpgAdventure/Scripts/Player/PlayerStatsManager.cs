@@ -20,6 +20,7 @@ namespace RpgAdventure
 
         private PlayerStats m_PlStats;
         private PauseControl m_pauseControl;
+        private HudManager m_HudMan;
         private string m_PlayerName;
         private int m_Level;
         private int m_Exp;
@@ -42,6 +43,7 @@ namespace RpgAdventure
         private void Start()
         {
             m_PlStats = GameObject.Find("Player").GetComponent<PlayerStats>();
+            m_HudMan = FindObjectOfType<HudManager>();
             UpdateStatsOnCard();
             m_CurSkillPoints = 0;
             m_CurrentAddedHealth = 0;
@@ -215,6 +217,7 @@ namespace RpgAdventure
             m_PlStats.power = m_Power;
             m_PlStats.spellDamage = m_SpellDamage;
             m_PlStats.spellSpeed = m_SpellSpeed;
+            m_HudMan.SetMaxHealth(m_PlStats.maxHitPoints, m_PlStats.currentHitPoints);
         }
 
         private void HideAllButtons()
