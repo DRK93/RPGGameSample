@@ -25,14 +25,6 @@ namespace RpgAdventure
             deadStatus = new List<bool>();
             enemiesToKill = GameObject.FindGameObjectsWithTag("Enemy");
         }
-        private void Start()
-        {
-            //enemiesToKill = GameObject.FindGameObjectsWithTag("Enemy");
-        }
-        void Update()
-        {
-
-        }
         public void EnemyDestroy()
         {
             foreach (var enemyId in enemySaveId)

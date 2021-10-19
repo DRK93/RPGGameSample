@@ -7,11 +7,6 @@ namespace RpgAdventure
 {
     public class ReplaceWithRagdoll : MonoBehaviour
     {
-        private void Start()
-        {
-            
-        }
-
         public GameObject ragdollPrefab;
         public void Replace()
         {
@@ -61,8 +56,6 @@ namespace RpgAdventure
                     }
                 }
             }
-
-
             ragdollInstance.SetActive(true);
             Destroy(gameObject);
         }

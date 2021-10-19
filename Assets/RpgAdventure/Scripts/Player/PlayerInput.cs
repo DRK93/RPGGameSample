@@ -182,6 +182,10 @@ namespace RpgAdventure
                         {
                             StartCoroutine(TriggerBlock());
                         }
+                        else
+                        {
+                            m_DialogManger.StartDialog(m_NPC);
+                        }
                     }
             }
             else

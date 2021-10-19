@@ -24,16 +24,17 @@ namespace RpgAdventure
 
         void LateUpdate()
         {
-            enemyName.transform.LookAt(Camera.main.transform.position + Camera.main.transform.forward);
-            enemyName.transform.Rotate(0, 180, 0);
-            enemyHealthBar.transform.LookAt(Camera.main.transform.position);
-            enemyHealthBar.transform.Rotate(0, 180, 0);
             CheckDistanceToPlayerCamera();
         }
         private void CheckDistanceToPlayerCamera()
         {
             if (Vector3.Distance(enemyName.transform.position, Camera.main.transform.position) < 50.0f)
             {
+                enemyName.transform.LookAt(Camera.main.transform.position + Camera.main.transform.forward);
+                enemyName.transform.Rotate(0, 180, 0);
+                enemyHealthBar.transform.LookAt(Camera.main.transform.position);
+                enemyHealthBar.transform.Rotate(0, 180, 0);
+
                 enemyName.SetActive(true);
                 enemyHealthBar.SetActive(true);
             }

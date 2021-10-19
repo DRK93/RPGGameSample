@@ -74,6 +74,18 @@ namespace RpgAdventure
         }
         void Update()
         {
+            CheckLoadingScreenOff();
+
+            IsGameMenuKey = Input.GetKeyDown(KeyCode.Escape);
+            if (IsGameMenuKey && IsGameMenuActive == false)
+            {
+                GameMenuAcitvate();
+                m_pauseControl.PauseGame();
+            }
+        }
+
+        private void CheckLoadingScreenOff()
+        {
             if (m_IsLoadingScreenOff == false)
             {
                 if (m_TimeCounter <= m_LoadingTime)
@@ -87,16 +99,7 @@ namespace RpgAdventure
                     loadingScreenUI.SetActive(false);
                 }
             }
-
-            IsGameMenuKey = Input.GetKeyDown(KeyCode.Escape);
-            if (IsGameMenuKey && IsGameMenuActive == false)
-            {
-                GameMenuAcitvate();
-                m_pauseControl.PauseGame();
-
-            }
         }
-
         private IEnumerator StartAudio()
         {
             yield return new WaitForSeconds(2.0f);

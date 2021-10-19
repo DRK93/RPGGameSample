@@ -11,11 +11,6 @@ namespace RpgAdventure
         {
             enemyNameList = new Dictionary<string, string>();
         }
-
-        void Update()
-        {
-
-        }
         public void AddEnemyToDictionary(string enemyUId, string enemyName)
         {
             if (!enemyNameList.ContainsKey(enemyUId))

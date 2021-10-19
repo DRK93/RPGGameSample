@@ -33,6 +33,11 @@ namespace RpgAdventure
         private void Update()
         {
             bool isKeyForInventory = Input.GetKeyDown(KeyCode.I);
+            HideShowInventory(isKeyForInventory);
+        }
+
+        private void HideShowInventory(bool isKeyForInventory)
+        {
             if (isKeyForInventory)
             {
                 if (m_InvetoryOpen == false)

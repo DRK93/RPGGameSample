@@ -53,6 +53,8 @@ public class SkinnedMeshToMesh : MonoBehaviour
             VFXGraph.SetMesh("PlayerMesh", mesh2);
             VFXGraph.SetFloat("ParticleSize", particleSize);
             yield return new WaitForSeconds(refreshRate);
+            Destroy(mesh2);
+            Destroy(mesh1);
         }
         
     }

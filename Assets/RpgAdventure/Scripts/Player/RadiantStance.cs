@@ -8,7 +8,6 @@ namespace RpgAdventure
     {
         public GameObject radiantEffect;
         private PlayerController m_PlayerContr;
-        private PauseControl m_pauseControl;
         [SerializeField]
         private float m_Duration;
         private float m_Counter;
@@ -20,7 +19,6 @@ namespace RpgAdventure
             m_PlayerContr = GameObject.Find("Player").GetComponent<PlayerController>();
             m_Counter = 0;
             m_RadiantDamage = -3;
-            m_pauseControl = GameObject.Find("GameMenuManager").GetComponent<PauseControl>();
         }
 
         void Update()

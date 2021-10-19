@@ -40,39 +40,20 @@ namespace RpgAdventure
             dialogContinueBtn.onClick.AddListener(ContinueDialogClick);
             dialogQuitBtn.onClick.AddListener(QuitDialogClick);
         }
-        private void Start()
-        {
-
-        }
 
         private void Update()
         {
-            if(
-                !HasActiveDialog &&
-                m_Player.OptionClickTarget !=null)
-            {
-                if (m_Player.OptionClickTarget.CompareTag("QuestGiver"))
-                {
-                    m_NPC = m_Player.OptionClickTarget.GetComponent<QuestGiver>();
-
-                    if (DialogDistance <= talkingRadius)
-                    {
-                        StartDialog();
-                    }
-                }
-            }
-
             if (HasActiveDialog && DialogDistance > talkingRadius + 1.0f)
             {
                 StopDialog();
             }
-
         }
 
-        private void StartDialog()
+        public void StartDialog(QuestGiver NPC)
         {
-            m_ActiveDialog = m_NPC.dialog;
-            dialogHeaderText.text = m_NPC.name;
+            m_ActiveDialog = NPC.dialog;
+            dialogHeaderText.text = NPC.name;
+            m_NPC = NPC;
             dialogUI.SetActive(true);
             InventoryUI.SetActive(false);
 
