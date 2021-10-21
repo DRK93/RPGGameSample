@@ -83,12 +83,11 @@ namespace RpgAdventure
                 }
                 data.damager = this;
                 data.damageSource = m_Owner;
-                //if (impactAudio != null)
-                //{
-                    //impactAudio.PlayRandomClip();
-                //}
                 damageable.ApplyDamageFromWeapon(data);
-                
+            }
+            else if (m_Owner.CompareTag("Enemy"))
+            {
+                m_Owner.GetComponent<BanditBehaviour>().SituationNumber = 0;
             }
         }
 

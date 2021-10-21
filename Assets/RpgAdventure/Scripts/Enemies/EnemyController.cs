@@ -38,6 +38,8 @@ namespace RpgAdventure
             m_NavMeshAgent.enabled = false;
         }
 
+
+
         public void MeleeAttackStart()
         {
         }

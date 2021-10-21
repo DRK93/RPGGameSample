@@ -29,13 +29,34 @@ namespace RpgAdventure
         private string m_EnemyName;
         private float m_DetectionRadiusOrig;
         private float m_DetectionAngleOrig;
+        private bool m_BanditAttacking;
+        public bool BanditAttacking
+        {
+            set { m_BanditAttacking = value; }
+        }
+        
+        private int m_numberAttackRange;
+        private int m_firstAttackRange;
+        private int m_secondAttackRange;
+        private int m_thirdAttackRange;
+        private int m_blockRange;
+        private int m_RepositionRange;
+        private int m_situationNumber;
+        public int SituationNumber
+        {
+            set { m_situationNumber = value; }
+        }
 
         public bool HasFollowTarget => m_FollowTarget != null;
         public string ThisEnemyName => m_EnemyName;
 
         private readonly int m_HashInPursuit = Animator.StringToHash("InPursuit");
         private readonly int m_HashNearBase = Animator.StringToHash("NearBase");
-        private readonly int m_HashAttack = Animator.StringToHash("Attack");
+        private readonly int m_HashAttack1 = Animator.StringToHash("Attack1");
+        private readonly int m_HashAttack2 = Animator.StringToHash("Attack2");
+        private readonly int m_HashAttack3 = Animator.StringToHash("Attack3");
+        private readonly int m_HashBlockingStance = Animator.StringToHash("BlockingStance");
+        private readonly int m_HashBlockedHit = Animator.StringToHash("BlockedHit");
         private readonly int m_HashHurt = Animator.StringToHash("Hurt");
         private readonly int m_HashDeath = Animator.StringToHash("Death");
 
@@ -64,7 +85,9 @@ namespace RpgAdventure
             m_DetectionAngleOrig = playerScanner.detectionAngle;
             m_EnemyAliveList = GameObject.Find("EnemyList").GetComponent<EnemiesBySaveSystemId>();
             m_EnemyAliveList.enmiesSaveSystem.Add(m_Damagable.GetComponent<CharacterStats>().uniqueID, m_Damagable.GetComponent<CharacterStats>().isDead);
-
+            
+            m_situationNumber = 0;
+            m_BanditAttacking = false;
         }
         private void Update()
         {
@@ -126,6 +149,7 @@ namespace RpgAdventure
             m_FollowTarget = null;
             m_EnemyController.Animator.SetBool(m_HashInPursuit, false);
             m_EnemyController.FollowTarget(m_OriginPosition);
+            m_situationNumber = 0;
         }
 
         private void ReDetectTarget(PlayerController detectedTarget)
@@ -166,21 +190,140 @@ namespace RpgAdventure
 
         private void AttackTarget(Vector3 toTarget)
         {
-            var toTargetRotation = Quaternion.LookRotation(toTarget);
-            transform.rotation = Quaternion.RotateTowards(
-                transform.rotation,
-                toTargetRotation,
-                360 * Time.deltaTime
-                );
-            m_EnemyController.StopFollowTarget();
-            m_EnemyController.Animator.SetTrigger(m_HashAttack);
+            if(m_BanditAttacking == false)
+            {
+                var toTargetRotation = Quaternion.LookRotation(toTarget);
+                transform.rotation = Quaternion.RotateTowards(
+                    transform.rotation,
+                    toTargetRotation,
+                    360 * Time.deltaTime
+                    );
+                m_EnemyController.StopFollowTarget();
+                AttackPossibilities();
+                m_BanditAttacking = true;
+            }
+            else
+            {
+                Debug.Log("Cannot attack Player");
+            }
         }
 
         private void FollowTarget()
         {
+            m_situationNumber = 0;
             m_EnemyController.Animator.SetBool(m_HashInPursuit, true);
             m_EnemyController.FollowTarget(m_FollowTarget.transform.position);
         }
+
+        private void AttackPossibilities()
+        {
+            Debug.Log("Situation number: " + m_situationNumber);
+            m_numberAttackRange = Random.Range(1, 20);
+            SituationCheck();
+
+            if (m_numberAttackRange <= m_firstAttackRange)
+            {
+                m_EnemyController.Animator.SetTrigger(m_HashAttack1);
+                m_situationNumber = 1;
+            }
+            else if (m_numberAttackRange > m_firstAttackRange && m_numberAttackRange <= m_secondAttackRange)
+            {
+                m_EnemyController.Animator.SetTrigger(m_HashAttack2);
+                m_situationNumber = 2;
+            }
+            else if (m_numberAttackRange > m_secondAttackRange && m_numberAttackRange <= m_thirdAttackRange)
+            {
+                m_EnemyController.Animator.SetTrigger(m_HashAttack3);
+                m_situationNumber = 3;
+            }
+            else if (m_numberAttackRange > m_blockRange && m_numberAttackRange <= m_RepositionRange)
+            {
+                m_EnemyController.Animator.SetTrigger(m_HashBlockingStance);
+            }
+            else if (m_numberAttackRange > m_RepositionRange)
+            {
+                Reposition();
+            }
+            StartCoroutine(SomeTimeToResetAttack());
+        }
+
+        private void SituationCheck()
+        {
+            switch(m_situationNumber)
+            {
+                case 0:
+                    // First attack wiht no conditions aka default situation:
+                    m_firstAttackRange = 10;
+                    m_secondAttackRange = 12;
+                    m_thirdAttackRange = 14;
+                    m_blockRange = 16;
+                    m_RepositionRange = 18;
+                    break;
+                case 1:
+                    // after first succesfull attack
+                    m_firstAttackRange = 2;
+                    m_secondAttackRange = 14;
+                    m_thirdAttackRange = 16;
+                    m_blockRange = 18;
+                    m_RepositionRange = 19;
+                    break;
+                case 2:
+                    // after second succesfull attack
+                    m_firstAttackRange = 2;
+                    m_secondAttackRange = 4;
+                    m_thirdAttackRange = 16;
+                    m_blockRange = 18;
+                    m_RepositionRange = 19;
+                    break;
+                case 3:
+                    // after third succesfull attack
+                    m_firstAttackRange = 7;
+                    m_secondAttackRange = 9;
+                    m_thirdAttackRange = 11;
+                    m_blockRange = 13;
+                    m_RepositionRange = 19;
+                    break;
+                case 4:
+                    // after getting hit
+                    m_firstAttackRange = 3;
+                    m_secondAttackRange = 5;
+                    m_thirdAttackRange = 7;
+                    m_blockRange = 9;
+                    m_RepositionRange = 18;
+                    break;
+                case 5:
+                    // after succesfull block
+                    m_firstAttackRange = 4;
+                    m_secondAttackRange = 10;
+                    m_thirdAttackRange = 11;
+                    m_blockRange = 12;
+                    m_RepositionRange = 19;
+                    break;
+                default:
+                    break;
+            }
+        }
+        public void StartBlocking()
+        {
+            m_Damagable.BlockStance = true;
+            if (meleeWeapon != null)
+                meleeWeapon.blockStanceAudio.PlayRandomClip();
+        }
+
+        public void FinishBlocking()
+        {
+            m_Damagable.BlockStance = false;
+        }
+        private void Reposition()
+        {
+            Debug.Log("Repositioning");
+            StartCoroutine(SomeTimeToResetAttack());
+            // find something other place near player and go there
+            // face player again from different angle
+            // create circle around player and set point on that circle to go 
+            // go on straight lines to avoid collision with player, change points fast to get the circle vibe
+        }
+
         public void MeleeAttackStart()
         {
             meleeWeapon.BeginAttack();
@@ -203,6 +346,9 @@ namespace RpgAdventure
         {
             switch (type)
             {
+                case MessageType.BLOCKED:
+                    BlockedHit();
+                    break;
                 case MessageType.DEAD:
                     OnDeath();
                     m_EnemyHealthBar.SetHealth((sender as Damageable).CurrentHitPoints);
@@ -228,9 +374,17 @@ namespace RpgAdventure
             m_EnemyController.StopFollowTarget();
             m_EnemyController.Animator.SetTrigger(m_HashDeath);
         }
+        private void BlockedHit()
+        {
+            m_EnemyController.Animator.SetTrigger(m_HashBlockedHit);
+            m_situationNumber = 5;
+            m_BanditAttacking = false;
+        }
         private void OnReceiveDamage()
         {
             m_EnemyController.Animator.SetTrigger(m_HashHurt);
+            m_situationNumber = 4;
+            m_BanditAttacking = false;
         }
 
         private string EnemyNameCheck(string enemyName)
@@ -295,6 +449,12 @@ namespace RpgAdventure
             yield return new WaitForSeconds(5.0f);
             playerScanner.detectionRadius = m_DetectionRadiusOrig;
             playerScanner.detectionAngle = m_DetectionAngleOrig;
+        }
+
+        private IEnumerator SomeTimeToResetAttack()
+        {
+            yield return new WaitForSeconds(0.5f);
+            m_BanditAttacking = false;
         }
 
 
