@@ -182,21 +182,18 @@ namespace RpgAdventure
             Vector3 toTarget = m_FollowTarget.transform.position - transform.position;
             if (toTarget.magnitude <= attackDistance)
             {
-                
                 RotateToTarget(toTarget);
                 AttackTarget(toTarget);
             }
             else
             {
+                RotateToTarget(toTarget);
                 FollowTarget();
             }
         }
 
         private void RotateToTarget(Vector3 toTarget)
         {
-            m_EnemyController.Animator.SetBool(m_HashInAttackRange, true);
-            m_EnemyController.StopFollowTarget();
-
             var toTargetRotation = Quaternion.LookRotation(toTarget);
             transform.rotation = Quaternion.RotateTowards(
                 transform.rotation,
@@ -206,15 +203,13 @@ namespace RpgAdventure
         }
         private void AttackTarget(Vector3 toTarget)
         {
+            m_EnemyController.Animator.SetBool(m_HashInAttackRange, true);
+            m_EnemyController.StopFollowTarget();
+
             if (m_BanditAttacking == false)
             {
                 m_BanditAttacking = true;
                 AttackPossibilities();
-                
-            }
-            else
-            {
-                Debug.Log("Cannot attack Player");
             }
         }
 

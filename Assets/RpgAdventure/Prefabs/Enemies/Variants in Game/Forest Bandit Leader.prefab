@@ -160,6 +160,18 @@ PrefabInstance:
       propertyPath: attackDistance
       value: 1.5
       objectReference: {fileID: 0}
+    - target: {fileID: 7030833890779239869, guid: 41be4f02f0149654687e6e5790e3eda4, type: 3}
+      propertyPath: playerScanner.detectionAngle
+      value: 220
+      objectReference: {fileID: 0}
+    - target: {fileID: 7030833890779239869, guid: 41be4f02f0149654687e6e5790e3eda4, type: 3}
+      propertyPath: playerScanner.detectionRadius
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 7030833890779239869, guid: 41be4f02f0149654687e6e5790e3eda4, type: 3}
+      propertyPath: playerScanner.meleeDetectionRadius
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 7694643222065798009, guid: 41be4f02f0149654687e6e5790e3eda4, type: 3}
       propertyPath: m_Name
       value: Forest Bandit Leader

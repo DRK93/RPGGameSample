@@ -8874,6 +8874,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 1157428470}
     m_Modifications:
     - target: {fileID: 296681240441946414, guid: e471f71a43985a7479ae83c483bb87c3, type: 3}
+      propertyPath: blockAngle
+      value: 150
+      objectReference: {fileID: 0}
+    - target: {fileID: 296681240441946414, guid: e471f71a43985a7479ae83c483bb87c3, type: 3}
       propertyPath: m_uniqueID
       value: 40
       objectReference: {fileID: 0}
@@ -8932,6 +8936,18 @@ PrefabInstance:
     - target: {fileID: 2663379035741770955, guid: e471f71a43985a7479ae83c483bb87c3, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3439447188108516883, guid: e471f71a43985a7479ae83c483bb87c3, type: 3}
+      propertyPath: playerScanner.detectionAngle
+      value: 250
+      objectReference: {fileID: 0}
+    - target: {fileID: 3439447188108516883, guid: e471f71a43985a7479ae83c483bb87c3, type: 3}
+      propertyPath: playerScanner.detectionRadius
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 3439447188108516883, guid: e471f71a43985a7479ae83c483bb87c3, type: 3}
+      propertyPath: playerScanner.meleeDetectionRadius
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e471f71a43985a7479ae83c483bb87c3, type: 3}
