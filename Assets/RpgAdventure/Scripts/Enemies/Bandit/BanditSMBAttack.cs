@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using RpgAdventure;
 
 public class BanditSMBAttack : StateMachineBehaviour
 {
@@ -10,6 +11,7 @@ public class BanditSMBAttack : StateMachineBehaviour
         animator.ResetTrigger("Attack1");
         animator.ResetTrigger("Attack2");
         animator.ResetTrigger("Attack3");
+        animator.GetComponent<BanditBehaviour>().BanditAttacking = false;
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
@@ -19,10 +21,10 @@ public class BanditSMBAttack : StateMachineBehaviour
     //}
 
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state
-    //override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
-    //{
-    //    animator.ResetTrigger("Attack1");
-    //}
+    override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
+    {
+        
+    }
 
     // OnStateMove is called right after Animator.OnAnimatorMove()
     //override public void OnStateMove(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)

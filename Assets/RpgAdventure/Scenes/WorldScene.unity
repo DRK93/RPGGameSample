@@ -536,6 +536,18 @@ PrefabInstance:
       propertyPath: m_uniqueID
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 7710321645228259938, guid: 4f05cf8b401159841808131aff11d567, type: 3}
+      propertyPath: m_StoppingDistance
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7710321645228259938, guid: 4f05cf8b401159841808131aff11d567, type: 3}
+      propertyPath: m_ObstacleAvoidanceType
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7712125916307633394, guid: 4f05cf8b401159841808131aff11d567, type: 3}
+      propertyPath: attackDistance
+      value: 1.5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4f05cf8b401159841808131aff11d567, type: 3}
 --- !u!1001 &21826232
@@ -3077,7 +3089,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7710321645228259938, guid: 4f05cf8b401159841808131aff11d567, type: 3}
       propertyPath: m_StoppingDistance
-      value: 0.3
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7712125916307633394, guid: 4f05cf8b401159841808131aff11d567, type: 3}
+      propertyPath: attackDistance
+      value: 1.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4f05cf8b401159841808131aff11d567, type: 3}
@@ -4453,6 +4469,18 @@ PrefabInstance:
     - target: {fileID: 7710321645228259938, guid: 4f05cf8b401159841808131aff11d567, type: 3}
       propertyPath: m_WalkableMask
       value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7710321645228259938, guid: 4f05cf8b401159841808131aff11d567, type: 3}
+      propertyPath: m_StoppingDistance
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7710321645228259938, guid: 4f05cf8b401159841808131aff11d567, type: 3}
+      propertyPath: m_ObstacleAvoidanceType
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7712125916307633394, guid: 4f05cf8b401159841808131aff11d567, type: 3}
+      propertyPath: attackDistance
+      value: 1.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4f05cf8b401159841808131aff11d567, type: 3}
@@ -8384,6 +8412,14 @@ PrefabInstance:
       propertyPath: m_uniqueID
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 1477977122187375750, guid: de7f1e6ff718f544dab5dd95753f6664, type: 3}
+      propertyPath: m_StoppingDistance
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1477977122187375750, guid: de7f1e6ff718f544dab5dd95753f6664, type: 3}
+      propertyPath: m_ObstacleAvoidanceType
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 1477977123233470332, guid: de7f1e6ff718f544dab5dd95753f6664, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -8391,6 +8427,10 @@ PrefabInstance:
     - target: {fileID: 1477977123233470332, guid: de7f1e6ff718f544dab5dd95753f6664, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1478514775375591958, guid: de7f1e6ff718f544dab5dd95753f6664, type: 3}
+      propertyPath: attackDistance
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 1775616312882447459, guid: de7f1e6ff718f544dab5dd95753f6664, type: 3}
       propertyPath: m_RootOrder
@@ -8533,6 +8573,18 @@ PrefabInstance:
     - target: {fileID: 7710321644801532832, guid: 4f05cf8b401159841808131aff11d567, type: 3}
       propertyPath: m_uniqueID
       value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 7710321645228259938, guid: 4f05cf8b401159841808131aff11d567, type: 3}
+      propertyPath: m_StoppingDistance
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7710321645228259938, guid: 4f05cf8b401159841808131aff11d567, type: 3}
+      propertyPath: m_ObstacleAvoidanceType
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7712125916307633394, guid: 4f05cf8b401159841808131aff11d567, type: 3}
+      propertyPath: attackDistance
+      value: 1.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4f05cf8b401159841808131aff11d567, type: 3}
@@ -27637,6 +27689,18 @@ PrefabInstance:
       propertyPath: m_uniqueID
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 7710321645228259938, guid: 4f05cf8b401159841808131aff11d567, type: 3}
+      propertyPath: m_StoppingDistance
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7710321645228259938, guid: 4f05cf8b401159841808131aff11d567, type: 3}
+      propertyPath: m_ObstacleAvoidanceType
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7712125916307633394, guid: 4f05cf8b401159841808131aff11d567, type: 3}
+      propertyPath: attackDistance
+      value: 1.5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4f05cf8b401159841808131aff11d567, type: 3}
 --- !u!4 &1352872876 stripped
@@ -29297,9 +29361,21 @@ PrefabInstance:
       propertyPath: m_uniqueID
       value: 7
       objectReference: {fileID: 0}
+    - target: {fileID: 7710321645228259938, guid: 4f05cf8b401159841808131aff11d567, type: 3}
+      propertyPath: m_StoppingDistance
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7710321645228259938, guid: 4f05cf8b401159841808131aff11d567, type: 3}
+      propertyPath: m_ObstacleAvoidanceType
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 7710321645268467216, guid: 4f05cf8b401159841808131aff11d567, type: 3}
       propertyPath: m_Drag
       value: 10000
+      objectReference: {fileID: 0}
+    - target: {fileID: 7712125916307633394, guid: 4f05cf8b401159841808131aff11d567, type: 3}
+      propertyPath: attackDistance
+      value: 1.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4f05cf8b401159841808131aff11d567, type: 3}
@@ -43227,6 +43303,10 @@ PrefabInstance:
       propertyPath: useablbeManager
       value: 
       objectReference: {fileID: 1200601676}
+    - target: {fileID: 5457834299256274919, guid: edc7c481641aa6948a68716b692092ef, type: 3}
+      propertyPath: maxHitPoints
+      value: 2000
+      objectReference: {fileID: 0}
     - target: {fileID: 6685918425115667425, guid: edc7c481641aa6948a68716b692092ef, type: 3}
       propertyPath: m_Name
       value: Player

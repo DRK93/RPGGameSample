@@ -10,6 +10,8 @@ public class EnemyBlockStanceSMB : StateMachineBehaviour
     {
         animator.GetComponent<BanditBehaviour>().StartBlocking();
         animator.ResetTrigger("BlockingStance");
+        animator.GetComponent<BanditBehaviour>().BanditAttacking = false;
+
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
@@ -22,6 +24,7 @@ public class EnemyBlockStanceSMB : StateMachineBehaviour
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         animator.GetComponent<BanditBehaviour>().FinishBlocking();
+        
     }
 
     // OnStateMove is called right after Animator.OnAnimatorMove()

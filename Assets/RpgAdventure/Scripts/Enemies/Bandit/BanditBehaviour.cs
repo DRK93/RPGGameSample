@@ -59,6 +59,7 @@ namespace RpgAdventure
         private readonly int m_HashBlockedHit = Animator.StringToHash("BlockedHit");
         private readonly int m_HashHurt = Animator.StringToHash("Hurt");
         private readonly int m_HashDeath = Animator.StringToHash("Death");
+        private readonly int m_HashInAttackRange = Animator.StringToHash("InAttackRange");
 
         private void Awake()
         {   
@@ -119,7 +120,6 @@ namespace RpgAdventure
             }
             CheckIfNearBase();
         }
-
         private void CheckIfNearBase()
         {
             Vector3 toBase = m_OriginPosition - transform.position;
@@ -147,9 +147,11 @@ namespace RpgAdventure
         private void GoToOrignalSpot()
         {
             m_FollowTarget = null;
+            m_EnemyController.Animator.SetBool(m_HashInAttackRange, false);
             m_EnemyController.Animator.SetBool(m_HashInPursuit, false);
             m_EnemyController.FollowTarget(m_OriginPosition);
             m_situationNumber = 0;
+            m_BanditAttacking = false;
         }
 
         private void ReDetectTarget(PlayerController detectedTarget)
@@ -180,6 +182,8 @@ namespace RpgAdventure
             Vector3 toTarget = m_FollowTarget.transform.position - transform.position;
             if (toTarget.magnitude <= attackDistance)
             {
+                
+                RotateToTarget(toTarget);
                 AttackTarget(toTarget);
             }
             else
@@ -188,19 +192,25 @@ namespace RpgAdventure
             }
         }
 
+        private void RotateToTarget(Vector3 toTarget)
+        {
+            m_EnemyController.Animator.SetBool(m_HashInAttackRange, true);
+            m_EnemyController.StopFollowTarget();
+
+            var toTargetRotation = Quaternion.LookRotation(toTarget);
+            transform.rotation = Quaternion.RotateTowards(
+                transform.rotation,
+                toTargetRotation,
+                360 * Time.deltaTime
+                );
+        }
         private void AttackTarget(Vector3 toTarget)
         {
-            if(m_BanditAttacking == false)
+            if (m_BanditAttacking == false)
             {
-                var toTargetRotation = Quaternion.LookRotation(toTarget);
-                transform.rotation = Quaternion.RotateTowards(
-                    transform.rotation,
-                    toTargetRotation,
-                    360 * Time.deltaTime
-                    );
-                m_EnemyController.StopFollowTarget();
-                AttackPossibilities();
                 m_BanditAttacking = true;
+                AttackPossibilities();
+                
             }
             else
             {
@@ -211,6 +221,8 @@ namespace RpgAdventure
         private void FollowTarget()
         {
             m_situationNumber = 0;
+            m_BanditAttacking = false;
+            m_EnemyController.Animator.SetBool(m_HashInAttackRange, false);
             m_EnemyController.Animator.SetBool(m_HashInPursuit, true);
             m_EnemyController.FollowTarget(m_FollowTarget.transform.position);
         }
@@ -218,6 +230,7 @@ namespace RpgAdventure
         private void AttackPossibilities()
         {
             Debug.Log("Situation number: " + m_situationNumber);
+            
             m_numberAttackRange = Random.Range(1, 20);
             SituationCheck();
 
@@ -236,15 +249,21 @@ namespace RpgAdventure
                 m_EnemyController.Animator.SetTrigger(m_HashAttack3);
                 m_situationNumber = 3;
             }
-            else if (m_numberAttackRange > m_blockRange && m_numberAttackRange <= m_RepositionRange)
+            else if (m_numberAttackRange > m_thirdAttackRange)
             {
                 m_EnemyController.Animator.SetTrigger(m_HashBlockingStance);
+                m_situationNumber = 0;
             }
-            else if (m_numberAttackRange > m_RepositionRange)
-            {
-                Reposition();
-            }
-            StartCoroutine(SomeTimeToResetAttack());
+            //else if (m_numberAttackRange > m_blockRange && m_numberAttackRange <= m_RepositionRange)
+            //{
+            //    m_EnemyController.Animator.SetTrigger(m_HashBlockingStance);
+            //    m_situationNumber = 0;
+            //}
+            //else if (m_numberAttackRange > m_RepositionRange)
+            //{
+            //    Reposition();
+            //}
+
         }
 
         private void SituationCheck()

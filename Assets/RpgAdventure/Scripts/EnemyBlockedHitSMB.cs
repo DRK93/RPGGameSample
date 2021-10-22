@@ -3,15 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 using RpgAdventure;
 
-public class ReplaceWithRagdollSMB : StateMachineBehaviour
+public class EnemyBlockedHitSMB : StateMachineBehaviour
 {
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        animator.SetBool("IsDead", true);
         animator.ResetTrigger("Attack1");
         animator.ResetTrigger("Attack2");
         animator.ResetTrigger("Attack3");
+        animator.ResetTrigger("BlockingStance");
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
@@ -23,8 +23,7 @@ public class ReplaceWithRagdollSMB : StateMachineBehaviour
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        ReplaceWithRagdoll replacer = animator.GetComponent<ReplaceWithRagdoll>();
-        replacer.Replace();
+        animator.GetComponent<BanditBehaviour>().BanditAttacking = false;
     }
 
     // OnStateMove is called right after Animator.OnAnimatorMove()
@@ -34,8 +33,8 @@ public class ReplaceWithRagdollSMB : StateMachineBehaviour
     //}
 
     // OnStateIK is called right after Animator.OnAnimatorIK()
-    //override public void OnStateIK(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
+    //override public void onstateik(animator animator, animatorstateinfo stateinfo, int layerindex)
     //{
-    //    // Implement code that sets up animation IK (inverse kinematics)
+    //    // implement code that sets up animation ik (inverse kinematics)
     //}
 }

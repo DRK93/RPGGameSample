@@ -88,6 +88,7 @@ namespace RpgAdventure
             else if (m_Owner.CompareTag("Enemy"))
             {
                 m_Owner.GetComponent<BanditBehaviour>().SituationNumber = 0;
+                m_Owner.GetComponent<BanditBehaviour>().BanditAttacking = false;
             }
         }
 
