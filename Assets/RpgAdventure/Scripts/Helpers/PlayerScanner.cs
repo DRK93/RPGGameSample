@@ -22,7 +22,7 @@ namespace RpgAdventure
             if (toPlayer.magnitude <= detectionRadius)
             {
                 if ((Vector3.Dot(toPlayer.normalized, detector.forward) >
-                     Mathf.Cos(detectionAngle * 0.5f * Mathf.Deg2Rad)) || (toPlayer.magnitude <= meleeDetectionRadius))
+                     Mathf.Cos(detectionAngle * 1f * Mathf.Deg2Rad)) || (toPlayer.magnitude <= meleeDetectionRadius))
                 {
                     return PlayerController.Instance;
                 }
