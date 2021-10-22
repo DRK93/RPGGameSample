@@ -116,6 +116,10 @@ PrefabInstance:
       propertyPath: meleeWeapon
       value: 
       objectReference: {fileID: 385185726649133108}
+    - target: {fileID: 1451312022476628906, guid: ada909992705ff7419c6ad3973e8058f, type: 3}
+      propertyPath: attackDistance
+      value: 1.5
+      objectReference: {fileID: 0}
     - target: {fileID: 1700727741596863699, guid: ada909992705ff7419c6ad3973e8058f, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -191,6 +195,10 @@ PrefabInstance:
     - target: {fileID: 3295721743684589200, guid: ada909992705ff7419c6ad3973e8058f, type: 3}
       propertyPath: m_TagString
       value: Enemy
+      objectReference: {fileID: 0}
+    - target: {fileID: 5525924467267665187, guid: ada909992705ff7419c6ad3973e8058f, type: 3}
+      propertyPath: m_StoppingDistance
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 6960475018150579937, guid: ada909992705ff7419c6ad3973e8058f, type: 3}
       propertyPath: m_fontColor.b

@@ -35,6 +35,14 @@ PrefabInstance:
       propertyPath: m_uniqueID
       value: 84
       objectReference: {fileID: 0}
+    - target: {fileID: 1762683500, guid: 02e72af42b5d8fe4584644670cd879fc, type: 3}
+      propertyPath: m_StoppingDistance
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1804324591903996, guid: 02e72af42b5d8fe4584644670cd879fc, type: 3}
+      propertyPath: attackDistance
+      value: 1.5
+      objectReference: {fileID: 0}
     - target: {fileID: 875552094676769417, guid: 02e72af42b5d8fe4584644670cd879fc, type: 3}
       propertyPath: m_RootOrder
       value: 0

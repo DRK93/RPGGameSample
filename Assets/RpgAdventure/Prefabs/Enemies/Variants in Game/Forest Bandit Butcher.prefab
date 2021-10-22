@@ -128,10 +128,18 @@ PrefabInstance:
       propertyPath: m_fontColor32.rgba
       value: 4278190080
       objectReference: {fileID: 0}
+    - target: {fileID: 4264207560679111788, guid: 41be4f02f0149654687e6e5790e3eda4, type: 3}
+      propertyPath: m_StoppingDistance
+      value: 1.5
+      objectReference: {fileID: 0}
     - target: {fileID: 7030833890779239869, guid: 41be4f02f0149654687e6e5790e3eda4, type: 3}
       propertyPath: meleeWeapon
       value: 
       objectReference: {fileID: 5493536860904512383}
+    - target: {fileID: 7030833890779239869, guid: 41be4f02f0149654687e6e5790e3eda4, type: 3}
+      propertyPath: attackDistance
+      value: 1.5
+      objectReference: {fileID: 0}
     - target: {fileID: 7694643222065798009, guid: 41be4f02f0149654687e6e5790e3eda4, type: 3}
       propertyPath: m_Name
       value: Forest Bandit Butcher
