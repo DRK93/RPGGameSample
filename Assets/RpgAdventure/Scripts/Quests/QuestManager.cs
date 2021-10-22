@@ -32,14 +32,15 @@ namespace RpgAdventure
 
         private void Awake()
         {
-            LoadQuestFromDB();
-            AssignQuest();
+
             QuestJournalUI.SetActive(false);
             QuestJournalLeaveBtn.onClick.AddListener(LeaveQuestJournal);
         }
         private void Start()
         {
             m_PauseControl = GameObject.Find("GameMenuManager").GetComponent<PauseControl>();
+            LoadQuestFromDB();
+            AssignQuest();
         }
 
         private void LeaveQuestJournal()
@@ -50,7 +51,12 @@ namespace RpgAdventure
 
         private void LoadQuestFromDB()
         {
-            using StreamReader reader = new StreamReader("Assets/RPGAdventure/DB/QuestDB.json");
+            string pathToQuests = Application.streamingAssetsPath;
+            string pathToQuests2 = Path.Combine(pathToQuests, "QuestDB.json");
+            //using StreamReader reader = new StreamReader(pathToQuests +  "/QuestDB.json");
+            using StreamReader reader = new StreamReader(pathToQuests2);
+            //using StreamReader reader = new StreamReader(Application.dataPath + "/StreamingAssets/QuestDB.json");
+            //using StreamReader reader = new StreamReader("Assets/RPGAdventure/DB/QuestDB.json");
             string json = reader.ReadToEnd();
             var loadedQuests = JsonHelper.GetJsonArray<Quest>(json);
             quests = new Quest[loadedQuests.Length];

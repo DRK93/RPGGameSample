@@ -7,6 +7,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -7567191432710454124, guid: 02e72af42b5d8fe4584644670cd879fc, type: 3}
+      propertyPath: m_Uid
+      value: e3a17176-be08-4b59-900e-8068773111ad
+      objectReference: {fileID: 0}
     - target: {fileID: 609588753, guid: 02e72af42b5d8fe4584644670cd879fc, type: 3}
       propertyPath: m_fontColor.b
       value: 0
@@ -32,8 +36,16 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1352872878, guid: 02e72af42b5d8fe4584644670cd879fc, type: 3}
+      propertyPath: experience
+      value: 170
+      objectReference: {fileID: 0}
+    - target: {fileID: 1352872878, guid: 02e72af42b5d8fe4584644670cd879fc, type: 3}
       propertyPath: m_uniqueID
       value: 84
+      objectReference: {fileID: 0}
+    - target: {fileID: 1352872878, guid: 02e72af42b5d8fe4584644670cd879fc, type: 3}
+      propertyPath: maxHitPoints
+      value: 120
       objectReference: {fileID: 0}
     - target: {fileID: 1762683500, guid: 02e72af42b5d8fe4584644670cd879fc, type: 3}
       propertyPath: m_StoppingDistance

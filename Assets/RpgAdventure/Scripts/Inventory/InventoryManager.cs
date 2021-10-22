@@ -141,7 +141,6 @@ namespace RpgAdventure
             }
             LoadItemFromName();
             UseItem(m_UsedItemIndex);
-
         }
 
         private void LoadItemFromName()
@@ -156,7 +155,6 @@ namespace RpgAdventure
                 inventoryPanel.GetChild(inventorySlot.index).GetComponentInChildren<Text>().text = ItemUncloneName(inventorySlot.itemPrefab.name);
                 inventoryPanel.GetChild(inventorySlot.index).GetChild(2).GetComponent<Text>().text = inventorySlot.itemPrefab.GetComponent<MeleeWeapon>().damage.ToString();
                 indexer++;
-                
             }
         }
 

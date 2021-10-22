@@ -10,7 +10,7 @@ namespace RpgAdventure
     {
 
         public bool isPlayerControllerInputBlock;
-        public float distanceToInteract = 2.5f;
+        public float distanceToInteract = 3.5f;
         public int spellNumber;
         [SerializeField]
         private GameObject useablbeManager;
@@ -136,6 +136,7 @@ namespace RpgAdventure
                     else
                     {
                         m_NPC = s_Instance.OptionClickTarget.GetComponent<QuestGiver>();
+                        //m_NPC = s_Instance.OptionClickTarget.
                         if (Vector3.Distance(s_Instance.transform.position, m_NPC.transform.position) > 2.5f)
                         {
                             StartCoroutine(TriggerBlock());

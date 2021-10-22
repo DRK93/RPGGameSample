@@ -19,33 +19,41 @@ namespace RpgAdventure
         public Button dialogQuitBtn;
         public GameObject dialogContinuePanel;
         public GameObject dialogQuitPanel;
-
-        private PlayerInput m_Player;
+        public Text testText4;
+        public Text testText5;
+        public Text testText6;
+        public Text testText7;
+        private GameObject m_Player;
         private QuestGiver m_NPC;
         private Dialog m_ActiveDialog;
-        private float talkingRadius = 2.5f;
+        private float talkingRadius = 3.5f;
         private float m_DialogOptionTopPosition;
         private bool m_ForceDialogQuit;
+        private bool m_isDialogOpened;
 
-        const float c_DistanceBetweenOptions = 50.0f;
+        const float c_DistanceBetweenOptions = 60.0f;
 
         public bool HasActiveDialog => m_ActiveDialog != null;
-        public float DialogDistance => Vector3.Distance(
-                    m_Player.transform.position,
-                    m_NPC.transform.position);
-
-        void Awake()
+        public float DialogDistance;
+    void Awake()
         {
-            m_Player = PlayerInput.Instance;
+            m_Player = GameObject.Find("Player");
             dialogContinueBtn.onClick.AddListener(ContinueDialogClick);
             dialogQuitBtn.onClick.AddListener(QuitDialogClick);
+            m_isDialogOpened = false;
         }
 
         private void Update()
         {
-            if (HasActiveDialog && DialogDistance > talkingRadius + 1.0f)
+            if (m_isDialogOpened == true)
             {
-                StopDialog();
+                DialogDistance = Vector3.Distance(
+                m_Player.transform.position,
+                m_NPC.transform.position);
+                if (DialogDistance > talkingRadius + 1.0f)
+                {
+                    StopDialog();
+                }
             }
         }
 
@@ -54,9 +62,9 @@ namespace RpgAdventure
             m_ActiveDialog = NPC.dialog;
             dialogHeaderText.text = NPC.name;
             m_NPC = NPC;
+            m_isDialogOpened = true;
             dialogUI.SetActive(true);
             InventoryUI.SetActive(false);
-
             dialogQuitPanel.SetActive(false);
             ClearDialogOptions();
             DisplayAnswewrText(m_ActiveDialog.welcomeText);
@@ -68,6 +76,7 @@ namespace RpgAdventure
             m_ActiveDialog = null;
             m_ForceDialogQuit = false;
             dialogUI.SetActive(false);
+            m_isDialogOpened = false;
         }
 
         private void CreateDialogMenu()
@@ -75,11 +84,13 @@ namespace RpgAdventure
             m_DialogOptionTopPosition = 0;
             var dialogQueries = Array.FindAll(m_ActiveDialog.dialogQueries,
                 dialogQuery => !dialogQuery.isAsked);
+            var indexer = 0;
             foreach(var dialogQuery in dialogQueries)
             {
-                m_DialogOptionTopPosition += c_DistanceBetweenOptions;
+                m_DialogOptionTopPosition = c_DistanceBetweenOptions * indexer;
                 var dialogOption = CreateDialogOption(dialogQuery.text);
                 RegisterOptionClickHandler(dialogOption, dialogQuery);
+                indexer++;
             }
         }
 
