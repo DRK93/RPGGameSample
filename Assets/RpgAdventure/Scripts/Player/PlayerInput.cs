@@ -136,7 +136,6 @@ namespace RpgAdventure
                     else
                     {
                         m_NPC = s_Instance.OptionClickTarget.GetComponent<QuestGiver>();
-                        //m_NPC = s_Instance.OptionClickTarget.
                         if (Vector3.Distance(s_Instance.transform.position, m_NPC.transform.position) > 2.5f)
                         {
                             StartCoroutine(TriggerBlock());
@@ -182,7 +181,7 @@ namespace RpgAdventure
             }
 
             if (m_DialogManger.HasActiveDialog == false)
-            {
+                {
                 if (isKeyForRollClick)
                 {
                     HandleKeyboardQKey();

@@ -40,6 +40,7 @@ namespace RpgAdventure
             m_Player = GameObject.Find("Player");
             dialogContinueBtn.onClick.AddListener(ContinueDialogClick);
             dialogQuitBtn.onClick.AddListener(QuitDialogClick);
+            m_ActiveDialog = null;
             m_isDialogOpened = false;
         }
 

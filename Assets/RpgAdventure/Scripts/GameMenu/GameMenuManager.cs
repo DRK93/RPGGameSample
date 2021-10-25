@@ -97,6 +97,7 @@ namespace RpgAdventure
                 {
                     m_IsLoadingScreenOff = true;
                     loadingScreenUI.SetActive(false);
+                    m_pauseControl.StartGame();
                 }
             }
         }
