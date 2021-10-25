@@ -30,7 +30,7 @@ namespace RpgAdventure
             if (counter >= m_LifeTime)
                 Destroy(this.gameObject);
 
-            if (counter > 0.8 )
+            if (counter > 1.2f )
             {
                 for (int i = 0; i < counterPerEnemy.Count; i++)
                 {

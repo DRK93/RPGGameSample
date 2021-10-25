@@ -104,7 +104,6 @@ namespace RpgAdventure
         private void GuardPosition()
         {
             var detectedTarget = playerScanner.Detect(transform);
-
             if (m_FollowTarget == null)
             {
                 if (detectedTarget != null)
@@ -442,12 +441,12 @@ namespace RpgAdventure
         }
         public void AttackedFromRange()
         {
-            DetectionRadiusChange(20f);
+            DetectionRadiusChange(30f);
             AlliesList();
         }
         public void DetectionRadiusChange(float addingNumber)
         {
-            playerScanner.detectionRadius += addingNumber;
+            playerScanner.detectionRadius = addingNumber;
             playerScanner.detectionAngle = 360.0f;
             StartCoroutine(WaitToReturnDetectRad());
         }

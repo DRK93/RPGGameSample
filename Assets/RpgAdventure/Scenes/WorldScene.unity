@@ -4482,6 +4482,10 @@ PrefabInstance:
       propertyPath: m_uniqueID
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 7710321644801532832, guid: 4f05cf8b401159841808131aff11d567, type: 3}
+      propertyPath: maxHitPoints
+      value: 500
+      objectReference: {fileID: 0}
     - target: {fileID: 7710321645228259938, guid: 4f05cf8b401159841808131aff11d567, type: 3}
       propertyPath: m_WalkableMask
       value: 5
@@ -27767,6 +27771,10 @@ PrefabInstance:
     - target: {fileID: 7710321644801532832, guid: 4f05cf8b401159841808131aff11d567, type: 3}
       propertyPath: m_uniqueID
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7710321644801532832, guid: 4f05cf8b401159841808131aff11d567, type: 3}
+      propertyPath: maxHitPoints
+      value: 500
       objectReference: {fileID: 0}
     - target: {fileID: 7710321645228259938, guid: 4f05cf8b401159841808131aff11d567, type: 3}
       propertyPath: m_StoppingDistance

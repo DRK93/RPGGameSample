@@ -18,11 +18,11 @@ namespace RpgAdventure
                 return null;
             }
             Vector3 toPlayer = PlayerController.Instance.transform.position - detector.position;
-            toPlayer.y = 0;
+            //toPlayer.y = 0;
             if (toPlayer.magnitude <= detectionRadius)
             {
                 if ((Vector3.Dot(toPlayer.normalized, detector.forward) >
-                     Mathf.Cos(detectionAngle * 1f * Mathf.Deg2Rad)) || (toPlayer.magnitude <= meleeDetectionRadius))
+                     Mathf.Cos(detectionAngle * 0.5f * Mathf.Deg2Rad)) || (toPlayer.magnitude <= meleeDetectionRadius))
                 {
                     return PlayerController.Instance;
                 }
