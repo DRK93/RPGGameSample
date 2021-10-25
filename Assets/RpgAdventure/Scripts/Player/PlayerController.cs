@@ -73,6 +73,7 @@ namespace RpgAdventure
         private readonly int m_HashJumping = Animator.StringToHash("Jumping");
         private readonly int m_HashFalling = Animator.StringToHash("Falling");
         private readonly int m_HashGrounded = Animator.StringToHash("Grounded");
+        private readonly int m_HashIsDead = Animator.StringToHash("IsDead");
 
         private void Awake()
         {
@@ -276,6 +277,7 @@ namespace RpgAdventure
             {
                 m_IsRespawning = true;
                 m_Animator.SetTrigger(m_HashDeath);
+                m_Animator.SetBool(m_HashIsDead, true);
                 m_HudManager.SetHealth(0);
             }
             if (type == MessageType.BLOCKED)
