@@ -436,12 +436,12 @@ namespace RpgAdventure
             if (allies != null)
             {
                 foreach (var ally in allies)
-                    ally.GetComponent<BanditBehaviour>().DetectionRadiusChange(20f);
+                    ally.GetComponent<BanditBehaviour>().DetectionRadiusChange(40f);
             }
         }
         public void AttackedFromRange()
         {
-            DetectionRadiusChange(30f);
+            DetectionRadiusChange(40f);
             AlliesList();
         }
         public void DetectionRadiusChange(float addingNumber)
