@@ -65,16 +65,30 @@ namespace RpgAdventure
         }
         private void Update()
         {
-            if (Input.GetKeyDown(KeyCode.C))
-            {
-                UpdateStatsOnCard();
-                ShowCharacterCard();
-            }
             if (m_PlStats.leveledUp == true)
             {
                 LevelUp();
                 m_PlStats.leveledUp = false;
             }
+        }
+
+        public void CardStatsKey()
+        {
+            UpdateStatsOnCard();
+
+            m_pauseControl.PauseGame();
+            CharacterCardUI.SetActive(true);
+
+            if (m_SkillPoints > 0)
+            {
+                ShowAddButtons();
+            }
+        }
+        private void CloseBtn()
+        {
+            m_pauseControl.StartGame();
+            GameObject.Find("Player").GetComponent<PlayerInput>().IsAnyCardOpen = false;
+            CharacterCardUI.SetActive(false);
         }
 
         private void UpdateStatsOnCard()
@@ -91,20 +105,7 @@ namespace RpgAdventure
             m_UsedSkillPoints = m_PlStats.usedSkillPoints;
             m_EnemyDefeat = m_PlStats.defeatedEnemies;
             m_QuestCompleted = m_PlStats.questCompleted;
-        }
-
-        private void ShowCharacterCard()
-        {
-            m_pauseControl.PauseGame();
-            CharacterCardUI.SetActive(true);
-            m_Exp = m_PlStats.currentExp;
-            m_EnemyDefeat = m_PlStats.defeatedEnemies;
-            m_QuestCompleted = m_PlStats.questCompleted;
             SetTextUpdate();
-            if (m_SkillPoints > 0)
-            {
-                ShowAddButtons();
-            }
         }
         private void LevelUp()
         {
@@ -204,11 +205,6 @@ namespace RpgAdventure
             undoBtn.gameObject.SetActive(true);
             if (m_SkillPoints == 0)
                 HideAddButtons();
-        }
-        private void CloseBtn()
-        {
-            m_pauseControl.StartGame();
-            CharacterCardUI.SetActive(false);
         }
         private void SendStatsChange()
         {

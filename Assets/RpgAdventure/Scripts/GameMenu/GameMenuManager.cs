@@ -32,7 +32,6 @@ namespace RpgAdventure
         private LoadingManager m_LoadingManager;
         private float m_TimeCounter = 0f;
         private float m_LoadingTime = 2.0f;
-        private bool IsGameMenuKey;
         private bool IsGameMenuActive;
         private string[] nameList = { "save1", "save2", "save3", "save4" };
         private string savedGameTime1;
@@ -59,7 +58,6 @@ namespace RpgAdventure
             controlsReturtnBtn.onClick.AddListener(ControlReturnBtn);
 
             IsGameMenuActive = false;
-            IsGameMenuKey = false;
             m_pauseControl = GetComponent<PauseControl>();
             StartCoroutine(StartAudio());
         }
@@ -75,13 +73,6 @@ namespace RpgAdventure
         void Update()
         {
             CheckLoadingScreenOff();
-
-            IsGameMenuKey = Input.GetKeyDown(KeyCode.Escape);
-            if (IsGameMenuKey && IsGameMenuActive == false)
-            {
-                GameMenuAcitvate();
-                m_pauseControl.PauseGame();
-            }
         }
 
         private void CheckLoadingScreenOff()
@@ -106,6 +97,16 @@ namespace RpgAdventure
             yield return new WaitForSeconds(2.0f);
             AudioListener.pause = false;
         }
+
+        public void GameMenuKey()
+        {
+            if (IsGameMenuActive == false)
+            {
+                GameMenuAcitvate();
+                m_pauseControl.PauseGame();
+            }
+        }
+
         private void GameMenuAcitvate()
         {
             gameMenuUI.SetActive(true);
@@ -115,6 +116,7 @@ namespace RpgAdventure
         private void ResumeBtn()
         {
             m_pauseControl.StartGame();
+            GameObject.Find("Player").GetComponent<PlayerInput>().IsAnyCardOpen = false;
             gameMenuUI.SetActive(false);
             IsGameMenuActive = false;
 

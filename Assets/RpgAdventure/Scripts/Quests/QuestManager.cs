@@ -27,12 +27,10 @@ namespace RpgAdventure
         public GameObject QuestJournalUI;
         public Button QuestJournalLeaveBtn;
         public List<QuestGiver> QuestGivers;
-
         private PauseControl m_PauseControl;
 
         private void Awake()
         {
-
             QuestJournalUI.SetActive(false);
             QuestJournalLeaveBtn.onClick.AddListener(LeaveQuestJournal);
         }
@@ -43,9 +41,15 @@ namespace RpgAdventure
             AssignQuest();
         }
 
+        public void OpenQuestJournal()
+        {
+            m_PauseControl.PauseGame();
+            QuestJournalUI.SetActive(true);
+        }
         private void LeaveQuestJournal()
         {
             m_PauseControl.StartGame();
+            GameObject.Find("Player").GetComponent<PlayerInput>().IsAnyCardOpen = false;
             QuestJournalUI.SetActive(false);
         }
 

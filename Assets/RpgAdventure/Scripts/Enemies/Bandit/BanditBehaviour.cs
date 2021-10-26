@@ -39,8 +39,8 @@ namespace RpgAdventure
         private int m_firstAttackRange;
         private int m_secondAttackRange;
         private int m_thirdAttackRange;
-        private int m_blockRange;
-        private int m_RepositionRange;
+        //private int m_blockRange;
+        //private int m_RepositionRange;
         private int m_situationNumber;
         public int SituationNumber
         {
@@ -269,48 +269,48 @@ namespace RpgAdventure
                     m_firstAttackRange = 10;
                     m_secondAttackRange = 12;
                     m_thirdAttackRange = 14;
-                    m_blockRange = 16;
-                    m_RepositionRange = 18;
+                    //m_blockRange = 16;
+                    //m_RepositionRange = 18;
                     break;
                 case 1:
                     // after first succesfull attack
                     m_firstAttackRange = 2;
                     m_secondAttackRange = 14;
                     m_thirdAttackRange = 16;
-                    m_blockRange = 18;
-                    m_RepositionRange = 19;
+                    //m_blockRange = 18;
+                    //m_RepositionRange = 19;
                     break;
                 case 2:
                     // after second succesfull attack
                     m_firstAttackRange = 2;
                     m_secondAttackRange = 4;
                     m_thirdAttackRange = 16;
-                    m_blockRange = 18;
-                    m_RepositionRange = 19;
+                    //m_blockRange = 18;
+                    //m_RepositionRange = 19;
                     break;
                 case 3:
                     // after third succesfull attack
                     m_firstAttackRange = 7;
                     m_secondAttackRange = 9;
                     m_thirdAttackRange = 11;
-                    m_blockRange = 13;
-                    m_RepositionRange = 19;
+                    //m_blockRange = 13;
+                    //m_RepositionRange = 19;
                     break;
                 case 4:
                     // after getting hit
                     m_firstAttackRange = 3;
                     m_secondAttackRange = 5;
                     m_thirdAttackRange = 7;
-                    m_blockRange = 9;
-                    m_RepositionRange = 18;
+                   // m_blockRange = 9;
+                    //m_RepositionRange = 18;
                     break;
                 case 5:
                     // after succesfull block
                     m_firstAttackRange = 4;
                     m_secondAttackRange = 10;
                     m_thirdAttackRange = 11;
-                    m_blockRange = 12;
-                    m_RepositionRange = 19;
+                    //m_blockRange = 12;
+                    //m_RepositionRange = 19;
                     break;
                 default:
                     break;

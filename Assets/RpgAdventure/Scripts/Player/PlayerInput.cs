@@ -26,6 +26,7 @@ namespace RpgAdventure
         private bool m_IsRoll;
         private bool m_IsJump;
         private bool m_IsLeftMouseClicked;
+        private bool m_IsAnyCardOpen;
         private Collider m_OptionClickTarget;
 
         public Vector3 MoveInput
@@ -48,10 +49,14 @@ namespace RpgAdventure
         public bool IsJump => m_IsJump;
         public bool IsLeftMouseClicked => m_IsLeftMouseClicked;
         public bool IsMoveInput => !Mathf.Approximately(MoveInput.magnitude, 0);
-
+        public bool IsAnyCardOpen
+        {
+            set { m_IsAnyCardOpen = value; }
+        }
         private void Awake()
         {
             s_Instance = this;
+            m_IsAnyCardOpen = false;
         }
         private void Start()
         {
@@ -62,30 +67,33 @@ namespace RpgAdventure
 
         void Update()
         {
-            bool isLeftMouseClick = Input.GetMouseButtonDown(0);
-            bool isRightMouseClick = Input.GetMouseButtonDown(1);
-            m_Movement.Set
-                (
-                Input.GetAxis("Horizontal"),
-                0,
-                Input.GetAxis("Vertical")
-                );
-
-            if (isLeftMouseClick)
+            if(Input.anyKey)
             {
-                HandleLeftMouseBtnDown();
-            }
+                bool isLeftMouseClick = Input.GetMouseButtonDown(0);
+                bool isRightMouseClick = Input.GetMouseButtonDown(1);
+                m_Movement.Set
+                    (
+                    Input.GetAxis("Horizontal"),
+                    0,
+                    Input.GetAxis("Vertical")
+                    );
 
-            if(isRightMouseClick)
-            {
-                HandleRightMouseBtnDown();
-            }
+                if (isLeftMouseClick)
+                {
+                    HandleLeftMouseBtnDown();
+                    return;
+                }
 
-            if (!PauseControl.gameIsPaused)
-            {
-                HandleKeyboardKeys();
+                if (isRightMouseClick)
+                {
+                    HandleRightMouseBtnDown();
+                    return;
+                }
+                if (!PauseControl.gameIsPaused)
+                {
+                    HandleKeyboardKeys();
+                }
             }
-
         }
 
         private void HandleLeftMouseBtnDown()
@@ -155,15 +163,19 @@ namespace RpgAdventure
         }
         private void HandleKeyboardKeys()
         {
+            
             bool isKeyForRollClick = Input.GetKeyDown(KeyCode.Q);
             bool isKeyForJumpClick = Input.GetKeyDown(KeyCode.Space);
-            bool isKeyForQuestJournalClick = Input.GetKeyDown(KeyCode.J);
             bool isKeyForAbility1 = Input.GetKeyDown(KeyCode.Alpha1);
             bool isKeyForAbility2 = Input.GetKeyDown(KeyCode.Alpha2);
             bool isKeyForAbility3 = Input.GetKeyDown(KeyCode.Alpha3);
             bool isKeyForAbility4 = Input.GetKeyDown(KeyCode.Alpha4);
             bool isKeyForAbility5 = Input.GetKeyDown(KeyCode.Alpha5);
             bool isKeyForAbility6 = Input.GetKeyDown(KeyCode.Alpha6);
+            bool isKeyForInventory = Input.GetKeyDown(KeyCode.I);
+            bool isGameMenuKey = Input.GetKeyDown(KeyCode.Escape);
+            bool isCardStatsKey = Input.GetKeyDown(KeyCode.C);
+            bool isKeyForQuestJournalClick = Input.GetKeyDown(KeyCode.J);
             if (usableAbilities.CanBeUsed == true)
             {
                 if (isKeyForAbility1)
@@ -191,10 +203,26 @@ namespace RpgAdventure
                 {
                     HandleKeyboardSpaceKey();
                 }
-                if (isKeyForQuestJournalClick)
+                
+                if (m_IsAnyCardOpen == false)
                 {
-                    m_pauseControl.PauseGame();
-                    FindObjectOfType<QuestManager>().QuestJournalUI.SetActive(true);
+                    if (isKeyForQuestJournalClick)
+                    {
+                        
+                        HandleJournalKey();
+                    }
+                    if (isCardStatsKey)
+                    {
+                        HandlePlayerCardKey();
+                    }
+                    if (isGameMenuKey)
+                    {
+                        HandleMenuKey();
+                    }
+                    if(isKeyForInventory)
+                    {
+                        HandleInventoryKey();
+                    }
                 }
             }
         }
@@ -211,6 +239,28 @@ namespace RpgAdventure
             {
                 StartCoroutine(TriggerJump());
             }
+        }
+        private void HandleJournalKey()
+        {
+            m_IsAnyCardOpen = true;
+            FindObjectOfType<QuestManager>().QuestJournalUI.SetActive(true);
+        }
+
+        private void HandleInventoryKey()
+        {
+            GameObject.Find("InventoryManager").GetComponent<InventoryManager>().HideShowInventory();
+        }
+
+        private void HandleMenuKey()
+        {
+            m_IsAnyCardOpen = true;
+            GameObject.Find("GameMenuManager").GetComponent<GameMenuManager>().GameMenuKey();
+        }
+
+        private void HandlePlayerCardKey()
+        {
+            m_IsAnyCardOpen = true;
+            GameObject.Find("PlayerStatsManager").GetComponent<PlayerStatsManager>().CardStatsKey();
         }
 
         private IEnumerator TriggerOptionTarget(Collider other)

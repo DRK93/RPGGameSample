@@ -30,26 +30,18 @@ namespace RpgAdventure
             inventoryUI.SetActive(false);
             m_InvetoryOpen = false;
         }
-        private void Update()
-        {
-            bool isKeyForInventory = Input.GetKeyDown(KeyCode.I);
-            HideShowInventory(isKeyForInventory);
-        }
 
-        private void HideShowInventory(bool isKeyForInventory)
+        public void HideShowInventory()
         {
-            if (isKeyForInventory)
+            if (m_InvetoryOpen == false)
             {
-                if (m_InvetoryOpen == false)
-                {
-                    m_InvetoryOpen = true;
-                    inventoryUI.SetActive(true);
-                }
-                else
-                {
-                    m_InvetoryOpen = false;
-                    inventoryUI.SetActive(false);
-                }
+                m_InvetoryOpen = true;
+                inventoryUI.SetActive(true);
+            }
+            else
+            {
+                m_InvetoryOpen = false;
+                inventoryUI.SetActive(false);
             }
         }
 
