@@ -67,16 +67,18 @@ namespace RpgAdventure
 
         void Update()
         {
-            if(Input.anyKey)
+            m_Movement.Set
+            (
+            Input.GetAxis("Horizontal"),
+            0,
+            Input.GetAxis("Vertical")
+            );
+
+            if (Input.anyKey)
             {
                 bool isLeftMouseClick = Input.GetMouseButtonDown(0);
                 bool isRightMouseClick = Input.GetMouseButtonDown(1);
-                m_Movement.Set
-                    (
-                    Input.GetAxis("Horizontal"),
-                    0,
-                    Input.GetAxis("Vertical")
-                    );
+
 
                 if (isLeftMouseClick)
                 {
