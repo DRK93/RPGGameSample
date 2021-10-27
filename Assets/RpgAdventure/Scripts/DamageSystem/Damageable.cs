@@ -4,6 +4,8 @@ using UnityEngine;
 
 namespace RpgAdventure
 {
+    // class manage fighting mechanic, hit points, applying damage, compute damage
+    // send information about result of fighting mechanic calculation
     public partial class Damageable : MonoBehaviour
     {
 

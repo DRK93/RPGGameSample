@@ -8,7 +8,6 @@ namespace RpgAdventure
     {
         private int m_SpellDmg;
         private GameObject m_Owner;
-        private SpellAudio m_SpellAudio;
         private float m_TimerCount = 0.0f;
         [SerializeField]
         private float m_spellLifeTime = 2.0f;

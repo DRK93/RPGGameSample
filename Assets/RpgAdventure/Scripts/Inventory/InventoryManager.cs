@@ -6,7 +6,8 @@ using NGS.ExtendableSaveSystem;
 
 namespace RpgAdventure
 {
-
+    //class to manage inventory system, save inventory and clean weapon name
+    //assign chosen weapon and hide/show inventory UI
     public class InventoryManager : MonoBehaviour, ISavableComponent
     {
         public List<InventorySlot> inventory = new List<InventorySlot>();

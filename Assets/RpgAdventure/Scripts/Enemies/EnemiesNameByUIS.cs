@@ -4,6 +4,8 @@ using UnityEngine;
 
 namespace RpgAdventure
 {
+    // This class is for one purpose : to show name of enemies specific genre
+    // without added words/numbers like 'Clone', '(1), '(2)' etc.
     public class EnemiesNameByUIS : MonoBehaviour
     {
         public Dictionary<string, string> enemyNameList;

@@ -8,6 +8,7 @@ using NGS.ExtendableSaveSystem;
 
 namespace RpgAdventure
 {
+    // class to manage in game menu, save and load game
     public class GameMenuManager : MonoBehaviour
     {
         public GameObject gameMenuUI;

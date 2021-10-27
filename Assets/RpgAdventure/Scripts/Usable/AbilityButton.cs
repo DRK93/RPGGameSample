@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 namespace RpgAdventure
 {
+    //class to manage behaviour of ability button and send information to other class which manage the whole abilities mechanic
     public class AbilityButton : MonoBehaviour
     {
         public int abilityNumber;

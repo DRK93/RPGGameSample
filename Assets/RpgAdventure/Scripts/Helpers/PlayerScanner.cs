@@ -5,6 +5,7 @@ using UnityEngine;
 
 namespace RpgAdventure
 {
+    // class to detect if Player is in range of enemy radius detection
     [System.Serializable]
     public class PlayerScanner
     {

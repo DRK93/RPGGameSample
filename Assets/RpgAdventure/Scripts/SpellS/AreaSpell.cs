@@ -4,6 +4,9 @@ using UnityEngine;
 
 namespace RpgAdventure
 {
+    // class for ability which use area effect
+    // this class gets information that enemies trigger collider of area effect from other class
+    // and compute mechanic of area effect spell
     public class AreaSpell : MonoBehaviour
     {
         [SerializeField]

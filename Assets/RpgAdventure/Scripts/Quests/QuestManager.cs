@@ -8,6 +8,8 @@ using UnityEngine.UI;
 
 namespace RpgAdventure
 {
+    //class to assign quests to NPC from quests database which were loaded from JSON format
+    //additionally manage showing/closing quest journal
     public class JsonHelper
     {
         private class Wrapper<T>

@@ -11,7 +11,7 @@ namespace RpgAdventure
 
         private NavMeshAgent m_NavMeshAgent;
         private Animator m_Animator;
-        private float m_SpeedModifier = 0.7f;
+        private float m_SpeedModifier = 0.8f;
 
         private void Awake()
         {

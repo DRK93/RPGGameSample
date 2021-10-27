@@ -6,6 +6,8 @@ using UnityEngine.UI;
 
 namespace RpgAdventure
 {
+    // class manage the using abilities process
+    // get information form Player Input and send it further to Player Controller
     public class UsableAbilities : MonoBehaviour
     {
         public List<AbilityButton> abilityButtons;

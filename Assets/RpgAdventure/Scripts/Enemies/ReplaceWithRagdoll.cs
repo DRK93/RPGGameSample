@@ -7,6 +7,7 @@ namespace RpgAdventure
 {
     public class ReplaceWithRagdoll : MonoBehaviour
     {
+        // creating a corpse of defaeted enemy
         public GameObject ragdollPrefab;
         public void Replace()
         {

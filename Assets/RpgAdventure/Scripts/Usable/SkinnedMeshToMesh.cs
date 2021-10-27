@@ -5,6 +5,8 @@ using UnityEngine.VFX;
 
 public class SkinnedMeshToMesh : MonoBehaviour
 {
+    // class to create radiants effects on character skin
+    // for enemies use just one effect, but for players more.
     public SkinnedMeshRenderer skinnedMesh;
     public VisualEffect HealingVFX;
     public VisualEffect SmallRadiatingVFX;

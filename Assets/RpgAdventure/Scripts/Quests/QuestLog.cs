@@ -7,6 +7,9 @@ using TMPro;
 
 namespace RpgAdventure
 {
+    //class to manage quests assinged to Player
+    //manage quest data for save and load game system 
+    //add quests to quest journal from quest panel prefab
     public enum QuestStatus
     {
         ACTIVE,
@@ -128,7 +131,6 @@ namespace RpgAdventure
                 {
                     if (quest.title == panel.GetComponent<QuestPanParameters>().m_QuestTitle)
                     {
-                        //Debug.Log("Start saving questPanel");
                         data.SetInt("questcurrentkilled" + indexer, panel.GetComponent<QuestPanParameters>().m_CurrentDeafeted);
 
                         var indexer2 = 0;

@@ -5,6 +5,7 @@ using NGS.ExtendableSaveSystem;
 
 namespace RpgAdventure
 {
+    // stats of Player character
     public class PlayerStats : CharacterStats, IMessageReceiver, ISavableComponent
     {
         public int maxLevel;

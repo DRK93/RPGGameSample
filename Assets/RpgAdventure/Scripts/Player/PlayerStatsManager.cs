@@ -6,6 +6,9 @@ using TMPro;
 
 namespace RpgAdventure
 {
+    // this class manage the player stats card which display player stats in game on UI elements
+    // manage leveling up process - spend points to upgrade player stats
+
     public class PlayerStatsManager : MonoBehaviour
     {
         public Button addHealthBtn;

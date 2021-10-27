@@ -6,6 +6,8 @@ using UnityEngine.UI;
 
 namespace RpgAdventure
 {
+    //class to manage quest journal UI
+    //adding and updating quest in quest journal
     public class QuestUpdate : MonoBehaviour, IMessageReceiver
     {
         private EnemiesNameByUIS m_EnemyDictionary2;

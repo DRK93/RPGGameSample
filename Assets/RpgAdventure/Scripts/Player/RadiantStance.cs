@@ -4,6 +4,8 @@ using UnityEngine;
 
 namespace RpgAdventure
 {
+    //class for manage the ability of radiant state in which
+    //other class use SkinnedMeshRender to generate radiant effect
     public class RadiantStance : MonoBehaviour
     {
         public GameObject radiantEffect;

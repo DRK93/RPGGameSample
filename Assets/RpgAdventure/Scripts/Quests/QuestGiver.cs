@@ -3,6 +3,7 @@ using UnityEngine;
 
 namespace RpgAdventure
 {
+    // class define NPC as QuestGiver and manage quest mark
     public class QuestGiver : MonoBehaviour
     {
         public Quest quest;

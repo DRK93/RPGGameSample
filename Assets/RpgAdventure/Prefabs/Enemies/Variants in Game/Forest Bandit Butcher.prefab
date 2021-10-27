@@ -108,6 +108,10 @@ PrefabInstance:
       propertyPath: maxHitPoints
       value: 240
       objectReference: {fileID: 0}
+    - target: {fileID: 2046347272262438889, guid: 41be4f02f0149654687e6e5790e3eda4, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 30
+      objectReference: {fileID: 0}
     - target: {fileID: 3758582290649895483, guid: 41be4f02f0149654687e6e5790e3eda4, type: 3}
       propertyPath: m_Name
       value: Name
@@ -130,7 +134,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4264207560679111788, guid: 41be4f02f0149654687e6e5790e3eda4, type: 3}
       propertyPath: m_StoppingDistance
-      value: 1.5
+      value: 2.1
       objectReference: {fileID: 0}
     - target: {fileID: 7030833890779239869, guid: 41be4f02f0149654687e6e5790e3eda4, type: 3}
       propertyPath: meleeWeapon

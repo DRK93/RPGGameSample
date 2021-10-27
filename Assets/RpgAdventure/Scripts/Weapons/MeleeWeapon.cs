@@ -4,6 +4,9 @@ using UnityEngine;
 
 namespace RpgAdventure
 {
+    // class check if there is collison between weapon check boxes(spheres) and target
+    // owns class which creates spheres for checking collsion with target
+    // send information about collision and amount of damage to apply
     public class MeleeWeapon : MonoBehaviour
     {
         [System.Serializable]

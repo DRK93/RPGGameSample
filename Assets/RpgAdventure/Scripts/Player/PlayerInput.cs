@@ -6,6 +6,9 @@ using UnityEngine.EventSystems;
 
 namespace RpgAdventure
 {
+    //class to manage Player Input from keyboard and mouse
+    // check if Player could use abilities, which one Player want to use
+    // check if Player could interact with something
     public class PlayerInput : MonoBehaviour
     {
 

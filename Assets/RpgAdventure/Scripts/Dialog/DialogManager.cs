@@ -7,6 +7,8 @@ using UnityEngine.UI;
 
 namespace RpgAdventure
 {
+    // class to manage dialogs and dialogs UI whose are buttons with text
+    // creating dialogs, remove quest option, check distance between Player and NPC
     public class DialogManager : MonoBehaviour
     {
         public GameObject dialogUI;

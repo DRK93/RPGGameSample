@@ -4,6 +4,8 @@ using UnityEngine;
 
 namespace RpgAdventure
 {
+    // class manage spawning correct spell prefab with proper parameters
+    // also manage behaviour of the spell before going out from player
     public class SpellSpawner : MonoBehaviour
     {
         public GameObject fireball;

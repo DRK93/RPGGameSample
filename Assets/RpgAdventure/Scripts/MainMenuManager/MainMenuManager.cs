@@ -7,6 +7,7 @@ using UnityEngine.UI;
 
 namespace RpgAdventure
 {
+    // class to manage Main Menu of the game
     public class MainMenuManager : MonoBehaviour
     {
         public GameObject MainMenu;

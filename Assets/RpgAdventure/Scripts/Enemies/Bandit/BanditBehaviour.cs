@@ -5,6 +5,9 @@ using UnityEngine.AI;
 
 namespace RpgAdventure
 {
+    //main class to manage enemy behaviour and respond for Player actions
+    //choose correct animations, send information to other classes that enemies use, affect other enemies
+    //manage fighting based on random generated number which will give a little unpredictable fight choices
     public class BanditBehaviour : MonoBehaviour, IMessageReceiver, IAttackAnimListener
     {
         public MeleeWeapon meleeWeapon;

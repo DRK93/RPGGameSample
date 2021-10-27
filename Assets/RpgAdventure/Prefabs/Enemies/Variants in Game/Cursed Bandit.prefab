@@ -50,7 +50,7 @@ PrefabInstance:
       objectReference: {fileID: 3395238782564998584}
     - target: {fileID: -1742566146942437603, guid: 4d8b09ac664205849ab4c55b66940420, type: 3}
       propertyPath: attackDistance
-      value: 1.5
+      value: 2.1
       objectReference: {fileID: 0}
     - target: {fileID: -1742566146942437603, guid: 4d8b09ac664205849ab4c55b66940420, type: 3}
       propertyPath: playerScanner.detectionAngle

@@ -6,6 +6,8 @@ using UnityEngine.Animations.Rigging;
 
 namespace RpgAdventure
     {
+    //class manage Player character behaviour - especially animator input
+    //compute movement, choose animation for particular ability and receive information from fighting mechanic
     public class PlayerController : MonoBehaviour, IAttackAnimListener, IMessageReceiver
     {
         public static PlayerController Instance

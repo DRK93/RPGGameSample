@@ -130,7 +130,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4264207560679111788, guid: 41be4f02f0149654687e6e5790e3eda4, type: 3}
       propertyPath: m_StoppingDistance
-      value: 1.5
+      value: 2.1
       objectReference: {fileID: 0}
     - target: {fileID: 4917662955440665539, guid: 41be4f02f0149654687e6e5790e3eda4, type: 3}
       propertyPath: m_AnchorMax.x

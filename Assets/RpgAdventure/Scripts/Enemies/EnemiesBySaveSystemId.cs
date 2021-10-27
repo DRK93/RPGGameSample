@@ -5,6 +5,7 @@ using NGS.ExtendableSaveSystem;
 
 namespace RpgAdventure
 {
+    // purpose of this class is to remove enemies from loaded save game which were defeated before saved game was saved
     public class EnemiesBySaveSystemId : MonoBehaviour, ISavableComponent
     {
         public Dictionary<int, bool> enmiesSaveSystem;
