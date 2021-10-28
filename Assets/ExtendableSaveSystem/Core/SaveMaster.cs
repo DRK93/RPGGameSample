@@ -63,19 +63,28 @@ namespace NGS.ExtendableSaveSystem
             if (!fileFormat.StartsWith(".")) fileFormat = "." + fileFormat;
 
             if (!Directory.Exists(folderPath))
-                throw new DirectoryNotFoundException("SaveMaster::Directory '" + folderPath + "' not found");
+            throw new DirectoryNotFoundException("SaveMaster::Directory '" + folderPath + "' not found"); 
 
-            Dictionary<int, ComponentData> componentsData = null;
+            if (File.Exists(folderPath + fileName + fileFormat))
+            {
+                Dictionary<int, ComponentData> componentsData = null;
 
-            BinaryFormatter formatter = new BinaryFormatter();
-            using (FileStream stream = new FileStream(folderPath + fileName + fileFormat, FileMode.Open))
-                componentsData = (Dictionary<int, ComponentData>) formatter.Deserialize(stream);
+                BinaryFormatter formatter = new BinaryFormatter();
+                using (FileStream stream = new FileStream(folderPath + fileName + fileFormat, FileMode.Open))
+                    componentsData = (Dictionary<int, ComponentData>)formatter.Deserialize(stream);
 
-            foreach (var savableComponent in GetOrderedSavableComponents())
-                if (componentsData.ContainsKey(savableComponent.uniqueID))
-                {
-                    savableComponent.Deserialize(componentsData[savableComponent.uniqueID]);
-                }
+                foreach (var savableComponent in GetOrderedSavableComponents())
+                    if (componentsData.ContainsKey(savableComponent.uniqueID))
+                    {
+                        savableComponent.Deserialize(componentsData[savableComponent.uniqueID]);
+                    }
+            }
+            else
+            {
+                Debug.Log("File doesn't exist");
+            }
+            
+            
 
         }
     }

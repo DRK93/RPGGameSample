@@ -122,27 +122,38 @@ namespace RpgAdventure
         }
         private void LoadGameState1()
         {
-            Debug.Log("Loading save game 1");
-            DataManager.instance.loadingNumber = 1;
-            SceneManager.LoadScene(1);
+            if (File.Exists("Assets/Saves/save1.data"))
+            {
+                DataManager.instance.loadingNumber = 1;
+                SceneManager.LoadScene(1);
+            }
+
         }
         private void LoadGameState2()
         {
-            Debug.Log("Loading save game 2");
-            DataManager.instance.loadingNumber = 2;
-            SceneManager.LoadScene(1);
+            if (File.Exists("Assets/Saves/save2.data"))
+            {
+                DataManager.instance.loadingNumber = 2;
+                SceneManager.LoadScene(1);
+            }
+
         }
         private void LoadGameState3()
         {
-            Debug.Log("Loading save game 3");
-            DataManager.instance.loadingNumber = 3;
-            SceneManager.LoadScene(1);
+            if (File.Exists("Assets/Saves/save3.data"))
+            {
+                DataManager.instance.loadingNumber = 3;
+                SceneManager.LoadScene(1);
+            }
+
         }
         private void LoadGameState4()
         {
-            Debug.Log("Loading save game 4");
-            DataManager.instance.loadingNumber = 4;
-            SceneManager.LoadScene(1);
+            if (File.Exists("Assets/Saves/save4.data"))
+            {
+                DataManager.instance.loadingNumber = 4;
+                SceneManager.LoadScene(1);
+            }
         }
         public void ReturnFromLoadGame()
         {

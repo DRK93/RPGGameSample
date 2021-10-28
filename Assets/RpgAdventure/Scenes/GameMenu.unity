@@ -5488,7 +5488,7 @@ GameObject:
   - component: {fileID: 1615905608}
   - component: {fileID: 1615905607}
   m_Layer: 5
-  m_Name: Controls description
+  m_Name: criptionDescription
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5533,23 +5533,79 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'To move use WSAD and arrow keys.
+  m_text: 'Controls:
 
-    To interact with friendly NPC use
-    RMB.
+    Move with WSAD or Arrows
 
-    To select item use LMB.
+    Rotate Camera with MB2(middle
+    button down).
+
+    Use Mouse Scroll to zoom in/ou the Camer.
 
 
-    Fighting:
+    Abilities,
+    attacks and Interaction:
 
-    Attack: use LMB, combination
-    attack with another click LMB in proper time.
+    Click MB1 (mouse left button) to attack. Click
+    more times while attacking to do attack sequence.
 
-    Block: use RMB.
+    Click MB3 (mouse right
+    button)to block enemy attack (no damage from enemy, enemy could use it too).
 
-    Roll
-    forward: Q key.'
+    Click
+    MB3 (mouse right button) on friendly NPC with quest to start dialogs (quest mark
+    over NPC). While active dialog after reaching particular distance from NPC the
+    dialogs will automatically shut down.
+
+    Abilities have globalcooldown set
+    on 2sec. After using any ability you cannot use other for 2sec even if they are
+    available.
+
+    Click "Fireball" button on the screen or "1" on keyboard to throw
+    Fireball Spell.
+
+    Click "Electricshock" button on the screen or "2" on keyboard
+    to throw Electricshock Spell.
+
+    Click "Lavaball" button on the screen or "3"
+    on keyboard to throw Lavaball Spell.
+
+    Click "RainOfFire" button on the screen
+    or "4" on keyboard to throw RainOfFire Spell (area effect spell in some distance
+    forward).
+
+    Click "WardenLight" button on the screen or "5" on keyboard to
+    get WardenLight for 10 secs (boost your melee damage but it gives small damage
+    to yourself).
+
+    Click "Heal" button on the screen or 6" on keyboard to use
+    Heal on yourself (return 100 Hitpoints).
+
+    Click "Q" on keyboard to roll forward.
+
+    Click
+    "Space" on keyboard will running to jump.
+
+
+    Menu and others:
+
+    Click "I"
+    on keyboard to open Inventory (choosing weapon). Click on the button of picked
+    up weapon to draw it.
+
+    Click "C" on keyboard to see Character Stats Card.
+    After defeating enemy or completing quest you will obtain experience poitns.
+    After each leveling up you can spend 4 skill points to boost character stats.
+
+    Click
+    "J" on keyboard to see Quest Journal. Scroll up and down to check all accepted
+    quests. Quest reward is just experience points, which will be acqaried after
+    completing quest object but they will be really needed.
+
+    Click "Esc" to open
+    Game Menu.
+
+'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -5576,14 +5632,14 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 30
-  m_fontSizeBase: 30
+  m_fontSize: 24
+  m_fontSizeBase: 24
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 8
+  m_HorizontalAlignment: 2
   m_VerticalAlignment: 256
   m_textAlignment: 65535
   m_characterSpacing: 0
