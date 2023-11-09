@@ -1,0 +1,50 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: ForceField
+  m_Shader: {fileID: -6465566751694194690, guid: ec0b142f3d5e7634da05bd9b20c9146f, type: 3}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - unity_Lightmaps:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_LightmapsInd:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_ShadowMasks:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats:
+    - Vector1_405de4fde1dc4bba84958386af5a7522: 0.46
+    - Vector1_638d1a28f43d49d49f62f1842022f2d7: 2
+    - _FernelPower: 3
+    - _Fill: 0.02
+    - _NoiseDissolve: 4
+    - _NoiseScale: 50
+    - _NoiseSpeed: 2
+    - _Offset: 0
+    - _VoronoiDissolve: 0.5
+    - _VoronoiSpeed: 0.2
+    m_Colors:
+    - Vector2_ac4ef3b4abee46c8bda5556a908a42f8: {r: -0.2, g: 0.2, b: 0, a: 0}
+    - _Emission: {r: 2.0806282, g: 0, b: 0.79757386, a: 0}
+    - _NoiseSpeed: {r: -0.2, g: 0.2, b: 0, a: 0}
+    - _VoronoiColor: {r: 0.6, g: 0.047999993, b: 0.5447998, a: 0}
+  m_BuildTextureStacks: []

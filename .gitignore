@@ -9,6 +9,34 @@
 /[Bb]uilds/
 /[Ll]ogs/
 /[Uu]ser[Ss]ettings/
+/Packages/
+
+# All assets thar are don't needed here, only code and basic stuff for project
+# will be allowed
+/Assets/Barbarian/
+/Assets/Cartoon Heroes/
+/Assets/Fantasy Forest Environment Free Sample/
+/Assets/Foliage Free/
+/Assets/Free_SpeedTrees/
+/Assets/Grass And Flowers Pack 1/
+/Assets/GrassFlowers/
+/Assets/Julien Tonsuso/
+/Assets/kawetofe_Assets/
+/Assets/LiquidFire Assets/
+/Assets/Materials/
+/Assets/low poly medieval buildings/
+/Assets/Medieval Fortification/
+/Assets/NavMeshComponents/
+/Assets/StreamingAssets/
+/Assets/TextMesh Pro/
+/Assets/Tree 1_Textures/
+/Assets/Tree 2_Textures/
+/Assets/Tree_Textures/
+/Assets/Whaleride/
+
+/Assets/RPGAdventure/Images/
+/Assets/RPGAdventure/Sounds/
+
 
 # MemoryCaptures can get excessive in size.
 # They also could contain extremely sensitive data

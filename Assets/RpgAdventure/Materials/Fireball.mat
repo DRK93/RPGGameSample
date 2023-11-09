@@ -1,0 +1,53 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Fireball
+  m_Shader: {fileID: -6465566751694194690, guid: 78e9fd715a038c649a934e795cfa27d0, type: 3}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _MainTexture:
+        m_Texture: {fileID: 2800000, guid: 3d9e0307a0a344a4ca2f82933b2eae4d, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_Lightmaps:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_LightmapsInd:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_ShadowMasks:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats:
+    - _FresnelPower: 1
+    - _Metallic: 0
+    - _NoiseDissolve: 0.2
+    - _NoiseScale: 25
+    - _NormalStrength: 0.9
+    - _Smoothness: 0
+    - _VoronaiDissolve: 2
+    - _VoronaiScale: 4
+    m_Colors:
+    - _FresnelColor: {r: 3.9533494, g: 0.4553596, b: 0, a: 0}
+    - _MainColor: {r: 0.59607846, g: 0.23804358, b: 0.20392154, a: 0}
+    - _NoiseSpeed: {r: -0.1, g: 0.1, b: 0, a: 0}
+    - _VoronaiColor: {r: 47.937256, g: 8.37163, b: 1.5058825, a: 0}
+    - _VoronoiSpeed: {r: 0.1, g: 0, b: 0, a: 0}
+  m_BuildTextureStacks: []
