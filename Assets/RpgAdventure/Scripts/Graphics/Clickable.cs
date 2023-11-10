@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using UnityEngine;
 
-namespace RpgAdventure
+namespace RpgAdventure.Scripts.Graphics
 {
     public class Clickable : MonoBehaviour
     {

@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.VFX;
 
-public class SkinnedMeshToMesh : MonoBehaviour
+namespace RpgAdventure.Scripts.Usable
+{
+    public class SkinnedMeshToMesh : MonoBehaviour
 {
     // class to create radiants effects on character skin
     // for enemies use just one effect, but for players more.
@@ -61,3 +63,5 @@ public class SkinnedMeshToMesh : MonoBehaviour
         
     }
 }
+}
+

@@ -2,11 +2,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
+using RpgAdventure.Scripts.Core;
+using RpgAdventure.Scripts.Helpers;
+using RpgAdventure.Scripts.Player;
 using UnityEngine;
 using UnityEngine.UI;
 
 
-namespace RpgAdventure
+namespace RpgAdventure.Scripts.Quests
 {
     //class to assign quests to NPC from quests database which were loaded from JSON format
     //additionally manage showing/closing quest journal

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using NGS.ExtendableSaveSystem;
+using RpgAdventure.Scripts.Core;
 
 namespace RpgAdventure
 {

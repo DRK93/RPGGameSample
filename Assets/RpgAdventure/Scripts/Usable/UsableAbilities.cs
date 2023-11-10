@@ -1,10 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
+using RpgAdventure.Scripts.Player;
 using UnityEngine;
 using UnityEngine.UI;
 
 
-namespace RpgAdventure
+namespace RpgAdventure.Scripts.Usable
 {
     // class manage the using abilities process
     // get information form Player Input and send it further to Player Controller

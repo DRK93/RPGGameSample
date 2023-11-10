@@ -1,10 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
+using RpgAdventure.Scripts.Core;
+using RpgAdventure.Scripts.DamageSystem;
+using RpgAdventure.Scripts.Helpers;
+using RpgAdventure.Scripts.Player;
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
 
-namespace RpgAdventure
+namespace RpgAdventure.Scripts.Quests
 {
     //class to manage quest journal UI
     //adding and updating quest in quest journal

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace RpgAdventure
+namespace RpgAdventure.Scripts.GameMenu
 {
     public class LoadingManager : MonoBehaviour
     {

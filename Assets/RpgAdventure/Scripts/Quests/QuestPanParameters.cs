@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace RpgAdventure
+namespace RpgAdventure.Scripts.Quests
 {
     public class QuestPanParameters : MonoBehaviour
     {

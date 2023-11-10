@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace RpgAdventure
+namespace RpgAdventure.Scripts.Dialog
 {
     [System.Serializable]
     public class DialogAnswer

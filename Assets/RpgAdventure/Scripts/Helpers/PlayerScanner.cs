@@ -1,9 +1,10 @@
 using RpgAdventure;
 using System.Collections;
 using System.Collections.Generic;
+using RpgAdventure.Scripts.Player;
 using UnityEngine;
 
-namespace RpgAdventure
+namespace RpgAdventure.Scripts.Helpers
 {
     // class to detect if Player is in range of enemy radius detection
     [System.Serializable]

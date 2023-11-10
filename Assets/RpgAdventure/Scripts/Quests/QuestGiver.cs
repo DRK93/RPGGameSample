@@ -1,13 +1,13 @@
 ﻿using System.Collections;
 using UnityEngine;
 
-namespace RpgAdventure
+namespace RpgAdventure.Scripts.Quests
 {
     // class define NPC as QuestGiver and manage quest mark
     public class QuestGiver : MonoBehaviour
     {
         public Quest quest;
-        public Dialog dialog;
+        public Dialog.Dialog dialog;
         public GameObject questMark;
         public GameObject questAddedMark;
         private bool m_QMarkAssigned;

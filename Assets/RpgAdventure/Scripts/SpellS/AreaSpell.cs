@@ -1,8 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
+using RpgAdventure.Scripts.Core;
+using RpgAdventure.Scripts.DamageSystem;
+using RpgAdventure.Scripts.Enemies.Bandit;
+using RpgAdventure.Scripts.Player;
 using UnityEngine;
 
-namespace RpgAdventure
+namespace RpgAdventure.Scripts.Spells
 {
     // class for ability which use area effect
     // this class gets information that enemies trigger collider of area effect from other class

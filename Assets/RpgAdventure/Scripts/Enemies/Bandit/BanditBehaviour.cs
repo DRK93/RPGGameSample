@@ -1,9 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
+using RpgAdventure.Scripts.Core;
+using RpgAdventure.Scripts.DamageSystem;
+using RpgAdventure.Scripts.Events;
+using RpgAdventure.Scripts.Helpers;
+using RpgAdventure.Scripts.Player;
+using RpgAdventure.Scripts.Weapons;
 using UnityEngine;
 using UnityEngine.AI;
 
-namespace RpgAdventure
+namespace RpgAdventure.Scripts.Enemies.Bandit
 {
     //main class to manage enemy behaviour and respond for Player actions
     //choose correct animations, send information to other classes that enemies use, affect other enemies

@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using RpgAdventure;
+using RpgAdventure.Scripts.Player;
 
 public class BlockStanceSMB : StateMachineBehaviour
 {

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
 using RpgAdventure;
+using RpgAdventure.Scripts.GameMenu;
 
 namespace NGS.ExtendableSaveSystem
 {

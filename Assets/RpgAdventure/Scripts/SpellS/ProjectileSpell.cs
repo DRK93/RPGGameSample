@@ -1,8 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
+using RpgAdventure.Scripts.Audio;
+using RpgAdventure.Scripts.DamageSystem;
+using RpgAdventure.Scripts.Enemies.Bandit;
+using RpgAdventure.Scripts.Player;
 using UnityEngine;
 
-namespace RpgAdventure
+namespace RpgAdventure.Scripts.Spells
 {
     public class ProjectileSpell : MonoBehaviour
     {

@@ -1,8 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
+using RpgAdventure.Scripts.Helpers;
+using RpgAdventure.Scripts.Weapons;
 using UnityEngine;
 
-namespace RpgAdventure
+namespace RpgAdventure.Scripts.Player
 {
     //class for manage the ability of radiant state in which
     //other class use SkinnedMeshRender to generate radiant effect

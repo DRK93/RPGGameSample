@@ -1,11 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
+using RpgAdventure.Scripts.DataFromSceneToScena;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-namespace RpgAdventure
+namespace RpgAdventure.Scripts.MainMenuManager
 {
     // class to manage Main Menu of the game
     public class MainMenuManager : MonoBehaviour

@@ -1,8 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
+using RpgAdventure.Scripts.Player;
 using UnityEngine;
 
-namespace RpgAdventure
+namespace RpgAdventure.Scripts.Spells
 {
     // class manage spawning correct spell prefab with proper parameters
     // also manage behaviour of the spell before going out from player

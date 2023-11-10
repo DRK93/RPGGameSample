@@ -1,8 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
+using RpgAdventure.Scripts.Core;
+using RpgAdventure.Scripts.Helpers;
+using RpgAdventure.Scripts.Player;
+using RpgAdventure.Scripts.Quests;
+using RpgAdventure.Scripts.Weapons;
 using UnityEngine;
 
-namespace RpgAdventure
+namespace RpgAdventure.Scripts.DamageSystem
 {
     // class manage fighting mechanic, hit points, applying damage, compute damage
     // send information about result of fighting mechanic calculation

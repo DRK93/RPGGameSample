@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using RpgAdventure;
+using RpgAdventure.Scripts.Enemies.Bandit;
 
 public class EnemyBlockStanceSMB : StateMachineBehaviour
 {

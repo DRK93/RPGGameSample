@@ -1,10 +1,17 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using RpgAdventure.Scripts.Dialog;
+using RpgAdventure.Scripts.GameMenu;
+using RpgAdventure.Scripts.Helpers;
+using RpgAdventure.Scripts.Inventory;
+using RpgAdventure.Scripts.Quests;
+using RpgAdventure.Scripts.Usable;
+using RpgAdventure.Scripts.CamerasLogic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-namespace RpgAdventure
+namespace RpgAdventure.Scripts.Player
 {
     //class to manage Player Input from keyboard and mouse
     // check if Player could use abilities, which one Player want to use

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using NGS.ExtendableSaveSystem;
 
-namespace RpgAdventure
+namespace RpgAdventure.Scripts.Core
 {
     public class CharacterStats : MonoBehaviour, ISavableComponent
     {

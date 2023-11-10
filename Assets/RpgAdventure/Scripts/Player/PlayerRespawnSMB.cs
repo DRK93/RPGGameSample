@@ -2,6 +2,7 @@ using RpgAdventure;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using RpgAdventure.Scripts.Player;
 
 public class PlayerRespawnSMB : StateMachineBehaviour
 {

@@ -1,8 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
+using RpgAdventure.Scripts.Quests;
 using UnityEngine;
 
-namespace RpgAdventure
+namespace RpgAdventure.Scripts.Core
 {
     public class VillagerBehaviour : MonoBehaviour
     {

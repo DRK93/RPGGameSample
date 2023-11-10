@@ -3,8 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using NGS.ExtendableSaveSystem;
+using RpgAdventure.Scripts.Core;
+using RpgAdventure.Scripts.Player;
+using RpgAdventure.Scripts.Weapons;
 
-namespace RpgAdventure
+namespace RpgAdventure.Scripts.Inventory
 {
     //class to manage inventory system, save inventory and clean weapon name
     //assign chosen weapon and hide/show inventory UI

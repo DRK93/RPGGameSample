@@ -1,10 +1,18 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using RpgAdventure.Scripts.Audio;
+using RpgAdventure.Scripts.CamerasLogic;
+using RpgAdventure.Scripts.DamageSystem;
+using RpgAdventure.Scripts.Events;
+using RpgAdventure.Scripts.Helpers;
+using RpgAdventure.Scripts.Hud;
+using RpgAdventure.Scripts.Inventory;
+using RpgAdventure.Scripts.Weapons;
 using UnityEngine;
 using UnityEngine.Animations.Rigging;
 
-namespace RpgAdventure
+namespace RpgAdventure.Scripts.Player
     {
     //class manage Player character behaviour - especially animator input
     //compute movement, choose animation for particular ability and receive information from fighting mechanic

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace RpgAdventure
+namespace RpgAdventure.Scripts.Spells
 {
     public class ForceFieldDestroy : MonoBehaviour
     {

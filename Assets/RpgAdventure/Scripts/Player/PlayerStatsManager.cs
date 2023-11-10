@@ -1,10 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
+using RpgAdventure.Scripts.Helpers;
+using RpgAdventure.Scripts.Hud;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
-namespace RpgAdventure
+namespace RpgAdventure.Scripts.Player
 {
     // this class manage the player stats card which display player stats in game on UI elements
     // manage leveling up process - spend points to upgrade player stats

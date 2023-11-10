@@ -1,11 +1,12 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using RpgAdventure.Scripts.Quests;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-namespace RpgAdventure
+namespace RpgAdventure.Scripts.Dialog
 {
     // class to manage dialogs and dialogs UI whose are buttons with text
     // creating dialogs, remove quest option, check distance between Player and NPC

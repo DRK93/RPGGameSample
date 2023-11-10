@@ -5,7 +5,7 @@ using System.IO;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace RpgAdventure
+namespace RpgAdventure.Scripts.Hud
 {
     public class HudManager : MonoBehaviour
     {

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using RpgAdventure.Scripts.Enemies.Bandit;
 using UnityEngine;
 using UnityEngine.UI;
 

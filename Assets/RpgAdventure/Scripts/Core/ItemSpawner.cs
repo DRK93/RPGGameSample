@@ -1,9 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
+using RpgAdventure.Scripts.Inventory;
 using UnityEngine;
 using UnityEngine.Events;
 
-namespace RpgAdventure
+namespace RpgAdventure.Scripts.Core
 {
     public class ItemSpawner : MonoBehaviour
     {

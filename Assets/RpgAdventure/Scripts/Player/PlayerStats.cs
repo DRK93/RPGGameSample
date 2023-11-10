@@ -2,8 +2,13 @@
 using UnityEngine;
 using System;
 using NGS.ExtendableSaveSystem;
+using RpgAdventure.Scripts.Core;
+using RpgAdventure.Scripts.DamageSystem;
+using RpgAdventure.Scripts.DataFromSceneToScena;
+using RpgAdventure.Scripts.Helpers;
+using RpgAdventure.Scripts.Hud;
 
-namespace RpgAdventure
+namespace RpgAdventure.Scripts.Player
 {
     // stats of Player character
     public class PlayerStats : CharacterStats, IMessageReceiver, ISavableComponent

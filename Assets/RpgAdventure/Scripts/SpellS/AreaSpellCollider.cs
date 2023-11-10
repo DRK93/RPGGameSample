@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace RpgAdventure
+namespace RpgAdventure.Scripts.Spells
 {
     // class check collision for area effect spell and send information to other class when triggered
     public class AreaSpellCollider : MonoBehaviour

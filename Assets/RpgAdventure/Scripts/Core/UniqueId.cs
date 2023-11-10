@@ -2,7 +2,7 @@
 using System.Collections;
 using UnityEngine;
 
-namespace RpgAdventure
+namespace RpgAdventure.Scripts.Core
 {
     public class UniqueId : MonoBehaviour
     {

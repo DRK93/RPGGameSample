@@ -3,9 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
 using NGS.ExtendableSaveSystem;
+using RpgAdventure.Scripts.Dialog;
 using TMPro;
 
-namespace RpgAdventure
+namespace RpgAdventure.Scripts.Quests
 {
     //class to manage quests assinged to Player
     //manage quest data for save and load game system 

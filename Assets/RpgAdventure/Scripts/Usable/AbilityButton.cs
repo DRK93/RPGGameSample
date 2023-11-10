@@ -1,9 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
+using RpgAdventure.Scripts.Dialog;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace RpgAdventure
+namespace RpgAdventure.Scripts.Usable
 {
     //class to manage behaviour of ability button and send information to other class which manage the whole abilities mechanic
     public class AbilityButton : MonoBehaviour

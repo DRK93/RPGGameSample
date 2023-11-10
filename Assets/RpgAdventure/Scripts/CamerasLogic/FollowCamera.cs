@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace RpgAdventure
+namespace RpgAdventure.Scripts.CamerasLogic
 {
     public class FollowCamera : MonoBehaviour
     {

@@ -1,7 +1,7 @@
 ﻿using System;
 using UnityEngine;
 
-namespace RpgAdventure
+namespace RpgAdventure.Scripts.Inventory
 {
     [System.Serializable]
     public class InventorySlot

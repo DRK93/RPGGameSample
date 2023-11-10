@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace RpgAdventure
+namespace RpgAdventure.Scripts.Helpers
 {
 
     public enum MessageType

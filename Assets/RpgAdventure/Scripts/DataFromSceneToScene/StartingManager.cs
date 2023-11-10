@@ -5,7 +5,7 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using TMPro;
 
-namespace RpgAdventure
+namespace RpgAdventure.Scripts.DataFromSceneToScena
 {
     public class StartingManager : MonoBehaviour
     {

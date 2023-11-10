@@ -5,8 +5,11 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using NGS.ExtendableSaveSystem;
+using RpgAdventure.Scripts.DataFromSceneToScena;
+using RpgAdventure.Scripts.Helpers;
+using RpgAdventure.Scripts.Player;
 
-namespace RpgAdventure
+namespace RpgAdventure.Scripts.GameMenu
 {
     // class to manage in game menu, save and load game
     public class GameMenuManager : MonoBehaviour
